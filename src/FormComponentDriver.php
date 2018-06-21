@@ -7,6 +7,7 @@
 
 namespace FormBuilder;
 
+use FormBuilder\interfaces\FormComponentInterFace;
 
 abstract class FormComponentDriver implements FormComponentInterFace
 {

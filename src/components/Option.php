@@ -8,7 +8,7 @@
 namespace FormBuilder\components;
 
 
-use FormBuilder\FormComponentInterFace;
+use FormBuilder\interfaces\FormComponentInterFace;
 use FormBuilder\Helper;
 
 class Option implements FormComponentInterFace

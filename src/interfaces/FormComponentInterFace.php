@@ -5,7 +5,7 @@
  * Github: https://github.com/xaboy/form-builder
  */
 
-namespace FormBuilder;
+namespace FormBuilder\interfaces;
 
 
 interface FormComponentInterFace
