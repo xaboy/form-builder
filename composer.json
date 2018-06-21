@@ -5,6 +5,7 @@
     "license": "MIT",
     "keyword": ["form","form-create","form-init","dynamic-form"],
     "homepage": "https://github.com/xaboy/form-builder",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "xaboy",
