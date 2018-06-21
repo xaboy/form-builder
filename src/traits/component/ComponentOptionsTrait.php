@@ -8,7 +8,7 @@
 namespace FormBuilder\traits\component;
 
 
-use FormBuilder\components\Options;
+use FormBuilder\components\Option;
 
 trait ComponentOptionsTrait
 {
@@ -22,22 +22,28 @@ trait ComponentOptionsTrait
      */
     public function option($value, $label, $disabled = false)
     {
-        $this->options[] = new Options($value, $label, $disabled);
+        $this->options[] = new Option($value, $label, $disabled);
     }
 
 
     /**
      * 批量设置的选项
      * @param array $options
+     * @param bool $disabled
      * @return $this
      */
-    public function options(array $options)
+    public function options(array $options, $disabled = false)
     {
+        $disabled = (bool)$disabled;
         foreach ($options as $option) {
-            if ($option instanceof Options)
+            if ($option instanceof Option)
                 $this->options[] = $option;
             else
-                $this->option($option[0], $option[1], isset($option[2]) ? $option[2] : true);
+                $this->option(
+                    $option['value'],
+                    $option['label'],
+                    isset($option['disabled']) ? $option['disabled'] : $disabled
+                );
         }
         return $this;
     }

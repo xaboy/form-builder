@@ -93,6 +93,7 @@ class Form
     public function __construct($action, array $components = [])
     {
         $this->components = $components;
+        $this->action = $action;
         $config = require_once 'config' . DIRECTORY_SEPARATOR . 'config.php';
         $this->setSuccessScript($config['formSuccessScript']);
         $this->config = $config['form'];
