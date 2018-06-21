@@ -21,5 +21,7 @@
         "source": "https://github.com/xaboy/form-builder"
     },
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "php": ">=5.4.0"
+    }
 }

@@ -4,6 +4,9 @@
 
 ```php
 
+namespace Test;
+use FormBuilder\Form;
+
 //input组件
 $input = Form::input('goods_name','商品名称');
 
