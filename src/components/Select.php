@@ -95,7 +95,7 @@ class Select extends FormComponentDriver
             'field' => $this->field,
             'title' => $this->title,
             'value' => $value,
-            'props' => $this->props,
+            'props' => (object)$this->props,
             'options' => $options,
             'validate' => $this->validate
         ];

@@ -65,8 +65,8 @@ class Switches extends FormComponentDriver
             'field' => $this->field,
             'title' => $this->title,
             'value' => $this->value,
-            'props' => $this->props,
-            'slot' => $this->slot,
+            'props' => (object)$this->props,
+            'slot' => (object)$this->slot,
             'validate' => $this->validate
         ];
     }

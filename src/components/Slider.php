@@ -63,7 +63,7 @@ class Slider extends FormComponentDriver
             'field' => $this->field,
             'title' => $this->title,
             'value' => $value,
-            'props' => $this->props,
+            'props' => (object)$this->props,
             'validate' => $this->validate
         ];
     }

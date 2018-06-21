@@ -64,7 +64,7 @@ class ColorPicker extends FormComponentDriver
             'field' => $this->field,
             'title' => $this->title,
             'value' => $this->value,
-            'props' => $this->props,
+            'props' => (object)$this->props,
             'validate' => $this->validate
         ];
     }

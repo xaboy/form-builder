@@ -52,7 +52,7 @@ class InputNumber extends FormComponentDriver
             'field' => $this->field,
             'title' => $this->title,
             'value' => $this->value === '' ? '' : (float)$this->value,
-            'props' => $this->props,
+            'props' => (object)$this->props,
             'validate' => $this->validate
         ];
     }

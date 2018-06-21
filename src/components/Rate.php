@@ -40,7 +40,7 @@ class Rate extends FormComponentDriver
             'field' => $this->field,
             'title' => $this->title,
             'value' => (float)$this->value,
-            'props' => $this->props,
+            'props' => (object)$this->props,
             'validate' => $this->validate
         ];
     }

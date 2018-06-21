@@ -60,7 +60,7 @@ class Checkbox extends FormComponentDriver
             'field'=>$this->field,
             'title'=>$this->title,
             'value'=>array_unique($this->value),
-            'props'=>$this->props,
+            'props'=>(object)$this->props,
             'options'=>$options,
             'validate'=>$this->validate
         ];
