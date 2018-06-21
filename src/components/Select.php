@@ -87,9 +87,16 @@ class Select extends FormComponentDriver
             if ($option instanceof Option)
                 $options[] = $option->build();
         }
-        $value = array_unique($this->value);
-        if ($this->props['multiple'] != true)
-            $value = is_array($value) && isset($value[0]) ? $value[0] : '';
+        $value = $this->value;
+        $isArr = is_array($value);
+        if ($this->props['multiple'] == false && $isArr)
+            $value = isset($value[0]) ? $value[0] : '';
+        else if($isArr){
+            $value = array_unique($value);
+            foreach ($value as $k=>$v){
+                $value[$k] = (string)$v;
+            }
+        }
         return [
             'type' => $this->name,
             'field' => $this->field,

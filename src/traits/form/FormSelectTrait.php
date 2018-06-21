@@ -24,4 +24,9 @@ trait FormSelectTrait
     {
         return self::select($field, $title, $value);
     }
+
+    public static function selectOne($field, $title, $value = '')
+    {
+        return self::select($field, $title, (string)$value);
+    }
 }

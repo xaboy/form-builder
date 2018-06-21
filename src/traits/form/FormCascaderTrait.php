@@ -29,25 +29,30 @@ trait FormCascaderTrait
 
 
     /**
+     * 省市二级联动
      * @param $field
      * @param $title
-     * @param array $value
+     * @param string $province
+     * @param string $city
      * @return Cascader
      */
-    public static function city($field, $title, array $value = [])
+    public static function city($field, $title, $province = '', $city = '')
     {
-        return self::cascader($field, $title, $value, Cascader::TYPE_CITY);
+        return self::cascader($field, $title, [$province, $city], Cascader::TYPE_CITY);
     }
+
 
     /**
      * 省市区三级联动
      * @param $field
      * @param $title
-     * @param array $value
+     * @param string $province
+     * @param string $city
+     * @param string $area
      * @return Cascader
      */
-    public static function cityArea($field, $title, array $value = [])
+    public static function cityArea($field, $title, $province = '', $city = '', $area = '')
     {
-        return self::cascader($field, $title, $value, Cascader::TYPE_CITY_AREA);
+        return self::cascader($field, $title, [$province, $city, $area], Cascader::TYPE_CITY_AREA);
     }
 }

@@ -105,8 +105,6 @@ class Upload extends FormComponentDriver
      */
     public function value($value)
     {
-        if ($value === null) $value = '';
-        Helper::verifyType($value, ['array', 'string']);
         $this->value = $value;
         return $this;
     }

@@ -55,6 +55,10 @@ class Checkbox extends FormComponentDriver
         foreach ($this->options as $option){
             $options[] = $option->build();
         }
+        $value = array_unique($this->value);
+        foreach ($value as $k=>$v){
+            $value[$k] = (string)$v;
+        }
         return [
             'type'=>$this->name,
             'field'=>$this->field,

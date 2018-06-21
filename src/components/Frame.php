@@ -9,6 +9,7 @@ namespace FormBuilder\components;
 
 
 use FormBuilder\FormComponentDriver;
+use FormBuilder\Helper;
 
 /**
  * 框架组件
@@ -52,6 +53,16 @@ class Frame extends FormComponentDriver
         'handleIcon' => 'boolean',
         'allowRemove' => 'boolean',
     ];
+
+    /**
+     * @param string|array $value
+     * @return $this
+     */
+    public function value($value)
+    {
+        $this->value = $value;
+        return $this;
+    }
 
     protected function init()
     {

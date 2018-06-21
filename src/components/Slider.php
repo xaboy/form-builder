@@ -9,6 +9,7 @@ namespace FormBuilder\components;
 
 
 use FormBuilder\FormComponentDriver;
+use FormBuilder\Helper;
 
 /**
  * 滑块组件
@@ -44,6 +45,12 @@ class Slider extends FormComponentDriver
         'showTip' => 'string',
         'inputSize' => 'string',
     ];
+
+    public function value($value)
+    {
+        $this->value = $value;
+        return $this;
+    }
 
     public function build()
     {

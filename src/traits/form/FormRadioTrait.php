@@ -14,6 +14,6 @@ trait FormRadioTrait
 {
     public static function radio($field, $title, $value = '')
     {
-        return new Radio($field, $title, $value);
+        return new Radio($field, $title, (string)$value);
     }
 }

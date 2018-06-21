@@ -137,6 +137,33 @@ abstract class FormComponentDriver implements FormComponentInterFace
     }
 
     /**
+     * 获取组件的值
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * 获取组件的字段名
+     * @return String
+     */
+    public function getField()
+    {
+        return $this->field;
+    }
+
+    /**
+     * 设置组件的昵称
+     * @return String
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * 设置组件的值为必填
      * @param null $message
      * @return $this

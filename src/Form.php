@@ -57,6 +57,8 @@ class Form
 
     protected $components = [];
 
+    protected $fields = [];
+
     protected $script = [];
 
     protected $successScript = '';
@@ -92,7 +94,9 @@ class Form
      */
     public function __construct($action, array $components = [])
     {
-        $this->components = $components;
+        foreach ($components as $component){
+            $this->append($component);
+        }
         $this->action = $action;
         $config = require_once 'config' . DIRECTORY_SEPARATOR . 'config.php';
         $this->setSuccessScript($config['formSuccessScript']);
@@ -220,7 +224,10 @@ class Form
      */
     public function append(FormComponentDriver $component)
     {
-        $this->components[] = $component;
+        $field = $component->getField();
+        if(!isset($this->components[$field]))
+            $this->fields[] = $field;
+        $this->components[$field] = $component;
         return $this;
     }
 
@@ -231,7 +238,10 @@ class Form
      */
     public function prepend(FormComponentDriver $component)
     {
-        array_unshift($this->components, $component);
+        $field = $component->getField();
+        if(!isset($this->components[$field]))
+            array_unshift($this->fields, $field);
+        $this->components[$field] = $component;
         return $this;
     }
 
@@ -242,7 +252,8 @@ class Form
     public function getRules()
     {
         $rules = [];
-        foreach ($this->components as $component) {
+        foreach ($this->fields as $field) {
+            $component = $this->components[$field];
             if (!($component instanceof FormComponentDriver))
                 continue;
 

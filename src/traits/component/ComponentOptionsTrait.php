@@ -47,4 +47,20 @@ trait ComponentOptionsTrait
         }
         return $this;
     }
+
+    /**
+     * 批量设置选项 支持匿名函数
+     * @param $options
+     * @param bool $disabled
+     * @return $this
+     */
+    public function setOptions($options, $disabled = false)
+    {
+        if(is_callable($options))
+            return $this->setOptions($options($this),$disabled);
+        else if(is_array($options))
+            return $this->options($options,$disabled);
+        else
+            return $this;
+    }
 }
