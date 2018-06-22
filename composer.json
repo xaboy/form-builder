@@ -22,5 +22,8 @@
     "require": {
         "php": ">=5.4.0"
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "branch-alias": {
+        "dev-master": "1.0-dev"
+    }
 }
