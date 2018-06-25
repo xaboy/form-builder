@@ -44,10 +44,12 @@ use FormBuilder\Form;
 $input = Form::input('goods_name','商品名称');
 
 //日期区间选择组件
-$dateRange = Form::dateRange('limit_time','区间日期',[
+$dateRange = Form::dateRange(
+    'limit_time',
+    '区间日期',
     strtotime('- 10 day'),
     time()
-]);
+);
 
 //省市二级联动组件
 $cityArea = Form::city('address','收货地址',[
@@ -64,3 +66,69 @@ $html = $form->setMethod('get')->setTitle('编辑商品')->view();
 //输出form页面
 echo $html;
 ```
+
+## 组件
+
+* **Form::cascader** 三级联动,value为array类型
+* **Form::city** 省市二级联动,value为array类型
+* **Form::cityArea** 省市区三级联动,value为array类型
+
+
+* **Form::checkbox** 复选框
+* **Form::color** 颜色选择
+
+
+* **Form::date** 日期选择
+* **Form::dateRange** 日期区间选择,value为array类型
+* **Form::dateTime** 日期+时间选择
+* **Form::dateTimeRange** 日期+时间 区间选择,value为array类型
+* **Form::year** 年份选择
+* **Form::month** 月份选择
+
+
+* **Form::frame** frame组件
+* **Form::frameInputs** frame组件,input类型,value为array类型
+* **Form::frameFiles** frame组件,file类型,value为array类型
+* **Form::frameImages** frame组件,image类型,value为array类型
+* **Form::frameInputOne** frame组件,input类型,value为string|number类型
+* **Form::frameFileOne** frame组件,file类型,value为string|number类型
+* **Form::frameImageOne** frame组件,image类型,value为string|number类型
+
+
+* **Form::hidden** hidden组件
+* **Form::number** 数字输入框
+* **Form::input** input输入框,其他type: text类型`Form::text`,password类型`Form::password`,textarea类型`Form::textarea`,url类型`Form::url`,email类型`Form::email`,date类型`Form::idate`
+* **Form::radio** 单选框
+* **Form::rate** 评分组件
+
+
+* **Form::select** select选择框
+* **Form::selectMultiple** select选择框,多选,value为array类型
+* **Form::selectOne** select选择框,单选
+
+
+* **Form::slider** 滑块组件
+* **Form::sliderRange** 滑块组件,区间选择,
+
+
+* **Form::switches** 开关组件
+
+
+* **Form::timePicker** 
+* **Form::time** 时间选择组件
+* **Form::timeRange** 时间区间选择组件,value为array类型
+
+
+* **Form::upload** 上传组件
+* **Form::uploadImages** 多图上传组件,value为array类型
+* **Form::uploadFiles** 多文件上传组件,value为array类型
+* **Form::uploadImageOne** 单图上传组件
+* **Form::uploadFileOne** 单文件上传组件
+
+## 输出
+`namespace \FormBuilder\Json`
+
+* **Json::succ(msg,data = [])** 表单提交成功
+* **Form::fail(errorMsg,data = [])** 表单提交失败
+* **Form::uploadSucc(filePath,msg)** 文件/图片上传成功,上传成功后返回文件地址
+* **Form::uploadFail(errorMsg)** 文件/图片上传失败
