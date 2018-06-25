@@ -26,8 +26,8 @@ return [
         'iview-css' => '<link href="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/styles/iview.css" rel="stylesheet">',
         'iview' => '<script src="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/iview.min.js"></script>',
         //form-create 版本 1.3.0
-        'form-create' => '<script src="https://cdn.jsdelivr.net/gh/xaboy/form-create@1.3.0/dist/form-create.min.js"></script>',
-        'city-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.2.3/district/province_city.js"></script>',
-        'city-area-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.2.3/district/province_city_area.js"></script>'
+        'form-create' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.3.0/dist/form-create.min.js"></script>',
+        'city-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.3.0/district/province_city.js"></script>',
+        'city-area-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.3.0/district/province_city_area.js"></script>'
     ]
 ];
