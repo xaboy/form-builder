@@ -2,6 +2,15 @@
 使用PHP快速创建现代化的form表单，包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。
 
 
+## 示例 [代码](https://github.com/xaboy/form-create/blob/master/demo/mock.js) 
+
+![https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg](https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg)
+
+
+各组件配置属性 [点击查看](https://github.com/xaboy/form-builder/tree/master/src/components)
+
+请在 `config/config.php`中配置`formSuccessScript`属性。设置为form提交成功后的js代码或js地址(带`<script>`标签)
+
 ```php
 
 namespace Test;
