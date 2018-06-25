@@ -2,7 +2,7 @@
 使用PHP快速创建现代化的form表单，包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。
 
 
-## 示例 [代码](https://github.com/xaboy/form-create/blob/master/demo/mock.js) 
+## 示例
 
 ![https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg](https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg)
 
