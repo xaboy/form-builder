@@ -98,7 +98,7 @@ class Form
             $this->append($component);
         }
         $this->action = $action;
-        $config = require_once '..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
+        $config = require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
         $this->setSuccessScript($config['formSuccessScript']);
         $this->config = $config['form'];
         $this->script = $config['script'];
@@ -291,8 +291,23 @@ class Form
      */
     public static function script()
     {
-        $config = require_once '..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
+        $config = require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
         return implode("\r\n", $config['script']);
+    }
+
+    /**
+     * 获取生成表单的js代码
+     * @return string
+     */
+    public function formScript()
+    {
+        ob_start();
+        $form = $this;
+        $rule = $this->getRules();
+        require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'formScript.php';
+        $script = ob_get_clean();
+        return $script;
+
     }
 
     /**
