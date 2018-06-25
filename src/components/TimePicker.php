@@ -37,7 +37,8 @@ class TimePicker extends FormComponentDriver
 
     protected $props = [
         'type' => self::TYPE_TIME,
-        'editable' => false
+        'editable' => false,
+        'confirm' => true
     ];
 
     protected static $propsRule = [

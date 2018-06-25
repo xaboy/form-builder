@@ -98,7 +98,7 @@ class Form
             $this->append($component);
         }
         $this->action = $action;
-        $config = require_once 'config' . DIRECTORY_SEPARATOR . 'config.php';
+        $config = require_once '..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
         $this->setSuccessScript($config['formSuccessScript']);
         $this->config = $config['form'];
         $this->script = $config['script'];
@@ -291,7 +291,7 @@ class Form
      */
     public static function script()
     {
-        $config = require_once 'config' . DIRECTORY_SEPARATOR . 'config.php';
+        $config = require_once '..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
         return implode("\r\n", $config['script']);
     }
 
