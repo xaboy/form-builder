@@ -9,7 +9,7 @@
 
 各组件配置属性 [点击查看](https://github.com/xaboy/form-builder/tree/master/src/components)
 
-请在 `config/config.php`中配置`formSuccessScript`属性。设置为form提交成功后的js代码或js地址(带`<script>`标签)
+请在 `config/config.php`中配置`formSuccessScript`属性。设置为form提交成功后的js代码或js地址,重新`window.formCreate.formSuccess`方法(带`<script>`标签) 或者直接修改`formScript.php`
 
 ```php
 
