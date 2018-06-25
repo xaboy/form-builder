@@ -20,6 +20,7 @@
 ## 安装
 `composer require xaboy/form-builder`
 
+### 表单是使用[form-create](https://github.com/xaboy/form-create) js表单生成器生成
 
 ### 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
  
