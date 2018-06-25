@@ -12,11 +12,11 @@
             }
         });
         return rule;
-    };
+    },vm = new Vue;
     return function create(el) {
         var formData = {};
         if(!el) el = document.body;
-        formCreate.create(getRule(),{
+        $f = formCreate.create(getRule(),{
                 el:el,
                 form:{
                     inline:<?=$form->getConfig('inline',false)?'true':'false'?>,
@@ -57,16 +57,16 @@
                 data:formData,
                 success:function (res) {
                     if(res.code == 200){
-                        that.$Message.success(res.msg);
+                        vm.$Message.success(res.msg);
                         formCreate.formSuccess && formCreate.formSuccess(res,$f);
                         //TODO 表单提交成功!
                     }else{
-                        that.$Message.error(res.msg);
+						vm.$Message.error(res.msg);
                         $f.btn.finish();
                     }
                 },
                 error:function () {
-                    that.$Message.error('表单提交失败');
+                    vm.$Message.error('表单提交失败');
                     $f.btn.finish();
                 }
             });
