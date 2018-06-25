@@ -1,6 +1,18 @@
 # form-builder
 使用PHP快速创建现代化的form表单，包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。
 
+<p align="center">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  <a href="https://github.com/xaboy">
+    <img src="https://img.shields.io/badge/Author-xaboy-blue.svg" />
+  </a>
+  <a href="https://packagist.org/packages/xaboy/form-builder">
+    <img src="https://img.shields.io/packagist/v/xaboy/form-builder.svg" alt="version" />
+  </a>
+  <a href="https://packagist.org/packages/xaboy/form-builder">
+    <img src="https://img.shields.io/packagist/php-v/xaboy/form-builder.svg" alt="php version" />
+  </a>
+</p>
 
 ## 示例
 
