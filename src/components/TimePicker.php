@@ -90,7 +90,7 @@ class TimePicker extends FormComponentDriver
     {
         $value = $this->value;
         if (is_array($value) && count(array_filter($value)) == 0)
-            $value = ['0:0:0', '0:0:0'];
+            $value = ['', ''];
         return [
             'type' => $this->name,
             'field' => $this->field,

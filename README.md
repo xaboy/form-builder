@@ -68,6 +68,7 @@ echo $html;
 ```
 
 ## 组件
+`namespace \FormBuilder\Form`
 
 * **Form::cascader** 三级联动,value为array类型
 * **Form::city** 省市二级联动,value为array类型
