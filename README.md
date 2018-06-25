@@ -14,7 +14,7 @@
   </a>
 </p>
 
-##安装
+## 安装
 `composer require xaboy/form-builder`
 
 ## 示例
