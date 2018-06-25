@@ -14,6 +14,9 @@
   </a>
 </p>
 
+##安装
+`composer require xaboy/form-builder`
+
 ## 示例
 
 ![https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg](https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg)
