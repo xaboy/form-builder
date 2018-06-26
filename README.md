@@ -14,17 +14,19 @@
 </p>
 
 <p align="center">
-使用PHP快速创建现代化的form表单，包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。
+PHP表单生成器，快速生成现代化的form表单。包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。
 </p>
+
+
+#### 表单是使用[form-create](https://github.com/xaboy/form-create) js表单生成器生成
+
+#### 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
+ 
+#### 本项目还在不断开发完善中,如有建议或问题请[在这里提出](https://github.com/xaboy/form-builder/issues/new)
+
 
 ## 安装
 `composer require xaboy/form-builder`
-
-### 表单是使用[form-create](https://github.com/xaboy/form-create) js表单生成器生成
-
-### 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
- 
-### 本项目还在不断开发完善中,如有建议或问题请[在这里提出](https://github.com/xaboy/form-builder/issues/new)
 
 ## 示例
 
@@ -54,6 +56,11 @@ $dateRange = Form::dateRange(
 //省市二级联动组件
 $cityArea = Form::city('address','收货地址',[
     '陕西省','西安市'
+]);
+
+$checkbox = Form::checkbox('label','表单',[])->options([
+    ['value'=>'1','label'=>'好用','disabled'=>true],
+    ['value'=>'2','label'=>'方便','disabled'=>true]
 ]);
 
 //创建form
