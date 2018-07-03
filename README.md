@@ -33,10 +33,30 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 ![https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg](https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg)
 
 
-各组件配置属性 [点击查看](https://github.com/xaboy/form-builder/tree/master/src/components)
+## 各组件配置属性 [点击查看](https://github.com/xaboy/form-builder/tree/master/src/components)
 
-请在 `config/config.php`中配置`formSuccessScript`属性。设置为form提交成功后的js代码或js地址,重新`window.formCreate.formSuccess`方法(带`<script>`标签) 或者直接修改`formScript.php`
+## 配置表单提交成功的回调
+> 请在 `config/config.php`中配置`formSuccessScript`属性。设置为form提交成功后的js代码或js地址,重新`window.formCreate.formSuccess`方法(带`<script>`标签) 或者直接修改`formScript.php`
+### 回调方法
+```javascript
+    formCreate.formSuccess = function(res,$r) {
+        //TODO 表单提交后的操作
+    }
+```
+### 配置方法
+```php
+[
+    'formSuccessScript'=>'<script src="collback.js"></script>',
+    'formSuccessScript'=>'<script>
+        formCreate.formSuccess = function(res,$r) {
+                //TODO 表单提交后的操作
+            }
+    </script>'
+]
+```
 
+
+## 代码
 ```php
 
 namespace Test;
@@ -65,7 +85,7 @@ $checkbox = Form::checkbox('label','表单',[])->options([
 
 //创建form
 $form = Form::create('/save.php',[
-    $input,$dateRange,$cityArea
+    $input,$dateRange,$cityArea,$checkbox
 ]);
 
 $html = $form->setMethod('get')->setTitle('编辑商品')->view();
@@ -137,6 +157,6 @@ echo $html;
 `namespace \FormBuilder\Json`
 
 * **Json::succ(msg,data = [])** 表单提交成功
-* **Form::fail(errorMsg,data = [])** 表单提交失败
-* **Form::uploadSucc(filePath,msg)** 文件/图片上传成功,上传成功后返回文件地址
-* **Form::uploadFail(errorMsg)** 文件/图片上传失败
+* **Json::fail(errorMsg,data = [])** 表单提交失败
+* **Json::uploadSucc(filePath,msg)** 文件/图片上传成功,上传成功后返回文件地址
+* **Json::uploadFail(errorMsg)** 文件/图片上传失败
