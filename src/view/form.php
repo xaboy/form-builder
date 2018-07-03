@@ -5,8 +5,6 @@
 	<title><?=$form->getTitle()?></title>
 	<?=$form->getScript()?>
 	<?=$form->getSuccessScript()?>
-	<script>
-	</script>
 </head>
 <body>
 <script>
