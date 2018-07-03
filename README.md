@@ -153,6 +153,12 @@ echo $html;
 * **Form::uploadImageOne** 单图上传组件
 * **Form::uploadFileOne** 单文件上传组件
 
+## select,checkbox,radio配置options
+* **option($value, $label, $disabled = false)** 单独设置选项
+* **options(array $options, $disabled = false)** 批量设置选项
+* **setOptions($options, $disabled = false)** 批量设置选项 支持匿名函数
+
+
 ## 输出
 `namespace \FormBuilder\Json`
 
