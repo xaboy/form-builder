@@ -46,12 +46,13 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 ### 配置方法
 ```php
 [
-    'formSuccessScript'=>'<script src="collback.js"></script>',
-    'formSuccessScript'=>'<script>
+    $form->setSuccessScript('<script src="collback.js"></script>');
+    //OR
+    $form->setSuccessScript('<script>
         formCreate.formSuccess = function(res,$r) {
-                //TODO 表单提交后的操作
-            }
-    </script>'
+            //TODO 表单提交后的操作
+        }
+    </script>');
 ]
 ```
 
