@@ -23,6 +23,7 @@ use FormBuilder\traits\form\FormSliderTrait;
 use FormBuilder\traits\form\FormSwitchesTrait;
 use FormBuilder\traits\form\FormTimePickerTrait;
 use FormBuilder\traits\form\FormUploadTrait;
+use FormBuilder\traits\form\FormOptionTrait;
 
 class Form
 {
@@ -40,7 +41,8 @@ class Form
         FormSliderTrait,
         FormCascaderTrait,
         FormHiddenTrait,
-        FormTimePickerTrait;
+        FormTimePickerTrait,
+        FormOptionTrait;
 
     /**
      * 三级联动 加载省市数据

@@ -15,7 +15,7 @@ use FormBuilder\Helper;
  * 框架组件
  * Class Frame
  * @package FormBuilder\components
- * @method $this type(String $type) rame类型, 有input, file, image, 默认为input
+ * @method $this type(String $type) frame类型, 有input, file, image, 默认为input
  * @method $this src(String $src) iframe地址
  * @method $this maxLength(int $length) value的最大数量, 默认无限制
  * @method $this icon(String $icon) 打开弹出框的按钮图标

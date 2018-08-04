@@ -19,10 +19,12 @@ trait ComponentOptionsTrait
      * @param $value
      * @param $label
      * @param bool $disabled
+     * @return $this
      */
     public function option($value, $label, $disabled = false)
     {
         $this->options[] = new Option($value, $label, $disabled);
+        return $this;
     }
 
 
