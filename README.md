@@ -389,3 +389,31 @@ echo $html;
  * @method $this required($message = null, $trigger = 'change') 设为必选
 ```
 
+
+#### 树型组件
+* **Form::tree** 树型组件
+* **Form::treeSelected** 选中类型,value为array类型,当`type=selected`并且`multiple=false`,值为String或Number类型
+* **Form::treeChecked** 选择类型,value为array类型
+```php
+ * @method $this type(String $type) 类型，可选值为 checked、selected
+ * @method $this multiple(Boolean $bool) 是否支持多选,当`type=selected`并且`multiple=false`,默认为false,值为String或Number类型，其他情况为Array类型
+ * @method $this showCheckbox(Boolean $bool) 是否显示多选框,默认为false
+ * @method $this emptyText(String $emptyText) 没有数据时的提示,默认为'暂无数据'
+ * @method $this data(array $treeData) 设置可选的data,**id必须唯一**
+ * @method $this jsData($var) 设置data为js变量
+```
+
+
+#### TreeData
+* **Form::treeData** 树型组件data
+```php
+ * @method $this id(String $id) Id,必须唯一
+ * @method $this title(String $title) 标题
+ * @method $this expand(Boolean $bool) 是否展开直子节点,默认为false
+ * @method $this disabled(Boolean $bool) 禁掉响应,默认为false
+ * @method $this disableCheckbox(Boolean $bool) 禁掉 checkbox
+ * @method $this selected(Boolean $bool) 是否选中子节点
+ * @method $this checked(Boolean $bool) 是否勾选(如果勾选，子节点也会全部勾选)
+ * @method $this children(array $children) 批量设置子集
+ * @method $this child(TreeData $child) 设置子集
+```
