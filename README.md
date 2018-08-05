@@ -33,8 +33,6 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 ![https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg](https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg)
 
 
-## 各组件配置属性 [点击查看](https://github.com/xaboy/form-builder/tree/master/src/components)
-
 **当form提交成功后会调用`window.formCreate.formSuccess(res,$f,formData)`作为回调方法**
 
 
@@ -63,12 +61,12 @@ $cityArea = Form::city('address','收货地址',[
 $checkbox = Form::checkbox('label','表单',[])->options([
     ['value'=>'1','label'=>'好用','disabled'=>true],
     ['value'=>'2','label'=>'方便','disabled'=>true]
-]);
+])->col(Form::col(12));
 
 $tree = Form::treeChecked('tree','权限',[])->data([
     Form::treeData(11,'leaf 1-1-1')->children([Form::treeData(13,'131313'),Form::treeData(14,'141414')]),
     Form::treeData(12,'leaf 1-1-2')
-])->col(Form::col(11)->xs(12));
+])->col(Form::col(12)->xs(12));
 
 //创建form
 $form = Form::create('/save.php',[
@@ -82,7 +80,7 @@ echo $html;
 ```
 
 
-## 输出
+## AJAX请求返回
 `namespace \FormBuilder\Json`
 
 * **Json::succ(msg,data = [])** 表单提交成功
