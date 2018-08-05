@@ -65,12 +65,17 @@ $checkbox = Form::checkbox('label','表单',[])->options([
     ['value'=>'2','label'=>'方便','disabled'=>true]
 ]);
 
+$tree = Form::treeChecked('tree','权限',[])->data([
+    Form::treeData(11,'leaf 1-1-1')->children([Form::treeData(13,'131313'),Form::treeData(14,'141414')]),
+    Form::treeData(12,'leaf 1-1-2')
+])->col(Form::col(11)->xs(12));
+
 //创建form
 $form = Form::create('/save.php',[
-    $input,$dateRange,$cityArea,$checkbox
+    $input,$dateRange,$cityArea,$checkbox,$tree
 ]);
 
-$html = $form->setMethod('get')->setTitle('编辑商品')->view();
+$html = $form->formRow(Form::row(10))->setMethod('get')->setTitle('编辑商品')->view();
 
 //输出form页面
 echo $html;
