@@ -10,8 +10,15 @@ namespace FormBuilder\traits\component;
 
 use FormBuilder\components\Option;
 
+/**
+ * Class ComponentOptionsTrait
+ * @package FormBuilder\traits\component
+ */
 trait ComponentOptionsTrait
 {
+    /**
+     * @var array
+     */
     protected $options = [];
 
     /**

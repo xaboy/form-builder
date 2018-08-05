@@ -27,11 +27,24 @@ use FormBuilder\Helper;
  */
 class Upload extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'upload';
 
+    /**
+     * file类型
+     */
     const TYPE_FILE = 'file';
+
+    /**
+     * image类型
+     */
     const TYPE_IMAGE = 'image';
 
+    /**
+     * @var array
+     */
     protected $props = [
         'maxLength' => 0,
         'type' => 'select',
@@ -42,6 +55,9 @@ class Upload extends FormComponentDriver
         'show-upload-list' => false
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'uploadType' => 'string',
         'action' => 'string',
@@ -53,6 +69,9 @@ class Upload extends FormComponentDriver
         'maxLength' => 'int'
     ];
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->name($this->field);
@@ -93,6 +112,11 @@ class Upload extends FormComponentDriver
         return $this;
     }
 
+    /**
+     * @param null $message
+     * @param string $trigger
+     * @return $this
+     */
     public function required($message = null, $trigger = 'change')
     {
         parent::setRequired(Helper::getVar($message, '请上传' . $this->title), $trigger, 'array');
@@ -109,6 +133,9 @@ class Upload extends FormComponentDriver
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         return [
@@ -117,7 +144,8 @@ class Upload extends FormComponentDriver
             'title' => $this->title,
             'value' => $this->value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }

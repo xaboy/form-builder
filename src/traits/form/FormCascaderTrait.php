@@ -10,6 +10,10 @@ namespace FormBuilder\traits\form;
 
 use FormBuilder\components\Cascader;
 
+/**
+ * Class FormCascaderTrait
+ * @package FormBuilder\traits\form
+ */
 trait FormCascaderTrait
 {
     /**
@@ -38,7 +42,9 @@ trait FormCascaderTrait
      */
     public static function city($field, $title, $province = '', $city = '')
     {
-        return self::cascader($field, $title, [$province, $city], Cascader::TYPE_CITY);
+        $cascader = self::cascader($field, $title, [(string)$province, (string)$city], Cascader::TYPE_CITY);
+        $cascader->jsData('province_city');
+        return $cascader;
     }
 
 
@@ -53,6 +59,8 @@ trait FormCascaderTrait
      */
     public static function cityArea($field, $title, $province = '', $city = '', $area = '')
     {
-        return self::cascader($field, $title, [$province, $city, $area], Cascader::TYPE_CITY_AREA);
+        $cascader = self::cascader($field, $title, [(string)$province, (string)$city, (string)$area], Cascader::TYPE_CITY_AREA);
+        $cascader->jsData('province_city_area');
+        return $cascader;
     }
 }

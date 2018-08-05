@@ -24,12 +24,21 @@ use FormBuilder\Helper;
  */
 class ColorPicker extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'colorPicker';
 
+    /**
+     * @var array
+     */
     protected $props = [
         'colors' => []
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'disabled' => 'boolean',
         'alpha' => 'boolean',
@@ -51,12 +60,20 @@ class ColorPicker extends FormComponentDriver
         return $this;
     }
 
+    /**
+     * @param string $message
+     * @param string $trigger
+     * @return $this
+     */
     public function required($message = null, $trigger = 'change')
     {
         parent::setRequired(Helper::getVar($message, '请选择' . $this->title), $trigger);
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         return [
@@ -65,7 +82,8 @@ class ColorPicker extends FormComponentDriver
             'title' => $this->title,
             'value' => $this->value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 

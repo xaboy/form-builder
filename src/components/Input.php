@@ -15,7 +15,6 @@ use FormBuilder\Helper;
  * Input组件,支持类型text、password、textarea、url、email、date
  * Class Input
  * @package FormBuilder\components
- *
  * @method $this type(String $type) 输入框类型，可选值为 text、password、textarea、url、email、date;
  * @method $this size(String $size) 输入框尺寸，可选值为large、small、default或者不设置;
  * @method $this placeholder(String $placeholder) 占位文本
@@ -33,22 +32,46 @@ use FormBuilder\Helper;
  */
 class Input extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'input';
 
     /**
      * 组件类型
      */
     const TYPE_TEXT = 'text';
+    /**
+     *
+     */
     const TYPE_PASSWORD = 'password';
+    /**
+     *
+     */
     const TYPE_TEXTAREA = 'textarea';
+    /**
+     *
+     */
     const TYPE_URL = 'url';
+    /**
+     *
+     */
     const TYPE_EMAIL = 'email';
+    /**
+     *
+     */
     const TYPE_DATE = 'date';
 
+    /**
+     * @var array
+     */
     protected $props = [
         'type' => self::TYPE_TEXT
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'type' => 'string',
         'size' => 'string',
@@ -66,6 +89,9 @@ class Input extends FormComponentDriver
         'wrap' => 'string',
     ];
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->placeholder('请输入' . $this->title);
@@ -78,7 +104,7 @@ class Input extends FormComponentDriver
      * @param Number $maxRows
      * @return $this
      */
-    public function autoSize(Number $minRows, Number $maxRows)
+    public function autoSize($minRows, $maxRows)
     {
         $this->props['autosize'] = compact('minRows', 'maxRows');
         return $this;
@@ -86,7 +112,7 @@ class Input extends FormComponentDriver
 
     /**
      * 组件的值为必填
-     * @param null $message
+     * @param string $message
      * @return $this
      */
     public function required($message = null, $trigger = 'blur')
@@ -108,7 +134,8 @@ class Input extends FormComponentDriver
             'title' => $this->title,
             'value' => $this->value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }

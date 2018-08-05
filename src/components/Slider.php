@@ -28,12 +28,21 @@ use FormBuilder\Helper;
  */
 class Slider extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'slider';
 
+    /**
+     * @var array
+     */
     protected $props = [
         'range' => false
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'min' => 'float',
         'max' => 'float',
@@ -46,23 +55,30 @@ class Slider extends FormComponentDriver
         'inputSize' => 'string',
     ];
 
+    /**
+     * @param $value
+     * @return $this
+     */
     public function value($value)
     {
         $this->value = $value;
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         $value = $this->value;
         if ($this->props['range'] == true) {
             $value = is_array($value) ? $value : [0, (int)$value];
         } else {
-            $value = (int)is_array($value)
+            $value = (int)(is_array($value)
                 ? (isset($value[0])
                     ? $value[0]
                     : 0)
-                : $value;
+                : $value);
         }
 
         return [
@@ -71,7 +87,8 @@ class Slider extends FormComponentDriver
             'title' => $this->title,
             'value' => $value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }

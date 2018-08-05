@@ -10,8 +10,18 @@ namespace FormBuilder\traits\form;
 
 use FormBuilder\components\Select;
 
+/**
+ * Class FormSelectTrait
+ * @package FormBuilder\traits\form
+ */
 trait FormSelectTrait
 {
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Select
+     */
     public static function select($field, $title, $value = '')
     {
         $multiple = is_array($value) ? true : false;
@@ -20,11 +30,23 @@ trait FormSelectTrait
         return $select;
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param array $value
+     * @return Select
+     */
     public static function selectMultiple($field, $title, array $value = [])
     {
         return self::select($field, $title, $value);
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Select
+     */
     public static function selectOne($field, $title, $value = '')
     {
         return self::select($field, $title, (string)$value);

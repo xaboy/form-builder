@@ -8,6 +8,8 @@
 namespace FormBuilder;
 
 use FormBuilder\components\Cascader;
+use FormBuilder\components\FormStyle;
+use FormBuilder\components\Row;
 use FormBuilder\traits\form\FormCascaderTrait;
 use FormBuilder\traits\form\FormCheckBoxTrait;
 use FormBuilder\traits\form\FormColorPickerTrait;
@@ -20,11 +22,17 @@ use FormBuilder\traits\form\FormRadioTrait;
 use FormBuilder\traits\form\FormRateTrait;
 use FormBuilder\traits\form\FormSelectTrait;
 use FormBuilder\traits\form\FormSliderTrait;
+use FormBuilder\traits\form\FormStyleTrait;
 use FormBuilder\traits\form\FormSwitchesTrait;
 use FormBuilder\traits\form\FormTimePickerTrait;
+use FormBuilder\traits\form\FormTreeTrait;
 use FormBuilder\traits\form\FormUploadTrait;
 use FormBuilder\traits\form\FormOptionTrait;
 
+/**
+ * Class Form
+ * @package FormBuilder
+ */
 class Form
 {
     use FormColorPickerTrait,
@@ -42,6 +50,8 @@ class Form
         FormCascaderTrait,
         FormHiddenTrait,
         FormTimePickerTrait,
+        FormTreeTrait,
+        FormStyleTrait,
         FormOptionTrait;
 
     /**
@@ -57,12 +67,34 @@ class Form
      */
     protected $loadCityAreaData = false;
 
+    /**
+     * @var array
+     */
     protected $components = [];
 
+    /**
+     * @var array
+     */
     protected $fields = [];
 
-    protected $script = [];
+    /**
+     * @var array
+     */
+    protected $script = [
+        'jq' => '<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>',
+        'vue' => '<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>',
+        //iview 版本 2.14.3
+        'iview-css' => '<link href="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/styles/iview.css" rel="stylesheet">',
+        'iview' => '<script src="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/iview.min.js"></script>',
+        //form-create 版本 1.3.1
+        'form-create' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.3.3/dist/form-create.min.js"></script>',
+        'city-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city.js"></script>',
+        'city-area-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city_area.js"></script>'
+    ];
 
+    /**
+     * @var string
+     */
     protected $successScript = '';
 
     /**
@@ -87,7 +119,16 @@ class Form
      * 表单配置
      * @var array|mixed
      */
-    protected $config = [];
+    protected $config = [
+        'form' => [
+            'inline' => false,
+            'labelPosition' => 'right',
+            'labelWidth' => 125,
+            'showMessage' => true,
+            'autocomplete' => 'off'
+        ],
+        'row' => []
+    ];
 
     /**
      * Form constructor.
@@ -96,48 +137,40 @@ class Form
      */
     public function __construct($action, array $components = [])
     {
-        foreach ($components as $component){
-            $this->append($component);
-        }
+        $this->components($components);
         $this->action = $action;
-        $config = require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
-        $this->setSuccessScript($config['formSuccessScript']);
-        $this->config = $config['form'];
-        $this->script = $config['script'];
     }
 
     /**
-     * 修改配置
-     * @param array $config
+     * @param array $components
      * @return $this
      */
-    public function config(array $config)
+    public function components(array $components = [])
     {
-        $this->config = array_merge($this->config, $config);
+        foreach ($components as $component){
+            $this->append($component);
+        }
         return $this;
     }
 
     /**
-     * 获取配置参数
-     * @param String $configName
-     * @param $default
-     * @return array|mixed|string
+     * @param Row $row
+     * @return $this
      */
-    public function getConfig($configName = '', $default = '')
+    public function formRow(Row $row)
     {
-        $config = $this->config;
-        if (!$configName) return $config;
-        $configNameList = explode('.', $configName);
-        $count = count($configNameList);
-        foreach ($configNameList as $k => $cn) {
-            if (!isset($config[$cn]))
-                return $default;
-            else if (($k + 1) == $count)
-                return $config[$cn];
-            else
-                $config = $config[$cn];
-        }
-        return $default;
+        $this->config['row'] = $row->build();
+        return $this;
+    }
+
+    /**
+     * @param FormStyle $formStyle
+     * @return $this
+     */
+    public function formStyle(FormStyle $formStyle)
+    {
+        $this->config['form'] = $formStyle->build();
+        return $this;
     }
 
     /**
@@ -186,6 +219,18 @@ class Form
     public function getMethod()
     {
         return $this->method;
+    }
+
+    /**
+     * @param string $key
+     * @return array|mixed|null
+     */
+    public function getConfig($key = '')
+    {
+        if($key =='')
+            return $this->config;
+        else
+            return isset($this->config[$key]) ? $this->config[$key] : null;
     }
 
     /**
@@ -289,12 +334,11 @@ class Form
 
     /**
      * 获取表单生成器所需全部js
-     * @return string
+     * @return array
      */
-    public static function script()
+    public function script()
     {
-        $config = require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config' . DIRECTORY_SEPARATOR . 'config.php';
-        return implode("\r\n", $config['script']);
+        return $this->script;
     }
 
     /**
@@ -313,8 +357,8 @@ class Form
     }
 
     /**
-     * 获取表单生成器全部js
-     * @return string
+     * 获取表单生成器所需js
+     * @return array
      */
     public function getScript()
     {
@@ -330,7 +374,7 @@ class Form
             $script[] = $_script['city-area-data'];
         if ($this->loadCityData == true)
             $script[] = $_script['city-data'];
-        return implode("\r\n", $script);
+        return $script;
     }
 
     /**

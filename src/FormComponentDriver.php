@@ -7,10 +7,17 @@
 
 namespace FormBuilder;
 
+use FormBuilder\components\Col;
 use FormBuilder\interfaces\FormComponentInterFace;
+use FormBuilder\traits\component\CallPropsTrait;
 
+/**
+ * Class FormComponentDriver
+ * @package FormBuilder
+ */
 abstract class FormComponentDriver implements FormComponentInterFace
 {
+    use CallPropsTrait;
     /**
      * 字段名
      * @var String
@@ -42,6 +49,12 @@ abstract class FormComponentDriver implements FormComponentInterFace
     protected $value = '';
 
     /**
+     * 栅格规则
+     * @var array
+     */
+    protected $col = [];
+
+    /**
      * 字段验证规则
      * @var array
      */
@@ -52,33 +65,6 @@ abstract class FormComponentDriver implements FormComponentInterFace
      * @var array
      */
     protected static $propsRule = [];
-
-    /**
-     * 设置组件属性
-     * @param $name
-     * @param $arguments
-     * @return $this
-     * @throws \Exception
-     */
-    public function __call($name, $arguments)
-    {
-        if (isset(static::$propsRule[$name])) {
-            if (is_array(static::$propsRule[$name])) {
-                $this->props[static::$propsRule[$name][1]] = Helper::toType(
-                    $arguments[0],
-                    static::$propsRule[$name][0]
-                );
-            } else {
-                $this->props[$name] = Helper::toType(
-                    $arguments[0],
-                    static::$propsRule[$name]
-                );
-            }
-            return $this;
-        } else {
-            throw new \Exception($name . '方法不存在');
-        }
-    }
 
     /**
      * FormComponentDriver constructor.
@@ -102,16 +88,31 @@ abstract class FormComponentDriver implements FormComponentInterFace
 
     }
 
+    /**
+     * @param $span
+     * @return $this
+     */
+    public function col($span)
+    {
+        if($span instanceof Col)
+            $this->col = $span->build();
+        else if(is_numeric($span))
+            $this->col['span'] = $span;
+        return $this;
+    }
+
 
     /**
      * 批量设置组件的规则
      * @param array $props
+     * @return $this
      */
     public function setProps(array $props = [])
     {
         foreach ($props as $k => $v) {
             $this->{$k}($v);
         }
+        return $this;
     }
 
     /**
@@ -132,7 +133,7 @@ abstract class FormComponentDriver implements FormComponentInterFace
      */
     public function value($value)
     {
-        if ($value === null) $value = '';
+        if (is_null($value)) $value = '';
         $this->value = (string)$value;
         return $this;
     }
@@ -165,6 +166,16 @@ abstract class FormComponentDriver implements FormComponentInterFace
     }
 
     /**
+     * @param bool $required
+     * @return $this
+     */
+    public function required($required = true)
+    {
+        $this->props['required'] = (bool)$required;
+        return $this;
+    }
+
+    /**
      * 设置组件的值为必填
      * @param null $message
      * @return $this
@@ -178,16 +189,17 @@ abstract class FormComponentDriver implements FormComponentInterFace
         ];
         if ($type !== null) $validate['type'] = $type;
         $this->validate[] = $validate;
+        return $this;
     }
 
     /**
-     * 添加一条验证规则
+     * 添加验证规则
      * @param array $validate
      * @return $this
      */
     public function validate(array $validate)
     {
-        $this->validate[] = $validate;
+        $this->validate = array_merge($this->validate,$validate);
         return $this;
     }
 

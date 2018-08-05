@@ -23,8 +23,14 @@ use FormBuilder\FormComponentDriver;
  */
 class Rate extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'rate';
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'count' => 'float',
         'allowHalf' => 'boolean',
@@ -33,6 +39,9 @@ class Rate extends FormComponentDriver
         'clearable' => 'boolean',
     ];
 
+    /**
+     * @return array
+     */
     public function build()
     {
         return [
@@ -41,7 +50,8 @@ class Rate extends FormComponentDriver
             'title' => $this->title,
             'value' => (float)$this->value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }

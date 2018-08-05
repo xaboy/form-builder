@@ -10,6 +10,10 @@ namespace FormBuilder\traits\form;
 
 use FormBuilder\components\Input;
 
+/**
+ * Class FormInputTrait
+ * @package FormBuilder\traits\form
+ */
 trait FormInputTrait
 {
     /**
@@ -27,31 +31,67 @@ trait FormInputTrait
         return $input;
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Input
+     */
     public static function text($field, $title, $value = '')
     {
         return self::input($field, $title, $value);
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Input
+     */
     public static function password($field, $title, $value = '')
     {
         return self::input($field, $title, $value, Input::TYPE_PASSWORD);
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Input
+     */
     public static function textarea($field, $title, $value = '')
     {
         return self::input($field, $title, $value, Input::TYPE_TEXTAREA);
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Input
+     */
     public static function url($field, $title, $value = '')
     {
         return self::input($field, $title, $value, Input::TYPE_URL);
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Input
+     */
     public static function email($field, $title, $value = '')
     {
         return self::input($field, $title, $value, Input::TYPE_EMAIL);
     }
 
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Input
+     */
     public static function idate($field, $title, $value = '')
     {
         return self::input($field, $title, $value, Input::TYPE_DATE);

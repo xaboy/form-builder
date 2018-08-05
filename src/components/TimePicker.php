@@ -12,7 +12,7 @@ use FormBuilder\FormComponentDriver;
 use FormBuilder\Helper;
 
 /**
- * 时间组件
+ * 时间选择器组件
  * Class TimePicker
  * @package FormBuilder\components
  * @method $this type(String $type) 显示类型，可选值为 time、timerange
@@ -30,17 +30,32 @@ use FormBuilder\Helper;
  */
 class TimePicker extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'timePicker';
 
+    /**
+     *
+     */
     const TYPE_TIME = 'time';
+    /**
+     *
+     */
     const TYPE_TIME_RANGE = 'timerange';
 
+    /**
+     * @var array
+     */
     protected $props = [
         'type' => self::TYPE_TIME,
         'editable' => false,
         'confirm' => true
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'type' => 'string',
         'format' => 'string',
@@ -55,6 +70,9 @@ class TimePicker extends FormComponentDriver
         'transfer' => 'boolean',
     ];
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->placeholder('请选择' . $this->title);
@@ -74,6 +92,10 @@ class TimePicker extends FormComponentDriver
         return $this;
     }
 
+    /**
+     * @param $value
+     * @return $this
+     */
     public function value($value)
     {
         if (is_array($value)) {
@@ -84,8 +106,12 @@ class TimePicker extends FormComponentDriver
             $value = Helper::getDate($value);
         }
         $this->value = $value;
+        return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         $value = $this->value;
@@ -97,7 +123,8 @@ class TimePicker extends FormComponentDriver
             'title' => $this->title,
             'value' => $value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col' => $this->col
         ];
     }
 

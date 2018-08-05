@@ -23,25 +23,43 @@ class Radio extends FormComponentDriver
 {
     use ComponentOptionsTrait;
 
+    /**
+     * @var string
+     */
     protected $name = 'radio';
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'size' => 'string',
         'vertical' => 'boolean'
     ];
 
+    /**
+     * 使用按钮样式
+     * @return $this
+     */
     public function button()
     {
         $this->props['type'] = 'button';
         return $this;
     }
 
+    /**
+     * @param string $message
+     * @param string $trigger
+     * @return $this
+     */
     public function required($message = null, $trigger = 'change')
     {
         $this->setRequired(Helper::getVar($message, '请选择' . $this->title), $trigger);
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         $options = [];
@@ -56,7 +74,8 @@ class Radio extends FormComponentDriver
             'value' => $this->value,
             'props' => (object)$this->props,
             'options' => $options,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }

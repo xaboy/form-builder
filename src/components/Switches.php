@@ -20,15 +20,27 @@ use FormBuilder\FormComponentDriver;
  */
 class Switches extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'switch';
 
+    /**
+     * @var array
+     */
     protected $slot = [];
 
+    /**
+     * @var array
+     */
     protected $props = [
         'trueValue' => '1',
         'falseValue' => '0'
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'size' => 'string',
         'disabled' => 'boolean',
@@ -58,6 +70,9 @@ class Switches extends FormComponentDriver
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         return [
@@ -67,7 +82,8 @@ class Switches extends FormComponentDriver
             'value' => $this->value,
             'props' => (object)$this->props,
             'slot' => (object)$this->slot,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 

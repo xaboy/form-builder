@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?=$form->getTitle()?></title>
-	<?=$form->getScript()?>
+	<?=implode("\r\n",$form->getScript())?>
 	<?=$form->getSuccessScript()?>
 </head>
 <body>

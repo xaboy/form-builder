@@ -8,6 +8,10 @@
 namespace FormBuilder\interfaces;
 
 
+/**
+ * Interface FormComponentInterFace
+ * @package FormBuilder\interfaces
+ */
 interface FormComponentInterFace
 {
 

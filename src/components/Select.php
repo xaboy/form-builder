@@ -31,14 +31,26 @@ class Select extends FormComponentDriver
 {
     use ComponentOptionsTrait;
 
+    /**
+     * @var string
+     */
     protected $name = 'select';
 
+    /**
+     * @var array
+     */
     protected $value = [];
 
+    /**
+     * @var array
+     */
     protected $props = [
         'multiple' => false
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'multiple' => 'boolean',
         'disabled' => 'boolean',
@@ -51,11 +63,18 @@ class Select extends FormComponentDriver
         'notFoundText' => 'string',
     ];
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->placeholder('请选择' . $this->title);
     }
 
+    /**
+     * @param $value
+     * @return $this
+     */
     public function value($value)
     {
         if ($value === null) return $this;
@@ -70,6 +89,11 @@ class Select extends FormComponentDriver
     }
 
 
+    /**
+     * @param null $message
+     * @param string $trigger
+     * @return $this
+     */
     public function required($message = null, $trigger = 'change')
     {
         $this->setRequired(
@@ -80,6 +104,9 @@ class Select extends FormComponentDriver
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         $options = [];
@@ -104,7 +131,8 @@ class Select extends FormComponentDriver
             'value' => $value,
             'props' => (object)$this->props,
             'options' => $options,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }

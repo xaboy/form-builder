@@ -30,17 +30,35 @@ use FormBuilder\Helper;
  */
 class Frame extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'frame';
 
+    /**
+     *
+     */
     const TYPE_IMAGE = 'image';
+    /**
+     *
+     */
     const TYPE_FILE = 'file';
+    /**
+     *
+     */
     const TYPE_INPUT = 'input';
 
+    /**
+     * @var array
+     */
     protected $props = [
         'type' => self::TYPE_INPUT,
         'maxLength' => 0
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'type' => 'string',
         'src' => 'string',
@@ -64,11 +82,17 @@ class Frame extends FormComponentDriver
         return $this;
     }
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->frameTitle('请选择' . $this->title);
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         $value = $this->value;
@@ -81,7 +105,8 @@ class Frame extends FormComponentDriver
             'title' => $this->title,
             'value' => $value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }

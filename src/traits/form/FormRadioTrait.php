@@ -10,8 +10,18 @@ namespace FormBuilder\traits\form;
 
 use FormBuilder\components\Radio;
 
+/**
+ * Class FormRadioTrait
+ * @package FormBuilder\traits\form
+ */
 trait FormRadioTrait
 {
+    /**
+     * @param $field
+     * @param $title
+     * @param string $value
+     * @return Radio
+     */
     public static function radio($field, $title, $value = '')
     {
         return new Radio($field, $title, (string)$value);

@@ -22,14 +22,27 @@ class Checkbox extends FormComponentDriver
 {
     use ComponentOptionsTrait;
 
+    /**
+     * @var string
+     */
     protected $name = 'checkbox';
 
+    /**
+     * @var array
+     */
     protected $value = [];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'size'=>'string'
     ];
 
+    /**
+     * @param $value
+     * @return $this
+     */
     public function value($value)
     {
         if($value === null) return $this;
@@ -43,17 +56,26 @@ class Checkbox extends FormComponentDriver
         return $this;
     }
 
-    public function required($message = null,$trigger = 'change')
+    /**
+     * @param null $message
+     * @param string $trigger
+     * @return $this
+     */
+    public function required($message = null, $trigger = 'change')
     {
         $this->setRequired(Helper::getVar($message,'请选择'.$this->title),$trigger,'array');
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         $options = [];
         foreach ($this->options as $option){
-            $options[] = $option->build();
+            if ($option instanceof Option)
+                $options[] = $option->build();
         }
         $value = array_unique($this->value);
         foreach ($value as $k=>$v){
@@ -63,10 +85,11 @@ class Checkbox extends FormComponentDriver
             'type'=>$this->name,
             'field'=>$this->field,
             'title'=>$this->title,
-            'value'=>array_unique($this->value),
+            'value'=>$value,
             'props'=>(object)$this->props,
             'options'=>$options,
-            'validate'=>$this->validate
+            'validate'=>$this->validate,
+            'col'=>$this->col
         ];
     }
 

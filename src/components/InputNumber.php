@@ -26,8 +26,14 @@ use FormBuilder\FormComponentDriver;
  */
 class InputNumber extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'inputNumber';
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'max' => 'float',
         'min' => 'float',
@@ -40,11 +46,17 @@ class InputNumber extends FormComponentDriver
         'precision' => 'int',
     ];
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->placeholder('请输入' . $this->title);
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         return [
@@ -53,7 +65,8 @@ class InputNumber extends FormComponentDriver
             'title' => $this->title,
             'value' => $this->value === '' ? '' : (float)$this->value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 

@@ -12,7 +12,7 @@ use FormBuilder\FormComponentDriver;
 use FormBuilder\Helper;
 
 /**
- * 日期组件
+ * 日期选择器组件
  * Class DatePicker
  * @package FormBuilder\components
  * @method $this type(String $type) 显示类型，可选值为 date、daterange、datetime、datetimerange、year、month
@@ -32,20 +32,47 @@ use FormBuilder\Helper;
  */
 class DatePicker extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'datePicker';
 
+    /**
+     *
+     */
     const TYPE_DATE = 'date';
+    /**
+     *
+     */
     const TYPE_DATE_RANGE = 'daterange';
+    /**
+     *
+     */
     const TYPE_DATE_TIME = 'datetime';
+    /**
+     *
+     */
     const TYPE_DATE_TIME_RANGE = 'datetimerange';
+    /**
+     *
+     */
     const TYPE_YEAR = 'year';
+    /**
+     *
+     */
     const TYPE_MONTH = 'month';
 
+    /**
+     * @var array
+     */
     protected $props = [
         'type' => self::TYPE_DATE,
         'editable' => false
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'type' => 'string',
         'format' => 'string',
@@ -62,11 +89,18 @@ class DatePicker extends FormComponentDriver
         'showWeekNumbers' => 'boolean',
     ];
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->placeholder('请选择' . $this->title);
     }
 
+    /**
+     * @param $value
+     * @return $this
+     */
     public function value($value)
     {
         if (is_array($value)) {
@@ -77,8 +111,12 @@ class DatePicker extends FormComponentDriver
             $value = Helper::getDate($value);
         }
         $this->value = $value;
+        return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         return [
@@ -87,7 +125,8 @@ class DatePicker extends FormComponentDriver
             'title' => $this->title,
             'value' => $this->value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 

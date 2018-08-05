@@ -11,11 +11,24 @@ namespace FormBuilder\components;
 use FormBuilder\interfaces\FormComponentInterFace;
 use FormBuilder\Helper;
 
+/**
+ * Class Option
+ * @package FormBuilder\components
+ */
 class Option implements FormComponentInterFace
 {
 
+    /**
+     * @var array
+     */
     protected $props;
 
+    /**
+     * Option constructor.
+     * @param $value
+     * @param string $label
+     * @param bool $disabled
+     */
     public function __construct($value, $label = '', $disabled = false)
     {
         self::verify($value, $value);
@@ -24,6 +37,10 @@ class Option implements FormComponentInterFace
         $this->disabled($disabled);
     }
 
+    /**
+     * @param $value
+     * @param $label
+     */
     public static function verify($value, $label)
     {
         Helper::verifyType($value, ['numeric', 'string', 'null'], 'options.value');
@@ -31,6 +48,10 @@ class Option implements FormComponentInterFace
     }
 
 
+    /**
+     * @param bool $disabled
+     * @return $this
+     */
     public function disabled($disabled = true)
     {
         $disabled = Helper::toType($disabled, 'boolean');
@@ -38,6 +59,9 @@ class Option implements FormComponentInterFace
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         $props = $this->props;

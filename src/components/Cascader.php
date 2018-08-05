@@ -16,12 +16,6 @@ use FormBuilder\Helper;
  * Class Cascader
  * @package FormBuilder\components
  * @method $this type(String $type) 数据类型, 支持 city_area(省市区三级联动), city (省市二级联动), other (自定义)
- * @method $this data(Array $data) 可选项的数据源,
- * 例如:{
- *       "value":"北京市", "label":"北京市", "children":[{
- *           "value":"东城区", "label":"东城区"
- *       }]
- *  }
  * @method $this disabled(Boolean $bool) 是否禁用选择器
  * @method $this clearable(Boolean $bool) 是否支持清除
  * @method $this placeholder(String $placeholder)
@@ -29,24 +23,42 @@ use FormBuilder\Helper;
  * @method $this changeOnSelect(Boolean $bool) 当此项为 true 时，点选每级菜单选项值都会发生变化, 默认为 false
  * @method $this size(String $size) 输入框大小，可选值为large和small或者不填
  * @method $this filterable(Boolean $bool) 是否支持搜索
- * @method $this notFoundText(String $text)
+ * @method $this notFoundText(String $text) 当搜索列表为空时显示的内容
  * @method $this transfer(Boolean $bool) /是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果
  */
 class Cascader extends FormComponentDriver
 {
+    /**
+     * @var string
+     */
     protected $name = 'cascader';
 
+    /**
+     *
+     */
     const TYPE_CITY_AREA = 'city_area';
+    /**
+     *
+     */
     const TYPE_CITY = 'city';
+    /**
+     *
+     */
     const TYPE_OTHER = 'other';
 
+    /**
+     * @var array
+     */
     protected $props = [
-        'type' => self::TYPE_OTHER
+        'type' => self::TYPE_OTHER,
+        'data' => []
     ];
 
+    /**
+     * @var array
+     */
     protected static $propsRule = [
         'type' => 'string',
-        'data' => 'array',
         'disabled' => 'boolean',
         'clearable' => 'boolean',
         'changeOnSelect' => 'boolean',
@@ -58,13 +70,16 @@ class Cascader extends FormComponentDriver
         'notFoundText' => 'string',
     ];
 
+    /**
+     *
+     */
     protected function init()
     {
         $this->placeholder('请选择' . $this->title);
     }
 
     /**
-     * @param null $message
+     * @param string $message
      * @param string $trigger
      * @return $this
      */
@@ -90,6 +105,33 @@ class Cascader extends FormComponentDriver
     }
 
     /**
+     * 可选项的数据源
+     * 例如:{
+     *    "value":"北京市", "label":"北京市", "children":[{
+     *        "value":"东城区", "label":"东城区"
+     *    }]
+     *  }
+     * @param array $data
+     * @return $this
+     */
+    public function data(array $data)
+    {
+        if(!is_array($this->props['data'])) $this->props['data'] = [];
+        $this->props['data'] = array_merge($this->props['data'],$data);
+        return $this;
+    }
+
+    /**
+     * @param $var
+     * @return $this
+     */
+    public function jsData($var)
+    {
+        $this->props['data'] = 'js.'.$var;
+        return $this;
+    }
+
+    /**
      * 获取组件类型
      * @return mixed
      */
@@ -98,6 +140,9 @@ class Cascader extends FormComponentDriver
         return $this->props['type'];
     }
 
+    /**
+     * @return array
+     */
     public function build()
     {
         return [
@@ -106,7 +151,8 @@ class Cascader extends FormComponentDriver
             'title' => $this->title,
             'value' => $this->value,
             'props' => (object)$this->props,
-            'validate' => $this->validate
+            'validate' => $this->validate,
+            'col'=>$this->col
         ];
     }
 }
