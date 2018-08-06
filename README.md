@@ -144,15 +144,17 @@ echo $html;
  * @method $this lg(Number|Col $span) ≥1200px 响应式栅格，可为栅格数或一个包含其他属性的对象
 ```
 
-## 组件公共方法
-* **col($span)** 配置col栅格规则,传入0-24的数字或`Col`类,默认为24
-* **value($value)** 设置组件的值
-* **validate(array $validate)** 添加验证规则
 
 ## select,checkbox,radio组件配置options专用方法
 * **option($value, $label, $disabled = false)** 单独设置选项
 * **options(array $options, $disabled = false)** 批量设置选项
 * **setOptions($options, $disabled = false)** 批量设置选项 支持匿名函数
+
+
+## 以下组件公共方法
+* **col($span)** 配置col栅格规则,传入0-24的数字或`Col`类,默认为24
+* **value($value)** 设置组件的值
+* **validate(array $validate)** 添加验证规则
 
 ## 组件
 `namespace \FormBuilder\Form`
@@ -166,7 +168,7 @@ echo $html;
  * @method $this type(String $type) 数据类型, 支持 city_area(省市区三级联动), city (省市二级联动), other (自定义)
  * @method $this disabled(Boolean $bool) 是否禁用选择器
  * @method $this clearable(Boolean $bool) 是否支持清除
- * @method $this placeholder(String $placeholder)
+ * @method $this placeholder(String $placeholder) 占位文本
  * @method $this trigger(String $trigger) 次级菜单展开方式，可选值为 click 或 hover
  * @method $this changeOnSelect(Boolean $bool) 当此项为 true 时，点选每级菜单选项值都会发生变化, 默认为 false
  * @method $this size(String $size) 输入框大小，可选值为large和small或者不填
@@ -314,9 +316,9 @@ echo $html;
  * @method $this clearable(Boolean $bool) 是否可以清空选项，只在单选时有效, 默认为false
  * @method $this filterable(Boolean $bool) 是否支持搜索, 默认为false
  * @method $this size(String $size) 选择框大小，可选值为large、small、default或者不填
- * @method $this placeholder(String $placeholder) 选择框默认文字
- * @method $this transfer(String $placeholder) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
- * @method $this placement(String $placeholder) 弹窗的展开方向，可选值为 bottom 和 top, 默认为bottom
+ * @method $this placeholder(String $placeholder) 占位文本
+ * @method $this transfer(String $transfer) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
+ * @method $this placement(String $placement) 弹窗的展开方向，可选值为 bottom 和 top, 默认为bottom
  * @method $this notFoundText(String $text) 当下拉列表为空时显示的内容, 默认为 无匹配数据
  * @method $this required($message = null, $trigger = 'change') 设为必选
 ```
@@ -402,7 +404,7 @@ echo $html;
 ```
 
 
-#### TreeData
+## 树型组件data数据类 TreeData
 * **Form::treeData** 树型组件data
 ```php
  * @method $this id(String $id) Id,必须唯一

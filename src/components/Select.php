@@ -22,8 +22,8 @@ use FormBuilder\traits\component\ComponentOptionsTrait;
  * @method $this filterable(Boolean $bool) 是否支持搜索, 默认为false
  * @method $this size(String $size) 选择框大小，可选值为large、small、default或者不填
  * @method $this placeholder(String $placeholder) 选择框默认文字
- * @method $this transfer(String $placeholder) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
- * @method $this placement(String $placeholder) 弹窗的展开方向，可选值为 bottom 和 top, 默认为bottom
+ * @method $this transfer(String $transfer) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
+ * @method $this placement(String $placement) 弹窗的展开方向，可选值为 bottom 和 top, 默认为bottom
  * @method $this notFoundText(String $text) 当下拉列表为空时显示的内容, 默认为 无匹配数据
  *
  */
