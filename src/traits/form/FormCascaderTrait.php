@@ -36,13 +36,18 @@ trait FormCascaderTrait
      * 省市二级联动
      * @param $field
      * @param $title
-     * @param string $province
+     * @param array|string $province
      * @param string $city
      * @return Cascader
      */
-    public static function city($field, $title, $province = '', $city = '')
+    public static function city($field, $title, $province = [], $city = '')
     {
-        $cascader = self::cascader($field, $title, [(string)$province, (string)$city], Cascader::TYPE_CITY);
+        if(is_array($province))
+            $value = $province;
+        else
+            $value = [(string)$province, (string)$city];
+
+        $cascader = self::cascader($field, $title, $value, Cascader::TYPE_CITY);
         $cascader->jsData('province_city');
         return $cascader;
     }
@@ -52,14 +57,19 @@ trait FormCascaderTrait
      * 省市区三级联动
      * @param $field
      * @param $title
-     * @param string $province
+     * @param array|string $province
      * @param string $city
      * @param string $area
      * @return Cascader
      */
-    public static function cityArea($field, $title, $province = '', $city = '', $area = '')
+    public static function cityArea($field, $title, $province = [], $city = '', $area = '')
     {
-        $cascader = self::cascader($field, $title, [(string)$province, (string)$city, (string)$area], Cascader::TYPE_CITY_AREA);
+        if(is_array($province))
+            $value = $province;
+        else
+            $value = [(string)$province, (string)$city, (string)$area];
+
+        $cascader = self::cascader($field, $title, $value, Cascader::TYPE_CITY_AREA);
         $cascader->jsData('province_city_area');
         return $cascader;
     }

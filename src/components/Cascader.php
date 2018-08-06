@@ -94,7 +94,7 @@ class Cascader extends FormComponentDriver
     }
 
     /**
-     * @param $value
+     * @param array $value
      * @return $this
      */
     public function value($value)
