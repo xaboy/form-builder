@@ -197,7 +197,7 @@ echo $html;
  * @method $this justify(String $justify) flex 布局下的水平排列方式，可选值为start、end、center、space-around、space-between
  * @method $this className(String $className) 自定义的class名称
 ```
-参考: [view col栅格布局](http://v2.iviewui.com/components/grid#API)
+参考: [view row栅格布局](http://v2.iviewui.com/components/grid#API)
 
 ## Col栅格规则
 * **Form::col**
@@ -490,10 +490,10 @@ echo $html;
  * @method $this child(TreeData $child) 设置子集
 ```
 
-##所有组件生成效果
+## 所有组件生成效果
 ![https://raw.githubusercontent.com/xaboy/form-builder/master/images/components.png](https://raw.githubusercontent.com/xaboy/form-builder/master/images/components.png)
 
 ## 参考
 
-ui框架: [iview2.x](http://v2.iviewui.com/docs/guide/install)
-js表单生成器生成: [form-create](https://github.com/xaboy/form-create)
+* **ui框架:** [iview2.x](http://v2.iviewui.com/docs/guide/install)
+* **js表单生成器生成:** [form-create](https://github.com/xaboy/form-create)
