@@ -96,8 +96,8 @@ class Frame extends FormComponentDriver
     public function build()
     {
         $value = $this->value;
-        if ($this->props['maxLength'] == 1)
-            $value = is_array($value) && isset($value[0]) ? $value[0] : '';
+        if ($this->props['maxLength'] == 1 && is_array($value))
+            $value = isset($value[0]) ? $value[0] : '';
 
         return [
             'type' => $this->name,
