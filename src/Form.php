@@ -135,7 +135,7 @@ class Form
      * @param string $action 提交地址
      * @param array $components 组件
      */
-    public function __construct($action, array $components = [])
+    public function __construct($action = '', array $components = [])
     {
         $this->components($components);
         $this->action = $action;
