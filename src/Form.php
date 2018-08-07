@@ -86,7 +86,7 @@ class Form
         //iview 版本 2.14.3
         'iview-css' => '<link href="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/styles/iview.css" rel="stylesheet">',
         'iview' => '<script src="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/iview.min.js"></script>',
-        //form-create 版本 1.3.1
+        //form-create 版本 1.3.3
         'form-create' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.3.3/dist/form-create.min.js"></script>',
         'city-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city.js"></script>',
         'city-area-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city_area.js"></script>'
@@ -299,6 +299,7 @@ class Form
         if(!isset($this->components[$field]))
             $this->fields[] = $field;
         $this->components[$field] = $component;
+        $this->checkLoadData($component);
         return $this;
     }
 
@@ -313,7 +314,25 @@ class Form
         if(!isset($this->components[$field]))
             array_unshift($this->fields, $field);
         $this->components[$field] = $component;
+        $this->checkLoadData($component);
         return $this;
+    }
+
+    /**
+     * @param FormComponentDriver $component
+     */
+    protected function checkLoadData(FormComponentDriver $component)
+    {
+        if(
+            $component instanceof Cascader
+            && ($this->loadCityData == false || $this->loadCityAreaData == false)
+        ){
+            $type = $component->getType();
+            if ($type == Cascader::TYPE_CITY)
+                $this->loadCityData = true;
+            else if ($type == Cascader::TYPE_CITY_AREA)
+                $this->loadCityAreaData = true;
+        }
     }
 
     /**
@@ -327,15 +346,6 @@ class Form
             $component = $this->components[$field];
             if (!($component instanceof FormComponentDriver))
                 continue;
-
-            $loadData = $this->loadCityData == true && $this->loadCityAreaData == true;
-            if ($loadData == false && $component instanceof Cascader) {
-                $type = $component->getType();
-                if ($type == Cascader::TYPE_CITY)
-                    $this->loadCityData = true;
-                else if ($type == Cascader::TYPE_CITY_AREA)
-                    $this->loadCityAreaData = true;
-            }
             $rules[] = $component->build();
         }
         return $rules;
@@ -350,7 +360,6 @@ class Form
     {
         ob_start();
         $form = $this;
-        $rule = $this->getRules();
         require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'form.php';
         $html = ob_get_clean();
         return $html;
@@ -373,7 +382,6 @@ class Form
     {
         ob_start();
         $form = $this;
-        $rule = $this->getRules();
         require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'formScript.php';
         $script = ob_get_clean();
         return $script;
@@ -403,7 +411,7 @@ class Form
 
     /**
      * 生成表单快捷方法
-     * @param $action
+     * @param string $action
      * @param array $components
      * @return Form
      */

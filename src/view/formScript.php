@@ -1,6 +1,6 @@
 (function () {
     var getRule = function () {
-        var rule = <?=json_encode($rule)?>;
+        var rule = <?=json_encode($form->getRules())?>;
         rule.forEach(function (c) {
             if ((c.type == 'cascader' || c.type == 'tree') && Object.prototype.toString.call(c.props.data) == '[object String]') {
                 if (c.props.data.indexOf('js.') === 0) {
