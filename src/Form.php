@@ -109,6 +109,10 @@ class Form
      */
     protected $action = '';
 
+    /**
+     * 表单id
+     * @var string
+     */
     protected $id = '';
 
     /**
@@ -205,10 +209,12 @@ class Form
 
     /**
      * @param string $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
 

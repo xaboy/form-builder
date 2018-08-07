@@ -9,7 +9,7 @@
             }
         });
         return rule;
-    }, vm = new Vue,name = 'formBuilderExec<?= empty($form->getId()) ? '' : '_'.$form->getId() ?>';
+    }, vm = new Vue,name = 'formBuilderExec<?= !$form->getId() ? '' : '_'.$form->getId() ?>';
 
     window[name] =  function create(el, callback) {
         if (!el) el = document.body;
