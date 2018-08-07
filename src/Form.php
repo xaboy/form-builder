@@ -60,7 +60,6 @@ class Form
      */
     protected $loadCityData = false;
 
-
     /**
      * 三级联动 加载省市区数据
      * @var bool
@@ -145,6 +144,22 @@ class Form
     {
         $this->components($components);
         $this->action = $action;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLoadCityData()
+    {
+        return $this->loadCityData;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLoadCityAreaData()
+    {
+        return $this->loadCityAreaData;
     }
 
     /**
