@@ -9,10 +9,11 @@
             }
         });
         return rule;
-    }, vm = new Vue;
-    return function create(el, callback) {
+    }, vm = new Vue,name = 'formBuilderExec<?= empty($form->getId()) ? '' : '_'.$form->getId() ?>';
+
+    window[name] =  function create(el, callback) {
         if (!el) el = document.body;
-        return formCreate.create(getRule(), {
+        var $f = formCreate.create(getRule(), {
             el: el,
             form:<?=json_encode($form->getConfig('form'))?>,
             row:<?=json_encode($form->getConfig('row'))?>,
@@ -62,5 +63,7 @@
                 });
             }
         });
+        return $f;
     };
+    return window[name];
 }());

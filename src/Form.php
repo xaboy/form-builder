@@ -109,6 +109,8 @@ class Form
      */
     protected $action = '';
 
+    protected $id = '';
+
     /**
      * 提交方式
      * @var string
@@ -191,6 +193,22 @@ class Form
     {
         $this->successScript = $successScript;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
 
