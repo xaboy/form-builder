@@ -22,8 +22,6 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
  
 #### 本项目还在不断开发完善中,如有建议或问题请[在这里提出](https://github.com/xaboy/form-builder/issues/new)
 
-#### [laravel专用版点这里](https://github.com/xaboy/laravel-form-builder)
-
 ## 安装
 `composer require xaboy/form-builder`
 
