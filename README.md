@@ -29,6 +29,9 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 
 ![https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg](https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg)
 
+## 演示地址
+演示站后台:[ crmeb_v2.5 ]
+http://demo25.crmeb.net 账号：demo 密码：crmeb.com
 
 ### 例子 (TP框架)
 
