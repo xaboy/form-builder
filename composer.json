@@ -20,7 +20,8 @@
         "source": "https://github.com/xaboy/form-builder"
     },
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "ext-json": "*"
     },
     "minimum-stability": "stable",
     "branch-alias": {

@@ -28,6 +28,7 @@ use FormBuilder\traits\form\FormTimePickerTrait;
 use FormBuilder\traits\form\FormTreeTrait;
 use FormBuilder\traits\form\FormUploadTrait;
 use FormBuilder\traits\form\FormOptionTrait;
+use FormBuilder\traits\form\FormValidateTrait;
 
 /**
  * Class Form
@@ -52,7 +53,8 @@ class Form
         FormTimePickerTrait,
         FormTreeTrait,
         FormStyleTrait,
-        FormOptionTrait;
+        FormOptionTrait,
+        FormValidateTrait;
 
     /**
      * 三级联动 加载省市数据
@@ -92,6 +94,24 @@ class Form
     ];
 
     /**
+     * 加载 jquery
+     * @var bool
+     */
+    protected $linkJq = true;
+
+    /**
+     * 加载 vue
+     * @var bool
+     */
+    protected $linkVue = true;
+
+    /**
+     * 加载 iview
+     * @var bool
+     */
+    protected $linkIview = true;
+
+    /**
      * @var string
      */
     protected $successScript = '';
@@ -120,6 +140,10 @@ class Form
      */
     protected $method = 'post';
 
+    protected $resetBtn = false;
+
+    protected $submitBtn = true;
+
     /**
      * 表单配置
      * @var array|mixed
@@ -144,6 +168,30 @@ class Form
     {
         $this->components($components);
         $this->action = $action;
+    }
+
+    /**
+     * @param bool $linkJq
+     */
+    public function setLinkJq($linkJq)
+    {
+        $this->linkJq = (bool)$linkJq;
+    }
+
+    /**
+     * @param bool $linkVue
+     */
+    public function setLinkVue($linkVue)
+    {
+        $this->linkVue = (bool)$linkVue;
+    }
+
+    /**
+     * @param bool $linkIview
+     */
+    public function setLinkIview($linkIview)
+    {
+        $this->linkIview = (bool)$linkIview;
     }
 
     /**
@@ -334,6 +382,7 @@ class Form
     }
 
     /**
+     * 是否需要引入省市区数据
      * @param FormComponentDriver $component
      */
     protected function checkLoadData(FormComponentDriver $component)
@@ -411,17 +460,39 @@ class Form
     {
         $_script = $this->script;
         $script = [
-            $_script['iview-css'],
-            $_script['jq'],
-            $_script['vue'],
-            $_script['iview'],
             $_script['form-create']
         ];
+        if($this->linkVue)
+            $script[] = $_script['vue'];
+        if($this->linkJq)
+            $script[] = $_script['jq'];
+        if($this->linkIview){
+            $script[] = $_script['iview-css'];
+            $script[] = $_script['iview'];
+        }
         if ($this->loadCityAreaData == true)
             $script[] = $_script['city-area-data'];
         if ($this->loadCityData == true)
             $script[] = $_script['city-data'];
         return $script;
+    }
+
+    /**
+     * 是否隐藏提交按钮(默认显示)
+     * @param bool $isShow
+     */
+    public function hiddenSubmitBtn($isShow = false)
+    {
+        $this->submitBtn = (bool)$isShow;
+    }
+
+    /**
+     * 是否隐藏重置按钮(默认隐藏)
+     * @param bool $isShow
+     */
+    public function hiddenResetBtn($isShow = false)
+    {
+        $this->resetBtn = (bool)$isShow;
     }
 
     /**
@@ -432,6 +503,6 @@ class Form
      */
     public static function create($action, array $components = [])
     {
-        return new self($action, $components);
+        return new static($action, $components);
     }
 }
