@@ -17,6 +17,7 @@
 PHP表单生成器，快速生成现代化的form表单。包含复选框、单选框、输入框、下拉选择框等元素以及省市区三级联动、时间选择、日期选择、颜色选择、树型、文件/图片上传等功能。
 </p>
 
+> 1.2.4 版本支持简单字段验证 
 
 #### 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
  
@@ -269,7 +270,8 @@ echo $html;
 ## 以下组件公共方法
 * **col($span)** 配置col栅格规则,传入0-24的数字或`Col`类,默认为24
 * **value($value)** 设置组件的值
-* **validate(array $validate)** 添加验证规则
+* **validateAs(array $validate)** 添加验证规则
+* **validate()** 设置验证规则[规则说明](https://github.com/xaboy/form-builder/blob/master/src/components/Validate.php)
 
 ## 组件
 `namespace \FormBuilder\Form`
