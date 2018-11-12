@@ -17,8 +17,8 @@
             el: el,
             form:<?=json_encode($form->getConfig('form'))?>,
             row:<?=json_encode($form->getConfig('row'))?>,
-			submitBtn:<?=$form->submitBtn ? 'true' : 'false'?>,
-			resetBtn:<?=$form->resetBtn ? 'true' : 'false'?>,
+			submitBtn:<?=$form->isSubmitBtn() ? '{}' : 'false'?>,
+			resetBtn:<?=$form->isResetBtn() ? 'true' : '{}'?>,
             upload: {
                 onExceededSize: function (file) {
                     vm.$Message.error(file.name + '超出指定大小限制');

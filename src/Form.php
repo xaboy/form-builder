@@ -88,7 +88,7 @@ class Form
         'iview-css' => '<link href="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/styles/iview.css" rel="stylesheet">',
         'iview' => '<script src="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/iview.min.js"></script>',
         //form-create 版本 1.3.3
-        'form-create' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.3.3/dist/form-create.min.js"></script>',
+        'form-create' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.4.4/dist/form-create.min.js"></script>',
         'city-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city.js"></script>',
         'city-area-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city_area.js"></script>'
     ];
@@ -410,7 +410,9 @@ class Form
             $component = $this->components[$field];
             if (!($component instanceof FormComponentDriver))
                 continue;
-            $rules[] = $component->build();
+            $rule = $component->build();
+            $rule['validate'] = array_merge($rule['validate'],$component->validate()->build());
+            $rules[] = $rule;
         }
         return $rules;
     }
@@ -462,37 +464,59 @@ class Form
         $script = [
             $_script['form-create']
         ];
-        if($this->linkVue)
-            $script[] = $_script['vue'];
-        if($this->linkJq)
-            $script[] = $_script['jq'];
-        if($this->linkIview){
-            $script[] = $_script['iview-css'];
-            $script[] = $_script['iview'];
-        }
         if ($this->loadCityAreaData == true)
             $script[] = $_script['city-area-data'];
         if ($this->loadCityData == true)
             $script[] = $_script['city-data'];
-        return $script;
+        if($this->linkJq)
+            $script[] = $_script['jq'];
+        if($this->linkIview){
+            $script[] = $_script['iview'];
+            $script[] = $_script['iview-css'];
+        }
+        if($this->linkVue)
+            $script[] = $_script['vue'];
+        return array_reverse($script);
     }
 
     /**
      * 是否隐藏提交按钮(默认显示)
      * @param bool $isShow
+     * @return Form
      */
     public function hiddenSubmitBtn($isShow = false)
     {
-        $this->submitBtn = (bool)$isShow;
+        $this->submitBtn = !(bool)$isShow;
+
+        return $this;
     }
 
     /**
      * 是否隐藏重置按钮(默认隐藏)
      * @param bool $isShow
+     * @return Form
      */
     public function hiddenResetBtn($isShow = false)
     {
-        $this->resetBtn = (bool)$isShow;
+        $this->resetBtn = !(bool)$isShow;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isResetBtn()
+    {
+        return $this->resetBtn;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSubmitBtn()
+    {
+        return $this->submitBtn;
     }
 
     /**
