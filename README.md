@@ -32,7 +32,7 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 
 ## 示例
 
-![https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg](https://raw.githubusercontent.com/xaboy/form-builder/master/demo.jpg)
+![https://raw.githubusercontent.com/xaboy/form-create/master/images/sample110.jpg](https://raw.githubusercontent.com/xaboy/form-create/master/images/sample110.jpg)
 
 ## 演示地址
 演示站后台:[ crmeb_v2.5 ]
