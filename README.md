@@ -1,5 +1,9 @@
-# form-builder
-
+<p align="center">
+    <a href="https://github.com/xaboy/form-builder">
+        <img width="200" src="http://file.lotkk.com/form-builder.png">
+    </a>
+</p>
+<h1 align="center">form-builder</h1>
 <p align="center">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT" />
   <a href="https://github.com/xaboy">
