@@ -9,6 +9,7 @@ namespace FormBuilder;
 
 use FormBuilder\components\Cascader;
 use FormBuilder\components\FormStyle;
+use FormBuilder\components\Hidden;
 use FormBuilder\components\Row;
 use FormBuilder\traits\form\FormCascaderTrait;
 use FormBuilder\traits\form\FormCheckBoxTrait;
@@ -411,7 +412,7 @@ class Form
             if (!($component instanceof FormComponentDriver))
                 continue;
             $rule = $component->build();
-            $rule['validate'] = array_merge($rule['validate'],$component->validate()->build());
+            $rule['validate'] = array_merge(isset($rule['validate']) ? $rule['validate'] : [],$component->validate()->build());
             $rules[] = $rule;
         }
         return $rules;
