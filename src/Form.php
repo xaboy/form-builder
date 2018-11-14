@@ -412,7 +412,8 @@ class Form
             if (!($component instanceof FormComponentDriver))
                 continue;
             $rule = $component->build();
-            $rule['validate'] = array_merge(isset($rule['validate']) ? $rule['validate'] : [],$component->validate()->build());
+            if(!$component instanceof Hidden)
+                $rule['validate'] = array_merge(isset($rule['validate']) ? $rule['validate'] : [],$component->validate()->build());
             $rules[] = $rule;
         }
         return $rules;
