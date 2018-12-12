@@ -10,8 +10,10 @@
         });
         return rule;
     }, vm = new Vue,name = 'formBuilderExec<?= !$form->getId() ? '' : '_'.$form->getId() ?>';
-
+	var _b = false;
     window[name] =  function create(el, callback) {
+		if(_b) return ;
+		_b = true;
         if (!el) el = document.body;
         var $f = formCreate.create(getRule(), {
             el: el,
@@ -48,11 +50,10 @@
                     success: function (res) {
                         if (res.code == 200) {
                             vm.$Message.success(res.msg);
-                            formCreate.formSuccess && formCreate.formSuccess(res, $f, formData);
                             callback && callback(0, res, $f, formData);
                             //TODO 表单提交成功!
                         } else {
-                            vm.$Message.error(res.msg);
+                            vm.$Message.error(res.msg || '表单提交失败');
                             $f.btn.finish();
                             callback && callback(1, res, $f, formData);
                             //TODO 表单提交失败
