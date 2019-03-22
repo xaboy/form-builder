@@ -21,12 +21,20 @@
 PHP表单生成器，快速生成现代化的form表单。包含复选框、单选框、输入框、下拉选择框等元素以及省市区三级联动、时间选择、日期选择、颜色选择、树型、文件/图片上传等功能。
 </p>
 
+
+
+
 > 1.2.4 版本支持字段验证 
 
-#### 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
- 
-#### 本项目还在不断开发完善中,如有建议或问题请[在这里提出](https://github.com/xaboy/form-builder/issues/new)
+> 计划对该项目重构和升级,期待的话就点个 star 吧
 
+>如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
+>本项目还在不断开发完善中,如有建议或问题请[在这里提出](https://github.com/xaboy/form-builder/issues/new)
+
+
+## 使用建议
+1. 建议将静态资源加载方式从 CDN 加载修改为自己本地资源或自己信任的 CDN [静态资源链接](https://github.com/xaboy/form-builder/blob/master/src/Form.php#L89)
+2. 建议根据自己的业务逻辑重写默认的表单生成页 [默认表单生成页](https://github.com/xaboy/form-builder/tree/master/src/view)
 
 ## 更新说明
 

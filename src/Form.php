@@ -87,15 +87,15 @@ class Form
      * @var array
      */
     protected $script = [
-        'jq' => '<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>',
-        'vue' => '<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>',
+        'jq' => '<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>',
+        'vue' => '<script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>',
         //iview 版本 2.14.3
-        'iview-css' => '<link href="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/styles/iview.css" rel="stylesheet">',
-        'iview' => '<script src="https://cdn.jsdelivr.net/npm/iview@2.14.3/dist/iview.min.js"></script>',
-        //form-create 版本 1.4.5
-        'form-create' => '<script src="https://cdn.jsdelivr.net/npm/form-create@1.4.5/dist/form-create.min.js"></script>',
-        'city-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city.js"></script>',
-        'city-area-data' => '<script src="https://cdn.jsdelivr.net/npm/form-create/district/province_city_area.js"></script>'
+        'iview-css' => '<link href="https://unpkg.com/iview@2.14.3/dist/styles/iview.css" rel="stylesheet">',
+        'iview' => '<script src="https://unpkg.com/iview@2.14.3/dist/iview.min.js"></script>',
+        //form-create 版本 1.6.1
+        'form-create' => '<script src="https://unpkg.com/form-create@1.6.1/dist/form-create.min.js"></script>',
+        'city-data' => '<script src="https://unpkg.com/form-create@1.6.1/district/province_city.js"></script>',
+        'city-area-data' => '<script src="https://unpkg.com/form-create@1.6.1/district/province_city_area.js"></script>'
     ];
 
     /**
