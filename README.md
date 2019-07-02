@@ -26,8 +26,6 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 </p>
 
 
-
-
 > 1.2.4 版本支持字段验证 
 
 > 计划对该项目重构和升级,期待的话就点个 star 吧
@@ -35,6 +33,11 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 >如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
 >本项目还在不断开发完善中,如有建议或问题请[在这里提出](https://github.com/xaboy/form-builder/issues/new)
 
+
+## 演示项目
+[开源的高品质微信商城](http://github.crmeb.net/u/xaboy)
+
+演示地址: [http://demo25.crmeb.net](http://demo25.crmeb.net) 账号：demo 密码：crmeb.com
 
 ## 使用建议
 1. 建议将静态资源加载方式从 CDN 加载修改为自己本地资源或自己信任的 CDN [静态资源链接](https://github.com/xaboy/form-builder/blob/master/src/Form.php#L89)
@@ -54,10 +57,6 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 ## 示例
 
 ![https://raw.githubusercontent.com/xaboy/form-create/master/images/sample110.jpg](https://raw.githubusercontent.com/xaboy/form-create/master/images/sample110.jpg)
-
-## 演示地址
-演示站后台:[ crmeb_v2.5 ]
-http://demo25.crmeb.net 账号：demo 密码：crmeb.com
 
 ### 例子 (TP框架)
 
