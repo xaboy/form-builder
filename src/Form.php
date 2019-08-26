@@ -462,7 +462,7 @@ class Form
     {
         ob_start();
         $form = $this;
-        require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'form.php';
+        require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'form.php';
         $html = ob_get_clean();
         return $html;
     }
@@ -486,7 +486,7 @@ class Form
     {
         ob_start();
         $form = $this;
-        require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'formScript.php';
+        require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'formScript.php';
         $script = ob_get_clean();
         return $script;
 
