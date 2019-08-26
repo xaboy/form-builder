@@ -176,7 +176,7 @@ class Form
      * Form constructor.
      *
      * @param string $action 提交地址
-     * @param array  $components 组件
+     * @param array $components 组件
      */
     public function __construct($action = '', array $components = [])
     {
@@ -445,6 +445,8 @@ class Form
 
             $fields[] = $field;
             $rule = $component->build();
+            if ($component->info)
+                $rule['info'] = $component->info;
             if (!$component instanceof Hidden)
                 $rule['validate'] = array_merge(isset($rule['validate']) ? $rule['validate'] : [], $component->validate()->build());
             $rules[] = $rule;
@@ -564,7 +566,7 @@ class Form
      * 生成表单快捷方法
      *
      * @param string $action
-     * @param array  $components
+     * @param array $components
      * @return Form
      */
     public static function create($action, array $components = [])

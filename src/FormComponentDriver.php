@@ -49,6 +49,13 @@ abstract class FormComponentDriver implements FormComponentInterFace
     protected $props = [];
 
     /**
+     * info
+     *
+     * @var String
+     */
+    public $info;
+
+    /**
      * 字段的值
      *
      * @var
@@ -145,13 +152,24 @@ abstract class FormComponentDriver implements FormComponentInterFace
      * 设置组件的值
      *
      * @param        $value
-     * @param string $default
      * @return $this
      */
     public function value($value)
     {
         if (is_null($value)) $value = '';
         $this->value = (string)$value;
+        return $this;
+    }
+
+    /**
+     * 设置组件的info
+     *
+     * @param string $info
+     * @return $this
+     */
+    public function info($info)
+    {
+        $this->info = (string)$info;
         return $this;
     }
 
