@@ -9,9 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\exception;
+namespace Xaboy\FormBuilder\ui\elm;
 
-class FormBuilderException extends \Exception
+
+use Xaboy\FormBuilder\ui\iview\Validate as IViewValidate;
+
+class Validate extends IViewValidate
 {
-
 }

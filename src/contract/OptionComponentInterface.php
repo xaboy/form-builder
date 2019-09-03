@@ -9,9 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\exception;
+namespace Xaboy\FormBuilder\contract;
 
-class FormBuilderException extends \Exception
+
+interface OptionComponentInterface extends FormComponentInterface
 {
 
 }

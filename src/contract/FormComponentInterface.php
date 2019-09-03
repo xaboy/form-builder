@@ -9,9 +9,16 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\exception;
+namespace Xaboy\FormBuilder\contract;
 
-class FormBuilderException extends \Exception
+
+interface FormComponentInterface
 {
 
+    /**
+     * 获取组件的生成规则
+     *
+     * @return array
+     */
+    public function build();
 }
