@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm\components;
+namespace FormBuilder\ui\elm\components;
 
 
-use Xaboy\FormBuilder\driver\FormComponent;
-use Xaboy\FormBuilder\factory\Elm;
+use FormBuilder\driver\FormComponent;
+use FormBuilder\factory\Elm;
 
 /**
  * 框架组件

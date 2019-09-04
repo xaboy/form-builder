@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\components;
+namespace FormBuilder\ui\iview\components;
 
 
-use Xaboy\FormBuilder\driver\FormComponent;
-use Xaboy\FormBuilder\factory\Iview;
+use FormBuilder\driver\FormComponent;
+use FormBuilder\factory\Iview;
 
 /**
  * Input组件,支持类型text、password、textarea、url、email、date

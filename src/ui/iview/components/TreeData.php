@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\components;
+namespace FormBuilder\ui\iview\components;
 
 
-use Xaboy\FormBuilder\contract\FormComponentInterface;
-use Xaboy\FormBuilder\rule\CallPropsRule;
+use FormBuilder\contract\FormComponentInterface;
+use FormBuilder\rule\CallPropsRule;
 
 /**
  * Class TreeData

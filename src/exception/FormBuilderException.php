@@ -9,7 +9,7 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\exception;
+namespace FormBuilder\exception;
 
 class FormBuilderException extends \Exception
 {

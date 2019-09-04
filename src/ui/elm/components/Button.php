@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm\components;
+namespace FormBuilder\ui\elm\components;
 
 
-use Xaboy\FormBuilder\driver\CustomComponent;
-use Xaboy\FormBuilder\rule\CallPropsRule;
+use FormBuilder\driver\CustomComponent;
+use FormBuilder\rule\CallPropsRule;
 
 /**
  * Class Button

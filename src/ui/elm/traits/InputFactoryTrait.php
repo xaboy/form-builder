@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm\traits;
+namespace FormBuilder\ui\elm\traits;
 
 
-use Xaboy\FormBuilder\ui\elm\components\Input;
+use FormBuilder\ui\elm\components\Input;
 
 trait InputFactoryTrait
 {

@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\components;
+namespace FormBuilder\ui\iview\components;
 
 
-use Xaboy\FormBuilder\driver\FormComponent;
-use Xaboy\FormBuilder\exception\FormBuilderException;
+use FormBuilder\driver\FormComponent;
+use FormBuilder\exception\FormBuilderException;
 
 /**
  * hidden组件

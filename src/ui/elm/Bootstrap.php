@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm;
+namespace FormBuilder\ui\elm;
 
-use Xaboy\FormBuilder\contract\BootstrapInterface;
-use Xaboy\FormBuilder\Form;
+use FormBuilder\contract\BootstrapInterface;
+use FormBuilder\Form;
 
 class Bootstrap implements BootstrapInterface
 {

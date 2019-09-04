@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\contract;
+namespace FormBuilder\contract;
 
 
-use Xaboy\FormBuilder\Form;
+use FormBuilder\Form;
 
 interface BootstrapInterface
 {

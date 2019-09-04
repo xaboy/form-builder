@@ -9,32 +9,32 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\factory;
+namespace FormBuilder\factory;
 
-use Xaboy\FormBuilder\exception\FormBuilderException;
-use Xaboy\FormBuilder\Form;
-use Xaboy\FormBuilder\ui\iview\components\Option;
-use Xaboy\FormBuilder\ui\iview\components\Poptip;
-use Xaboy\FormBuilder\ui\iview\components\Tooltip;
-use Xaboy\FormBuilder\ui\iview\Config;
-use Xaboy\FormBuilder\ui\iview\traits\CascaderFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\CheckBoxFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\ColorPickerFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\DatePickerFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\FrameFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\FormStyleFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\HiddenFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\InputFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\InputNumberFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\RadioFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\RateFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\SelectFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\SliderFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\SwitchesFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\TimePickerFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\TreeFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\UploadFactoryTrait;
-use Xaboy\FormBuilder\ui\iview\traits\ValidateFactoryTrait;
+use FormBuilder\exception\FormBuilderException;
+use FormBuilder\Form;
+use FormBuilder\ui\iview\components\Option;
+use FormBuilder\ui\iview\components\Poptip;
+use FormBuilder\ui\iview\components\Tooltip;
+use FormBuilder\ui\iview\Config;
+use FormBuilder\ui\iview\traits\CascaderFactoryTrait;
+use FormBuilder\ui\iview\traits\CheckBoxFactoryTrait;
+use FormBuilder\ui\iview\traits\ColorPickerFactoryTrait;
+use FormBuilder\ui\iview\traits\DatePickerFactoryTrait;
+use FormBuilder\ui\iview\traits\FrameFactoryTrait;
+use FormBuilder\ui\iview\traits\FormStyleFactoryTrait;
+use FormBuilder\ui\iview\traits\HiddenFactoryTrait;
+use FormBuilder\ui\iview\traits\InputFactoryTrait;
+use FormBuilder\ui\iview\traits\InputNumberFactoryTrait;
+use FormBuilder\ui\iview\traits\RadioFactoryTrait;
+use FormBuilder\ui\iview\traits\RateFactoryTrait;
+use FormBuilder\ui\iview\traits\SelectFactoryTrait;
+use FormBuilder\ui\iview\traits\SliderFactoryTrait;
+use FormBuilder\ui\iview\traits\SwitchesFactoryTrait;
+use FormBuilder\ui\iview\traits\TimePickerFactoryTrait;
+use FormBuilder\ui\iview\traits\TreeFactoryTrait;
+use FormBuilder\ui\iview\traits\UploadFactoryTrait;
+use FormBuilder\ui\iview\traits\ValidateFactoryTrait;
 
 abstract class Iview
 {

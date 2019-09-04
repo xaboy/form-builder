@@ -9,9 +9,9 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\traits;
+namespace FormBuilder\ui\iview\traits;
 
-use Xaboy\FormBuilder\ui\iview\Validate as IViewValidate;
+use FormBuilder\ui\iview\Validate as IViewValidate;
 
 trait ValidateFactoryTrait
 {

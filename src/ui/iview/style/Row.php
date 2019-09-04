@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\style;
+namespace FormBuilder\ui\iview\style;
 
 
-use Xaboy\FormBuilder\contract\FormComponentInterface;
+use FormBuilder\contract\FormComponentInterface;
 
 /**
  * row栅格规则

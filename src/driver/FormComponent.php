@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\driver;
+namespace FormBuilder\driver;
 
 
-use Xaboy\FormBuilder\contract\ValidateInterface;
-use Xaboy\FormBuilder\rule\CallPropsRule;
+use FormBuilder\contract\ValidateInterface;
+use FormBuilder\rule\CallPropsRule;
 
 abstract class FormComponent extends CustomComponent
 {

@@ -9,7 +9,7 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder;
+namespace FormBuilder;
 
 use \Symfony\Component\HttpFoundation\Response as HttpResponse;
 

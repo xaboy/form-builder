@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\style;
+namespace FormBuilder\ui\iview\style;
 
 
-use Xaboy\FormBuilder\contract\FormComponentInterface;
-use Xaboy\FormBuilder\rule\CallPropsRule;
+use FormBuilder\contract\FormComponentInterface;
+use FormBuilder\rule\CallPropsRule;
 
 /**
  * form表单样式

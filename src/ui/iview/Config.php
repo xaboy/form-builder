@@ -9,15 +9,15 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview;
+namespace FormBuilder\ui\iview;
 
 
-use Xaboy\FormBuilder\contract\ConfigInterface;
-use Xaboy\FormBuilder\ui\iview\components\Button;
-use Xaboy\FormBuilder\ui\iview\components\Poptip;
-use Xaboy\FormBuilder\ui\iview\components\Tooltip;
-use Xaboy\FormBuilder\ui\iview\style\FormStyle;
-use Xaboy\FormBuilder\ui\iview\style\Row;
+use FormBuilder\contract\ConfigInterface;
+use FormBuilder\ui\iview\components\Button;
+use FormBuilder\ui\iview\components\Poptip;
+use FormBuilder\ui\iview\components\Tooltip;
+use FormBuilder\ui\iview\style\FormStyle;
+use FormBuilder\ui\iview\style\Row;
 
 class Config implements ConfigInterface
 {

@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\driver;
+namespace FormBuilder\driver;
 
 
-use Xaboy\FormBuilder\rule\OptionsRule;
+use FormBuilder\rule\OptionsRule;
 
 abstract class FormOptionsComponent extends FormComponent
 {

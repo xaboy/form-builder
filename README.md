@@ -249,10 +249,10 @@ echo $html;
 ## FormStyle表单样式
 * **Form::style**
 ```php
- * @method $this inline(Boolean $bool) 是否开启行内表单模式
- * @method $this labelPosition(String $labelPosition) 表单域标签的位置，可选值为 left、right、top
+ * @method $this inline(bool $bool) 是否开启行内表单模式
+ * @method $this labelPosition(string $labelPosition) 表单域标签的位置，可选值为 left、right、top
  * @method $this labelWidth(Number $labelWidth) 表单域标签的宽度，所有的 FormItem 都会继承 Form 组件的 label-width 的值
- * @method $this showMessage(Boolean $bool) 是否显示校验错误信息
+ * @method $this showMessage(bool $bool) 是否显示校验错误信息
  * @method $this autocomplete($bool = false) 原生的 autocomplete 属性，可选值为 true = off 或 false = on
 ```
 
@@ -260,10 +260,10 @@ echo $html;
 * **Form::row**
 ```php
  * @method $this gutter(Number $gutter) 栅格间距，单位 px，左右平分
- * @method $this type(String $type) 栅格的顺序，在flex布局模式下有效
- * @method $this align(String $align) flex 布局下的垂直对齐方式，可选值为top、middle、bottom
- * @method $this justify(String $justify) flex 布局下的水平排列方式，可选值为start、end、center、space-around、space-between
- * @method $this className(String $className) 自定义的class名称
+ * @method $this type(string $type) 栅格的顺序，在flex布局模式下有效
+ * @method $this align(string $align) flex 布局下的垂直对齐方式，可选值为top、middle、bottom
+ * @method $this justify(string $justify) flex 布局下的水平排列方式，可选值为start、end、center、space-around、space-between
+ * @method $this className(string $className) 自定义的class名称
 ```
 参考: [view row栅格布局](http://v2.iviewui.com/components/grid#API)
 
@@ -276,7 +276,7 @@ echo $html;
  * @method $this push(Number $push) 栅格向右移动格数
  * @method $this pull(Number $pull) 栅格向左移动格数
  * @method $this labelWidth(Number $labelWidth) 表单域标签的的宽度,默认150px
- * @method $this className(String $className) 自定义的class名称
+ * @method $this className(string $className) 自定义的class名称
  * @method $this xs(Number|Col $span) <768px 响应式栅格，可为栅格数或一个包含其他属性的对象
  * @method $this sm(Number|Col $span) ≥768px 响应式栅格，可为栅格数或一个包含其他属性的对象
  * @method $this md(Number|Col $span) ≥992px 响应式栅格，可为栅格数或一个包含其他属性的对象
@@ -306,16 +306,16 @@ echo $html;
 * **Form::cityArea** 省市区三级联动,value为array类型
 ```php
     方法   返回值 方法名(参数)   注释
- * @method $this type(String $type) 数据类型, 支持 city_area(省市区三级联动), city (省市二级联动), other (自定义)
- * @method $this disabled(Boolean $bool) 是否禁用选择器
- * @method $this clearable(Boolean $bool) 是否支持清除
- * @method $this placeholder(String $placeholder) 占位文本
- * @method $this trigger(String $trigger) 次级菜单展开方式，可选值为 click 或 hover
- * @method $this changeOnSelect(Boolean $bool) 当此项为 true 时，点选每级菜单选项值都会发生变化, 默认为 false
- * @method $this size(String $size) 输入框大小，可选值为large和small或者不填
- * @method $this filterable(Boolean $bool) 是否支持搜索
- * @method $this notFoundText(String $text) 当搜索列表为空时显示的内容
- * @method $this transfer(Boolean $bool) /是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果
+ * @method $this type(string $type) 数据类型, 支持 city_area(省市区三级联动), city (省市二级联动), other (自定义)
+ * @method $this disabled(bool $bool) 是否禁用选择器
+ * @method $this clearable(bool $bool) 是否支持清除
+ * @method $this placeholder(string $placeholder) 占位文本
+ * @method $this trigger(string $trigger) 次级菜单展开方式，可选值为 click 或 hover
+ * @method $this changeOnSelect(bool $bool) 当此项为 true 时，点选每级菜单选项值都会发生变化, 默认为 false
+ * @method $this size(string $size) 输入框大小，可选值为large和small或者不填
+ * @method $this filterable(bool $bool) 是否支持搜索
+ * @method $this notFoundText(string $text) 当搜索列表为空时显示的内容
+ * @method $this transfer(bool $bool) /是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果
  * @method $this required($message = null, $trigger = 'change') 设为必选
  * @method $this data(array $data) 设置多级联动可选项的数据
  *  例如: {
@@ -330,19 +330,19 @@ echo $html;
 ####  复选框组件
 * **Form::checkbox**
 ```php
- * @method $this size(String $size) 多选框组的尺寸，可选值为 large、small、default 或者不设置
+ * @method $this size(string $size) 多选框组的尺寸，可选值为 large、small、default 或者不设置
  * @method $this required($message = null, $trigger = 'change') 设为必选
 ```
 
 ####  颜色选择组件
 * **Form::color**
 ```php
- * @method $this disabled(Boolean $bool) 是否禁用
- * @method $this alpha(Boolean $bool) 是否支持透明度选择, 默认为false
- * @method $this hue(Boolean $bool) 是否支持色彩选择, 默认为true
- * @method $this recommend(Boolean $bool) 是否显示推荐的颜色预设, 默认为false
- * @method $this size(String $size) 尺寸，可选值为large、small、default或者不设置
- * @method $this format(String $format) 颜色的格式，可选值为 hsl、hsv、hex、rgb    String    开启 alpha 时为 rgb，其它为 hex
+ * @method $this disabled(bool $bool) 是否禁用
+ * @method $this alpha(bool $bool) 是否支持透明度选择, 默认为false
+ * @method $this hue(bool $bool) 是否支持色彩选择, 默认为true
+ * @method $this recommend(bool $bool) 是否显示推荐的颜色预设, 默认为false
+ * @method $this size(string $size) 尺寸，可选值为large、small、default或者不设置
+ * @method $this format(string $format) 颜色的格式，可选值为 hsl、hsv、hex、rgb    string    开启 alpha 时为 rgb，其它为 hex
  * @method $this required($message = null, $trigger = 'change') 设为必选
  * @method $this colors($colors) 自定义颜色预设
 ```
@@ -355,19 +355,19 @@ echo $html;
 * **Form::year** 年份选择
 * **Form::month** 月份选择
 ```php
- * @method $this type(String $type) 显示类型，可选值为 date、daterange、datetime、datetimerange、year、month
- * @method $this format(String $format) 展示的日期格式, 默认为yyyy-MM-dd HH:mm:ss
- * @method $this placement(String $placement) 日期选择器出现的位置，可选值为top, top-start, top-end, bottom, bottom-start, bottom-end, left, left-start, left-end, right, right-start, right-end, 默认为bottom-start
- * @method $this placeholder(String $placeholder) 占位文本
- * @method $this confirm(Boolean $bool) 是否显示底部控制栏，开启后，选择完日期，选择器不会主动关闭，需用户确认后才可关闭, 默认为false
- * @method $this size(String $size) 尺寸，可选值为large、small、default或者不设置
- * @method $this disabled(Boolean $bool) 是否禁用选择器
- * @method $this clearable(Boolean $bool) 是否显示清除按钮
- * @method $this readonly(Boolean $bool) 完全只读，开启后不会弹出选择器，只在没有设置 open 属性下生效
- * @method $this editable(Boolean $bool) 文本框是否可以输入, 默认为false
- * @method $this transfer(Boolean $bool) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
- * @method $this splitPanels(Boolean $bool) 开启后，左右面板不联动，仅在 daterange 和 datetimerange 下可用。
- * @method $this showWeekNumbers(Boolean $bool) 开启后，可以显示星期数。
+ * @method $this type(string $type) 显示类型，可选值为 date、daterange、datetime、datetimerange、year、month
+ * @method $this format(string $format) 展示的日期格式, 默认为yyyy-MM-dd HH:mm:ss
+ * @method $this placement(string $placement) 日期选择器出现的位置，可选值为top, top-start, top-end, bottom, bottom-start, bottom-end, left, left-start, left-end, right, right-start, right-end, 默认为bottom-start
+ * @method $this placeholder(string $placeholder) 占位文本
+ * @method $this confirm(bool $bool) 是否显示底部控制栏，开启后，选择完日期，选择器不会主动关闭，需用户确认后才可关闭, 默认为false
+ * @method $this size(string $size) 尺寸，可选值为large、small、default或者不设置
+ * @method $this disabled(bool $bool) 是否禁用选择器
+ * @method $this clearable(bool $bool) 是否显示清除按钮
+ * @method $this readonly(bool $bool) 完全只读，开启后不会弹出选择器，只在没有设置 open 属性下生效
+ * @method $this editable(bool $bool) 文本框是否可以输入, 默认为false
+ * @method $this transfer(bool $bool) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
+ * @method $this splitPanels(bool $bool) 开启后，左右面板不联动，仅在 daterange 和 datetimerange 下可用。
+ * @method $this showWeekNumbers(bool $bool) 开启后，可以显示星期数。
 ```
 
 #### frame组件
@@ -379,16 +379,16 @@ echo $html;
 * **Form::frameFileOne** frame组件,file类型,value为string|number类型
 * **Form::frameImageOne** frame组件,image类型,value为string|number类型
 ```php
- * @method $this type(String $type) frame类型, 有input, file, image, 默认为input
- * @method $this src(String $src) iframe地址
+ * @method $this type(string $type) frame类型, 有input, file, image, 默认为input
+ * @method $this src(string $src) iframe地址
  * @method $this maxLength(int $length) value的最大数量, 默认无限制
- * @method $this icon(String $icon) 打开弹出框的按钮图标
- * @method $this height(String $height) 弹出框高度
- * @method $this width(String $width) 弹出框宽度
- * @method $this spin(Boolean $bool) 是否显示加载动画, 默认为 true
- * @method $this frameTitle(String $title) 弹出框标题
- * @method $this handleIcon(Boolean $bool) 操作按钮的图标, 设置为false将不显示, 设置为true为默认的预览图标, 类型为file时默认为false, image类型默认为true
- * @method $this allowRemove(Boolean $bool) 是否可删除, 设置为false是不显示删除按钮
+ * @method $this icon(string $icon) 打开弹出框的按钮图标
+ * @method $this height(string $height) 弹出框高度
+ * @method $this width(string $width) 弹出框宽度
+ * @method $this spin(bool $bool) 是否显示加载动画, 默认为 true
+ * @method $this frameTitle(string $title) 弹出框标题
+ * @method $this handleIcon(bool $bool) 操作按钮的图标, 设置为false将不显示, 设置为true为默认的预览图标, 类型为file时默认为false, image类型默认为true
+ * @method $this allowRemove(bool $bool) 是否可删除, 设置为false是不显示删除按钮
 ```
 
 #### hidden组件
@@ -400,39 +400,39 @@ echo $html;
  * @method $this max(float $max) 最大值
  * @method $this min(float $min) 最小值
  * @method $this step(float $step) 每次改变的步伐，可以是小数
- * @method $this size(String $size) 输入框尺寸，可选值为large、small、default或者不填
- * @method $this disabled(Boolean $bool) 设置禁用状态，默认为false
- * @method $this placeholder(String $placeholder) 占位文本
- * @method $this readonly(Boolean $bool) 是否设置为只读，默认为false
- * @method $this editable(Boolean $bool) 是否可编辑，默认为true
+ * @method $this size(string $size) 输入框尺寸，可选值为large、small、default或者不填
+ * @method $this disabled(bool $bool) 设置禁用状态，默认为false
+ * @method $this placeholder(string $placeholder) 占位文本
+ * @method $this readonly(bool $bool) 是否设置为只读，默认为false
+ * @method $this editable(bool $bool) 是否可编辑，默认为true
  * @method $this precision(int $precision) 数值精度
 ```
 #### input输入框组件
 * **Form::input** input输入框
 > 其他type: text类型`Form::text`,password类型`Form::password`,textarea类型`Form::textarea`,url类型`Form::url`,email类型`Form::email`,date类型`Form::idate`
 ```php
- * @method $this type(String $type) 输入框类型，可选值为 text、password、textarea、url、email、date;
- * @method $this size(String $size) 输入框尺寸，可选值为large、small、default或者不设置;
- * @method $this placeholder(String $placeholder) 占位文本
- * @method $this clearable(Boolean $bool) 是否显示清空按钮, 默认为false
- * @method $this disabled(Boolean $bool) 设置输入框为禁用状态, 默认为false
- * @method $this readonly(Boolean $bool) 设置输入框为只读, 默认为false
+ * @method $this type(string $type) 输入框类型，可选值为 text、password、textarea、url、email、date;
+ * @method $this size(string $size) 输入框尺寸，可选值为large、small、default或者不设置;
+ * @method $this placeholder(string $placeholder) 占位文本
+ * @method $this clearable(bool $bool) 是否显示清空按钮, 默认为false
+ * @method $this disabled(bool $bool) 设置输入框为禁用状态, 默认为false
+ * @method $this readonly(bool $bool) 设置输入框为只读, 默认为false
  * @method $this maxlength(int $length) 最大输入长度
- * @method $this icon(String $icon) 输入框尾部图标，仅在 text 类型下有效
+ * @method $this icon(string $icon) 输入框尾部图标，仅在 text 类型下有效
  * @method $this rows(int $rows) 文本域默认行数，仅在 textarea 类型下有效, 默认为2
- * @method $this number(Boolean $bool) 将用户的输入转换为 Number 类型, 默认为false
- * @method $this autofocus(Boolean $bool) 自动获取焦点, 默认为false
- * @method $this autocomplete(Boolean $bool) 原生的自动完成功能, 默认为false
- * @method $this spellcheck(Boolean $bool) 原生的 spellcheck 属性, 默认为false
- * @method $this wrap(String $warp) 原生的 wrap 属性，可选值为 hard 和 soft, 默认为soft
+ * @method $this number(bool $bool) 将用户的输入转换为 Number 类型, 默认为false
+ * @method $this autofocus(bool $bool) 自动获取焦点, 默认为false
+ * @method $this autocomplete(bool $bool) 原生的自动完成功能, 默认为false
+ * @method $this spellcheck(bool $bool) 原生的 spellcheck 属性, 默认为false
+ * @method $this wrap(string $warp) 原生的 wrap 属性，可选值为 hard 和 soft, 默认为soft
  * @method $this autoSize($minRows, $maxRows) 自适应内容高度，仅在 textarea 类型下有效
 ```
 
 #### 单选框组件
 * **Form::radio** 
 ```php
- * @method $this size(String $size) 单选框的尺寸，可选值为 large、small、default 或者不设置
- * @method $this vertical(Boolean $bool) 是否垂直排列，按钮样式下无效
+ * @method $this size(string $size) 单选框的尺寸，可选值为 large、small、default 或者不设置
+ * @method $this vertical(bool $bool) 是否垂直排列，按钮样式下无效
  * @method $this button() 使用按钮样式
  * @method $this required($message = null, $trigger = 'change') 设为必选
 ```
@@ -441,10 +441,10 @@ echo $html;
 * **Form::rate** 
 ```php
  * @method $this count(int $star) star 总数, 默认为 5
- * @method $this allowHalf(Boolean $bool) 是否允许半选, 默认为 false
- * @method $this disabled(Boolean $bool) 是否只读，无法进行交互, 默认为
- * @method $this showText(Boolean $bool) 是否显示提示文字, 默认为 false
- * @method $this clearable(Boolean $bool) 是否可以取消选择, 默认为 false
+ * @method $this allowHalf(bool $bool) 是否允许半选, 默认为 false
+ * @method $this disabled(bool $bool) 是否只读，无法进行交互, 默认为
+ * @method $this showText(bool $bool) 是否显示提示文字, 默认为 false
+ * @method $this clearable(bool $bool) 是否可以取消选择, 默认为 false
 ```
 
 #### select选择框组件
@@ -452,15 +452,15 @@ echo $html;
 * **Form::selectMultiple** select选择框,多选,value为array类型
 * **Form::selectOne** select选择框,单选
 ```php
- * @method $this multiple(Boolean $bool) 是否支持多选, 默认为false
- * @method $this disabled(Boolean $bool) 是否禁用, 默认为false
- * @method $this clearable(Boolean $bool) 是否可以清空选项，只在单选时有效, 默认为false
- * @method $this filterable(Boolean $bool) 是否支持搜索, 默认为false
- * @method $this size(String $size) 选择框大小，可选值为large、small、default或者不填
- * @method $this placeholder(String $placeholder) 占位文本
- * @method $this transfer(String $transfer) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
- * @method $this placement(String $placement) 弹窗的展开方向，可选值为 bottom 和 top, 默认为bottom
- * @method $this notFoundText(String $text) 当下拉列表为空时显示的内容, 默认为 无匹配数据
+ * @method $this multiple(bool $bool) 是否支持多选, 默认为false
+ * @method $this disabled(bool $bool) 是否禁用, 默认为false
+ * @method $this clearable(bool $bool) 是否可以清空选项，只在单选时有效, 默认为false
+ * @method $this filterable(bool $bool) 是否支持搜索, 默认为false
+ * @method $this size(string $size) 选择框大小，可选值为large、small、default或者不填
+ * @method $this placeholder(string $placeholder) 占位文本
+ * @method $this transfer(string $transfer) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
+ * @method $this placement(string $placement) 弹窗的展开方向，可选值为 bottom 和 top, 默认为bottom
+ * @method $this notFoundText(string $text) 当下拉列表为空时显示的内容, 默认为 无匹配数据
  * @method $this required($message = null, $trigger = 'change') 设为必选
 ```
 
@@ -471,23 +471,23 @@ echo $html;
  * @method $this min(float $min) 最小值, 默认 0
  * @method $this max(float $max) 最大值, 默认 100
  * @method $this step(float $step) 步长，取值建议能被（max - min）整除, 默认 1
- * @method $this disabled(Boolean $bool) 是否禁用滑块, 默认 false
- * @method $this range(Boolean $bool) 是否开启双滑块模式, 默认
- * @method $this showInput(Boolean $bool) 是否显示数字输入框，仅在单滑块模式下有效, 默认 false
- * @method $this showStops(Boolean $bool) 是否显示间断点，建议在 step 不密集时使用, 默认 false
- * @method $this showTip(String $tip) 提示的显示控制，可选值为 hover（悬停，默认）、always（总是可见）、never（不可见）
- * @method $this inputSize(String $size) 数字输入框的尺寸，可选值为large、small、default或者不填，仅在开启 show-input 时有效
+ * @method $this disabled(bool $bool) 是否禁用滑块, 默认 false
+ * @method $this range(bool $bool) 是否开启双滑块模式, 默认
+ * @method $this showInput(bool $bool) 是否显示数字输入框，仅在单滑块模式下有效, 默认 false
+ * @method $this showStops(bool $bool) 是否显示间断点，建议在 step 不密集时使用, 默认 false
+ * @method $this showTip(string $tip) 提示的显示控制，可选值为 hover（悬停，默认）、always（总是可见）、never（不可见）
+ * @method $this inputSize(string $size) 数字输入框的尺寸，可选值为large、small、default或者不填，仅在开启 show-input 时有效
 ```
 
 #### 开关组件组件
 * **Form::switches**
 ```php
- * @method $this size(String $size) 开关的尺寸，可选值为large、small、default或者不写。建议开关如果使用了2个汉字的文字，使用 large。
- * @method $this disabled(Boolean $bool) 禁用开关, 默认为false
- * @method $this trueValue(String $value) 选中时的值，默认为1
- * @method $this falseValue(String $value) 没有选中时的值，默认为0
- * @method $this openStr(String $open) 自定义显示打开时的内容
- * @method $this closeStr(String $close) 自定义显示关闭时的内容
+ * @method $this size(string $size) 开关的尺寸，可选值为large、small、default或者不写。建议开关如果使用了2个汉字的文字，使用 large。
+ * @method $this disabled(bool $bool) 禁用开关, 默认为false
+ * @method $this trueValue(string $value) 选中时的值，默认为1
+ * @method $this falseValue(string $value) 没有选中时的值，默认为0
+ * @method $this openStr(string $open) 自定义显示打开时的内容
+ * @method $this closeStr(string $close) 自定义显示关闭时的内容
 ```
 
 #### 时间选择组件
@@ -495,17 +495,17 @@ echo $html;
 * **Form::time** 时间选择
 * **Form::timeRange** 时间区间选择,value为array类型
 ```php
- * @method $this type(String $type) 显示类型，可选值为 time、timerange
- * @method $this format(String $format) 展示的时间格式, 默认为HH:mm:ss
- * @method $this placement(String $placement) 时间选择器出现的位置，可选值为top, top-start, top-end, bottom, bottom-start, bottom-end, left, left-start, left-end, right, right-start, right-end, 默认为bottom-start
- * @method $this placeholder(String $placeholder) 占位文本
- * @method $this confirm(Boolean $bool) 是否显示底部控制栏, 默认为false
- * @method $this size(String $size) 尺寸，可选值为large、small、default或者不设置
- * @method $this disabled(Boolean $bool) 是否禁用选择器
- * @method $this clearable(Boolean $bool) 是否显示清除按钮
- * @method $this readonly(Boolean $bool) 完全只读，开启后不会弹出选择器，只在没有设置 open 属性下生效
- * @method $this editable(Boolean $bool) 文本框是否可以输入, 默认为false
- * @method $this transfer(Boolean $bool) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
+ * @method $this type(string $type) 显示类型，可选值为 time、timerange
+ * @method $this format(string $format) 展示的时间格式, 默认为HH:mm:ss
+ * @method $this placement(string $placement) 时间选择器出现的位置，可选值为top, top-start, top-end, bottom, bottom-start, bottom-end, left, left-start, left-end, right, right-start, right-end, 默认为bottom-start
+ * @method $this placeholder(string $placeholder) 占位文本
+ * @method $this confirm(bool $bool) 是否显示底部控制栏, 默认为false
+ * @method $this size(string $size) 尺寸，可选值为large、small、default或者不设置
+ * @method $this disabled(bool $bool) 是否禁用选择器
+ * @method $this clearable(bool $bool) 是否显示清除按钮
+ * @method $this readonly(bool $bool) 完全只读，开启后不会弹出选择器，只在没有设置 open 属性下生效
+ * @method $this editable(bool $bool) 文本框是否可以输入, 默认为false
+ * @method $this transfer(bool $bool) 是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果, 默认为false
  * @method $this steps($h, $i = 0, $s = 0) 下拉列表的时间间隔，数组的三项分别对应小时、分钟、秒, 例如设置为 [1, 15] 时，分钟会显示：00、15、30、45。
 ```
 
@@ -516,13 +516,13 @@ echo $html;
 * **Form::uploadImageOne** 单图上传组件
 * **Form::uploadFileOne** 单文件上传组件
 ```php
- * @method $this uploadType(String $uploadType) 上传文件类型，可选值为 image（图片上传），file（文件上传）
- * @method $this action(String $action) 上传的地址
- * @method $this multiple(Boolean $bool) 是否支持多选文件
- * @method $this name(String $name) 上传的文件字段名
- * @method $this accept(String $accept) 接受上传的文件类型
+ * @method $this uploadType(string $uploadType) 上传文件类型，可选值为 image（图片上传），file（文件上传）
+ * @method $this action(string $action) 上传的地址
+ * @method $this multiple(bool $bool) 是否支持多选文件
+ * @method $this name(string $name) 上传的文件字段名
+ * @method $this accept(string $accept) 接受上传的文件类型
  * @method $this maxSize(int $size) 文件大小限制，单位 kb
- * @method $this withCredentials(Boolean $bool) 支持发送 cookie 凭证信息, 默认为false
+ * @method $this withCredentials(bool $bool) 支持发送 cookie 凭证信息, 默认为false
  * @method $this maxLength(Int $length) 最大上传文件数, 0为无限
  * @method $this headers(array $headers) 设置上传的请求头部
  * @method $this format(array $format) 支持的文件类型，与 accept 不同的是，format 是识别文件的后缀名，accept 为 input 标签原生的 accept 属性，会在选择文件时过滤，可以两者结合使用
@@ -533,13 +533,13 @@ echo $html;
 
 #### 树型组件
 * **Form::tree** 树型组件
-* **Form::treeSelected** 选中类型,value为array类型,当`type=selected`并且`multiple=false`,值为String或Number类型
+* **Form::treeSelected** 选中类型,value为array类型,当`type=selected`并且`multiple=false`,值为string或Number类型
 * **Form::treeChecked** 选择类型,value为array类型
 ```php
- * @method $this type(String $type) 类型，可选值为 checked、selected
- * @method $this multiple(Boolean $bool) 是否支持多选,当`type=selected`并且`multiple=false`,默认为false,值为String或Number类型，其他情况为Array类型
- * @method $this showCheckbox(Boolean $bool) 是否显示多选框,默认为false
- * @method $this emptyText(String $emptyText) 没有数据时的提示,默认为'暂无数据'
+ * @method $this type(string $type) 类型，可选值为 checked、selected
+ * @method $this multiple(bool $bool) 是否支持多选,当`type=selected`并且`multiple=false`,默认为false,值为string或Number类型，其他情况为Array类型
+ * @method $this showCheckbox(bool $bool) 是否显示多选框,默认为false
+ * @method $this emptyText(string $emptyText) 没有数据时的提示,默认为'暂无数据'
  * @method $this data(array $treeData) 设置可选的data,**id必须唯一**
  * @method $this jsData($var) 设置data为js变量
 ```
@@ -548,13 +548,13 @@ echo $html;
 ## 树型组件data数据类 TreeData
 * **Form::treeData** 树型组件data
 ```php
- * @method $this id(String $id) Id,必须唯一
- * @method $this title(String $title) 标题
- * @method $this expand(Boolean $bool) 是否展开直子节点,默认为false
- * @method $this disabled(Boolean $bool) 禁掉响应,默认为false
- * @method $this disableCheckbox(Boolean $bool) 禁掉 checkbox
- * @method $this selected(Boolean $bool) 是否选中子节点
- * @method $this checked(Boolean $bool) 是否勾选(如果勾选，子节点也会全部勾选)
+ * @method $this id(string $id) Id,必须唯一
+ * @method $this title(string $title) 标题
+ * @method $this expand(bool $bool) 是否展开直子节点,默认为false
+ * @method $this disabled(bool $bool) 禁掉响应,默认为false
+ * @method $this disableCheckbox(bool $bool) 禁掉 checkbox
+ * @method $this selected(bool $bool) 是否选中子节点
+ * @method $this checked(bool $bool) 是否勾选(如果勾选，子节点也会全部勾选)
  * @method $this children(array $children) 批量设置子集
  * @method $this child(TreeData $child) 设置子集
 ```

@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm;
+namespace FormBuilder\ui\elm;
 
 
-use Xaboy\FormBuilder\ui\iview\Validate as IViewValidate;
+use FormBuilder\ui\iview\Validate as IViewValidate;
 
 class Validate extends IViewValidate
 {

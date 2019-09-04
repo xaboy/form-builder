@@ -9,32 +9,32 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\factory;
+namespace FormBuilder\factory;
 
-use Xaboy\FormBuilder\exception\FormBuilderException;
-use Xaboy\FormBuilder\Form;
-use Xaboy\FormBuilder\ui\elm\components\Option;
-use Xaboy\FormBuilder\ui\elm\components\Popover;
-use Xaboy\FormBuilder\ui\elm\components\Tooltip;
-use Xaboy\FormBuilder\ui\elm\Config;
-use Xaboy\FormBuilder\ui\elm\traits\CascaderFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\CheckBoxFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\ColorPickerFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\DatePickerFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\FrameFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\FormStyleFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\HiddenFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\InputFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\InputNumberFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\RadioFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\RateFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\SelectFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\SliderFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\SwitchesFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\TimePickerFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\TreeFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\UploadFactoryTrait;
-use Xaboy\FormBuilder\ui\elm\traits\ValidateFactoryTrait;
+use FormBuilder\exception\FormBuilderException;
+use FormBuilder\Form;
+use FormBuilder\ui\elm\components\Option;
+use FormBuilder\ui\elm\components\Popover;
+use FormBuilder\ui\elm\components\Tooltip;
+use FormBuilder\ui\elm\Config;
+use FormBuilder\ui\elm\traits\CascaderFactoryTrait;
+use FormBuilder\ui\elm\traits\CheckBoxFactoryTrait;
+use FormBuilder\ui\elm\traits\ColorPickerFactoryTrait;
+use FormBuilder\ui\elm\traits\DatePickerFactoryTrait;
+use FormBuilder\ui\elm\traits\FrameFactoryTrait;
+use FormBuilder\ui\elm\traits\FormStyleFactoryTrait;
+use FormBuilder\ui\elm\traits\HiddenFactoryTrait;
+use FormBuilder\ui\elm\traits\InputFactoryTrait;
+use FormBuilder\ui\elm\traits\InputNumberFactoryTrait;
+use FormBuilder\ui\elm\traits\RadioFactoryTrait;
+use FormBuilder\ui\elm\traits\RateFactoryTrait;
+use FormBuilder\ui\elm\traits\SelectFactoryTrait;
+use FormBuilder\ui\elm\traits\SliderFactoryTrait;
+use FormBuilder\ui\elm\traits\SwitchesFactoryTrait;
+use FormBuilder\ui\elm\traits\TimePickerFactoryTrait;
+use FormBuilder\ui\elm\traits\TreeFactoryTrait;
+use FormBuilder\ui\elm\traits\UploadFactoryTrait;
+use FormBuilder\ui\elm\traits\ValidateFactoryTrait;
 
 abstract class Elm
 {

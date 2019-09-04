@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\rule;
+namespace FormBuilder\rule;
 
 
-use Xaboy\FormBuilder\contract\ValidateInterface;
+use FormBuilder\contract\ValidateInterface;
 
 trait ValidateRule
 {

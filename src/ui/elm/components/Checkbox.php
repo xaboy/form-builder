@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm\components;
+namespace FormBuilder\ui\elm\components;
 
 
-use Xaboy\FormBuilder\driver\FormOptionsComponent;
-use Xaboy\FormBuilder\factory\Elm;
+use FormBuilder\driver\FormOptionsComponent;
+use FormBuilder\factory\Elm;
 
 /**
  * 复选框组件

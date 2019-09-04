@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm\components;
+namespace FormBuilder\ui\elm\components;
 
 
-use Xaboy\FormBuilder\contract\OptionComponentInterface;
+use FormBuilder\contract\OptionComponentInterface;
 
 class Option implements OptionComponentInterface
 {

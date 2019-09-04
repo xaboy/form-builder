@@ -9,12 +9,12 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm\traits;
+namespace FormBuilder\ui\elm\traits;
 
 
-use Xaboy\FormBuilder\ui\elm\style\Col;
-use Xaboy\FormBuilder\ui\elm\style\FormStyle;
-use Xaboy\FormBuilder\ui\elm\style\Row;
+use FormBuilder\ui\elm\style\Col;
+use FormBuilder\ui\elm\style\FormStyle;
+use FormBuilder\ui\elm\style\Row;
 
 trait FormStyleFactoryTrait
 {

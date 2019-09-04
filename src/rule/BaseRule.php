@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\rule;
+namespace FormBuilder\rule;
 
 
-use Xaboy\FormBuilder\contract\ColComponentInterface;
+use FormBuilder\contract\ColComponentInterface;
 
 trait BaseRule
 {

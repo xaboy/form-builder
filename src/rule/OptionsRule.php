@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\rule;
+namespace FormBuilder\rule;
 
 
-use Xaboy\FormBuilder\contract\OptionComponentInterface;
+use FormBuilder\contract\OptionComponentInterface;
 
 trait OptionsRule
 {

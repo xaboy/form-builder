@@ -5,10 +5,10 @@
  * Github: https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\traits;
+namespace FormBuilder\ui\iview\traits;
 
 
-use Xaboy\FormBuilder\ui\iview\components\Upload;
+use FormBuilder\ui\iview\components\Upload;
 
 trait UploadFactoryTrait
 {

@@ -9,15 +9,15 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\driver;
+namespace FormBuilder\driver;
 
 
-use Xaboy\FormBuilder\contract\FormComponentInterface;
-use Xaboy\FormBuilder\rule\BaseRule;
-use Xaboy\FormBuilder\rule\ChildrenRule;
-use Xaboy\FormBuilder\rule\EmitRule;
-use Xaboy\FormBuilder\rule\PropsRule;
-use Xaboy\FormBuilder\rule\ValidateRule;
+use FormBuilder\contract\FormComponentInterface;
+use FormBuilder\rule\BaseRule;
+use FormBuilder\rule\ChildrenRule;
+use FormBuilder\rule\EmitRule;
+use FormBuilder\rule\PropsRule;
+use FormBuilder\rule\ValidateRule;
 
 /**
  * 自定义组件

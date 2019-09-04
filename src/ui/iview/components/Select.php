@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\components;
+namespace FormBuilder\ui\iview\components;
 
 
-use Xaboy\FormBuilder\driver\FormOptionsComponent;
-use Xaboy\FormBuilder\factory\Iview;
+use FormBuilder\driver\FormOptionsComponent;
+use FormBuilder\factory\Iview;
 
 /**
  * 选择器组件

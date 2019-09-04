@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\rule;
+namespace FormBuilder\rule;
 
 
-use Xaboy\FormBuilder\exception\FormBuilderException;
+use FormBuilder\exception\FormBuilderException;
 
 trait CallPropsRule
 {

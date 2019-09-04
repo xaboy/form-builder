@@ -9,15 +9,15 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder;
+namespace FormBuilder;
 
 
-use Xaboy\FormBuilder\contract\BootstrapInterface;
-use Xaboy\FormBuilder\contract\ConfigInterface;
-use Xaboy\FormBuilder\contract\FormComponentInterface;
-use Xaboy\FormBuilder\exception\FormBuilderException;
-use Xaboy\FormBuilder\ui\iview\Bootstrap as IViewBootstrap;
-use Xaboy\FormBuilder\ui\elm\Bootstrap as ElmBootstrap;
+use FormBuilder\contract\BootstrapInterface;
+use FormBuilder\contract\ConfigInterface;
+use FormBuilder\contract\FormComponentInterface;
+use FormBuilder\exception\FormBuilderException;
+use FormBuilder\ui\iview\Bootstrap as IViewBootstrap;
+use FormBuilder\ui\elm\Bootstrap as ElmBootstrap;
 
 class Form
 {

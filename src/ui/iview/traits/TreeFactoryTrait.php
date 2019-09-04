@@ -9,11 +9,11 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\traits;
+namespace FormBuilder\ui\iview\traits;
 
 
-use Xaboy\FormBuilder\ui\iview\components\Tree;
-use Xaboy\FormBuilder\ui\iview\components\TreeData;
+use FormBuilder\ui\iview\components\Tree;
+use FormBuilder\ui\iview\components\TreeData;
 
 trait TreeFactoryTrait
 {

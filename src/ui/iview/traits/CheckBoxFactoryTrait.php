@@ -9,9 +9,9 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview\traits;
+namespace FormBuilder\ui\iview\traits;
 
-use Xaboy\FormBuilder\ui\iview\components\Checkbox;
+use FormBuilder\ui\iview\components\Checkbox;
 
 trait CheckBoxFactoryTrait
 {

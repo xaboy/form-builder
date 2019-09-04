@@ -9,7 +9,7 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\rule;
+namespace FormBuilder\rule;
 
 
 trait PropsRule

@@ -9,10 +9,10 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\iview;
+namespace FormBuilder\ui\iview;
 
 
-use Xaboy\FormBuilder\contract\ValidateInterface;
+use FormBuilder\contract\ValidateInterface;
 
 class Validate implements ValidateInterface
 {

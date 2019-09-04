@@ -9,15 +9,15 @@
  * @link     https://github.com/xaboy/form-builder
  */
 
-namespace Xaboy\FormBuilder\ui\elm;
+namespace FormBuilder\ui\elm;
 
 
-use Xaboy\FormBuilder\contract\ConfigInterface;
-use Xaboy\FormBuilder\ui\elm\components\Button;
-use Xaboy\FormBuilder\ui\elm\components\Popover;
-use Xaboy\FormBuilder\ui\elm\components\Tooltip;
-use Xaboy\FormBuilder\ui\elm\style\FormStyle;
-use Xaboy\FormBuilder\ui\elm\style\Row;
+use FormBuilder\contract\ConfigInterface;
+use FormBuilder\ui\elm\components\Button;
+use FormBuilder\ui\elm\components\Popover;
+use FormBuilder\ui\elm\components\Tooltip;
+use FormBuilder\ui\elm\style\FormStyle;
+use FormBuilder\ui\elm\style\Row;
 
 class Config implements ConfigInterface
 {
