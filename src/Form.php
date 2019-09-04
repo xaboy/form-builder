@@ -12,12 +12,12 @@
 namespace FormBuilder;
 
 
-use FormBuilder\contract\BootstrapInterface;
-use FormBuilder\contract\ConfigInterface;
-use FormBuilder\contract\FormComponentInterface;
-use FormBuilder\exception\FormBuilderException;
-use FormBuilder\ui\iview\Bootstrap as IViewBootstrap;
-use FormBuilder\ui\elm\Bootstrap as ElmBootstrap;
+use FormBuilder\Contract\BootstrapInterface;
+use FormBuilder\Contract\ConfigInterface;
+use FormBuilder\Contract\FormComponentInterface;
+use FormBuilder\Exception\FormBuilderException;
+use FormBuilder\UI\Iview\Bootstrap as IViewBootstrap;
+use FormBuilder\UI\Elm\Bootstrap as ElmBootstrap;
 
 class Form
 {
@@ -361,7 +361,7 @@ class Form
         ob_start();
         $form = $this;
         $DS = DIRECTORY_SEPARATOR;
-        require dirname(__FILE__) . $DS . 'template' . $DS . 'createScript.min.php';
+        require dirname(__FILE__) . $DS . 'Template' . $DS . 'createScript.min.php';
         $script = ob_get_clean();
         return $script;
     }
@@ -376,7 +376,7 @@ class Form
         ob_start();
         $form = $this;
         $DS = DIRECTORY_SEPARATOR;
-        require dirname(__FILE__) . $DS . 'template' . $DS . 'form.php';
+        require dirname(__FILE__) . $DS . 'Template' . $DS . 'form.php';
         $html = ob_get_clean();
         return $html;
     }
@@ -412,7 +412,7 @@ class Form
     }
 
     /**
-     * iview 版表单生成器
+     * Iview 版表单生成器
      *
      * @param string $action
      * @param array $rule

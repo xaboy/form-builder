@@ -121,7 +121,7 @@ $field = [
     Form::radio('is_postage','是否包邮',0)->options([['label'=>'是','value'=>1],['label'=>'否','value'=>0]])->col(8)
 ];
 $form = Form::create(Url::build('save'));
-$form->setMethod('post')->setTitle('添加产品')->components($field);
+$form->setMethod('post')->setTitle('添加产品')->Components($field);
 $this->assign(compact('form'));
 return $this->fetch('public/form-builder');
 
@@ -229,7 +229,7 @@ echo $html;
 ## Form 表单生成类
 `namespace \FormBuilder\Form`
 
-* **components(array $components = [])** 批量添加组件
+* **Components(array $Components = [])** 批量添加组件
 * **formRow(Row $row)** 设置表单Row规则
 * **formStyle(FormStyle $formStyle)** 设置表单样式
 * **setAction($action)** 设置提交地址
@@ -243,11 +243,11 @@ echo $html;
 * **script()** 获取表单生成器所需全部js
 * **formScript()** 获取生成表单的js代码,可用js变量接受生成函数`create`,执行`create(el,callback)`即可生成表单
 * **getScript()** 获取表单生成器所需js
-* **create($action, array $components = [])** 生成表单快捷方法
+* **create($action, array $Components = [])** 生成表单快捷方法
 * **setTitle($title)** 设置title
 
 ## FormStyle表单样式
-* **Form::style**
+* **Form::Style**
 ```php
  * @method $this inline(bool $bool) 是否开启行内表单模式
  * @method $this labelPosition(string $labelPosition) 表单域标签的位置，可选值为 left、right、top
@@ -265,7 +265,7 @@ echo $html;
  * @method $this justify(string $justify) flex 布局下的水平排列方式，可选值为start、end、center、space-around、space-between
  * @method $this className(string $className) 自定义的class名称
 ```
-参考: [view row栅格布局](http://v2.iviewui.com/components/grid#API)
+参考: [view row栅格布局](http://v2.iviewui.com/Components/grid#API)
 
 ## Col栅格规则
 * **Form::col**
@@ -282,7 +282,7 @@ echo $html;
  * @method $this md(Number|Col $span) ≥992px 响应式栅格，可为栅格数或一个包含其他属性的对象
  * @method $this lg(Number|Col $span) ≥1200px 响应式栅格，可为栅格数或一个包含其他属性的对象
 ```
-参考: [view col栅格布局](http://v2.iviewui.com/components/grid#API)
+参考: [view col栅格布局](http://v2.iviewui.com/Components/grid#API)
 
 
 ## select,checkbox,radio组件配置options专用方法
@@ -295,7 +295,7 @@ echo $html;
 * **col($span)** 配置col栅格规则,传入0-24的数字或`Col`类,默认为24
 * **value($value)** 设置组件的值
 * **validateAs(array $validate)** 添加验证规则
-* **validate()** 设置验证规则[规则说明](https://github.com/xaboy/form-builder/blob/master/src/components/Validate.php)
+* **validate()** 设置验证规则[规则说明](https://github.com/xaboy/form-builder/blob/master/src/Components/Validate.php)
 
 ## 组件
 `namespace \FormBuilder\Form`
@@ -560,7 +560,7 @@ echo $html;
 ```
 
 ## 所有组件生成效果
-![https://raw.githubusercontent.com/xaboy/form-builder/master/images/components.png](https://raw.githubusercontent.com/xaboy/form-builder/master/images/components.png)
+![https://raw.githubusercontent.com/xaboy/form-builder/master/images/Components.png](https://raw.githubusercontent.com/xaboy/form-builder/master/images/Components.png)
 
 ## 参考
 
