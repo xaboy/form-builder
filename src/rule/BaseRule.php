@@ -242,11 +242,13 @@ trait BaseRule
     protected function parseBaseRule()
     {
         $rule = [
-            'value' => $this->value,
-            'field' => $this->field,
             'type' => $this->type
         ];
 
+        if (!is_null($this->field))
+            $rule['field'] = $this->field;
+        if (!is_null($this->value))
+            $rule['value'] = $this->value;
         if (!is_null($this->title))
             $rule['title'] = $this->title;
         if (!is_null($this->className))

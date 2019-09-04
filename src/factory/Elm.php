@@ -86,7 +86,7 @@ abstract class Elm
      *
      * @return Popover
      */
-    public static function poptip()
+    public static function popover()
     {
         return new Popover();
     }
