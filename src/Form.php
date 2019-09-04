@@ -292,18 +292,6 @@ class Form
         return $rule;
     }
 
-    /**
-     * 获取生成规则 field
-     *
-     * @param $rule
-     * @return string|null
-     */
-    protected function getField($rule)
-    {
-        $rule = $this->parseFormComponent($rule);
-        return isset($rule['field']) ? $rule['field'] : null;
-    }
-
     public function getDependScript()
     {
         return $this->dependScript;
@@ -396,13 +384,22 @@ class Form
     /**
      * 检查field 是否重复
      *
+     * @param null $rules
+     * @param array $fields
+     * @return array
      * @throws FormBuilderException
      */
-    public function checkFieldUnique()
+    protected function checkFieldUnique($rules = null, $fields = [])
     {
-        $fields = [];
-        foreach ($this->rule as $rule) {
-            $field = $this->getField($rule);
+        if (is_null($rules)) $rules = $this->rule;
+
+        foreach ($rules as $rule) {
+            $rule = $this->parseFormComponent($rule);
+            $field = isset($rule['field']) ? $rule['field'] : null;
+
+            if (isset($rule['children']) && count($rule['children']))
+                $fields = $this->checkFieldUnique($rule['children'], $fields);
+
             if (is_null($field) || $field === '')
                 continue;
             else if (isset($fields[$field]))
@@ -410,6 +407,8 @@ class Form
             else
                 $fields[$field] = true;
         }
+
+        return $fields;
     }
 
     /**
