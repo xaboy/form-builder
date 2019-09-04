@@ -61,17 +61,6 @@ class Switches extends FormComponent
         return 'switch';
     }
 
-    /**
-     * @return array
-     */
-    public function build()
-    {
-        $rule = parent::build();
-        if (!count($rule['props']->slot)) unset($rule['props']->slot);
-
-        return $rule;
-    }
-
     public function createValidate()
     {
         return Elm::validateStr();
