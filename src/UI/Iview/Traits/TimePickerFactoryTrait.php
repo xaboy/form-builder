@@ -32,7 +32,7 @@ trait TimePickerFactoryTrait
     }
 
     /**
-     * 事件选择
+     * 时间选择
      *
      * @param string $field
      * @param string $title

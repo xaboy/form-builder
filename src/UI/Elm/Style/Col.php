@@ -102,9 +102,9 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * <768px int|self 响应式栅格，可为栅格数或一个包含其他属性的对象
+     * <768px 响应式栅格，可为栅格数或一个包含其他属性的对象
      *
-     * @param $xs
+     * @param int|self $xs
      * @return $this
      */
     public function xs($xs)
@@ -114,9 +114,9 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * ≥768px int|self 响应式栅格，可为栅格数或一个包含其他属性的对象
+     * ≥768px 响应式栅格，可为栅格数或一个包含其他属性的对象
      *
-     * @param $sm
+     * @param int|self $sm
      * @return $this
      */
     public function sm($sm)
@@ -126,9 +126,9 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * ≥992px int|self 响应式栅格，可为栅格数或一个包含其他属性的对象
+     * ≥992px 响应式栅格，可为栅格数或一个包含其他属性的对象
      *
-     * @param $md
+     * @param int|self $md
      * @return $this
      */
     public function md($md)

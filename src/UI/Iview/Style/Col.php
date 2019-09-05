@@ -68,7 +68,7 @@ class Col implements ColComponentInterface
     /**
      * 栅格左侧的间隔格数，间隔内不可以有栅格
      *
-     * @param $offset
+     * @param int $offset
      * @return $this
      */
     public function offset($offset)
@@ -80,7 +80,7 @@ class Col implements ColComponentInterface
     /**
      * 栅格向右移动格数
      *
-     * @param $push
+     * @param int $push
      * @return $this
      */
     public function push($push)
@@ -102,7 +102,7 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * 自定义的class名称
+     * 组件的class
      *
      * @param $class
      * @return $this
@@ -114,9 +114,9 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * <768px int|self 响应式栅格，可为栅格数或一个包含其他属性的对象
+     * <768px 响应式栅格，可为栅格数或一个包含其他属性的对象
      *
-     * @param $xs
+     * @param int|self $xs
      * @return $this
      */
     public function xs($xs)
@@ -126,9 +126,9 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * ≥768px int|self 响应式栅格，可为栅格数或一个包含其他属性的对象
+     * ≥768px 响应式栅格，可为栅格数或一个包含其他属性的对象
      *
-     * @param $sm
+     * @param int|self $sm
      * @return $this
      */
     public function sm($sm)
@@ -138,9 +138,9 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * ≥992px int|self 响应式栅格，可为栅格数或一个包含其他属性的对象
+     * ≥992px 响应式栅格，可为栅格数或一个包含其他属性的对象
      *
-     * @param $md
+     * @param int|self $md
      * @return $this
      */
     public function md($md)

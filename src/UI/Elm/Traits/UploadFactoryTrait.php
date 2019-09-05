@@ -60,7 +60,7 @@ trait UploadFactoryTrait
     }
 
     /**
-     * 图片上传
+     * 单图片上传
      * value 为  string类型
      *
      * @param string $field
@@ -69,14 +69,14 @@ trait UploadFactoryTrait
      * @param string $value
      * @return Upload
      */
-    public static function uploadImageOne($field, $title, $action, $value = '')
+    public static function uploadImage($field, $title, $action, $value = '')
     {
         $upload = self::upload($field, $title, $action, (string)$value, Upload::TYPE_IMAGE);
         return $upload->accept('image/*')->limit(1);
     }
 
     /**
-     * 文件上传
+     * 单文件上传
      * value 为  string类型
      *
      * @param string $field
@@ -85,7 +85,7 @@ trait UploadFactoryTrait
      * @param string $value
      * @return Upload
      */
-    public static function uploadFileOne($field, $title, $action, $value = '')
+    public static function uploadFile($field, $title, $action, $value = '')
     {
         $upload = self::upload($field, $title, $action, (string)$value, Upload::TYPE_FILE);
         return $upload->limit(1);

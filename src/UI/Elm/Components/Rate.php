@@ -34,9 +34,7 @@ use FormBuilder\Factory\Elm;
  * @method $this showScore(bool $showScore) 是否显示当前分数，show-score 和 show-text 不能同时为真, 默认值: false
  * @method $this textColor(string $textColor) 辅助文字的颜色, 默认值: #1F2D3D
  * @method $this texts(array $texts) 辅助文字数组, 默认值: ['极差', '失望', '一般', '满意', '惊喜']
- * @method $this scoreTemplate(string $scoreTemplate) 分数显示模板, 默认值: {
- * value
- * }
+ * @method $this scoreTemplate(string $scoreTemplate) 分数显示模板, 默认值: {value}
  *
  */
 class Rate extends FormComponent

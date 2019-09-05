@@ -44,17 +44,4 @@ trait SelectFactoryTrait
     {
         return self::select($field, $title, $value);
     }
-
-    /**
-     * 单选
-     *
-     * @param string $field
-     * @param string $title
-     * @param string|float|int $value
-     * @return Select
-     */
-    public static function selectOne($field, $title, $value = '')
-    {
-        return self::select($field, $title, (string)$value);
-    }
 }

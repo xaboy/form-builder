@@ -60,8 +60,8 @@ trait UploadFactoryTrait
     }
 
     /**
-     * 图片上传
-     * value 为  string类型
+     * 单图片上传
+     * value 为string类型
      *
      * @param string $field
      * @param string $title
@@ -76,8 +76,8 @@ trait UploadFactoryTrait
     }
 
     /**
-     * 文件上传
-     * value 为  string类型
+     * 单文件上传
+     * value 为string类型
      *
      * @param string $field
      * @param string $title
@@ -85,7 +85,7 @@ trait UploadFactoryTrait
      * @param string $value
      * @return Upload
      */
-    public static function uploadFileOne($field, $title, $action, $value = '')
+    public static function uploadFile($field, $title, $action, $value = '')
     {
         $upload = self::upload($field, $title, $action, (string)$value, Upload::TYPE_FILE);
         return $upload->maxLength(1);

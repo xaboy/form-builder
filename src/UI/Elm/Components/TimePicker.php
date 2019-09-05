@@ -31,8 +31,7 @@ use FormBuilder\Factory\Elm;
  * @method $this arrowControl(bool $arrowControl) 是否使用箭头进行时间选择，仅对<el-time-picker>有效, 默认值: false
  * @method $this align(string $align) 对齐方式, 可选值: left / center / right, 默认值: left
  * @method $this popperClass(string $popperClass) TimePicker 下拉框的类名
- * @method $this pickerOptions(array $pickerOptions) 当前时间日期选择器特有的选项参考下表, 默认值: {
- * }
+ * @method $this pickerOptions(array $pickerOptions) 当前时间日期选择器特有的选项参考下表, 默认值: {}
  * @method $this rangeSeparator(string $rangeSeparator) 选择范围时的分隔符, 默认值: '-'
  * @method $this valueFormat(string $valueFormat) 可选，仅TimePicker时可用，绑定值的格式。不指定则绑定值为 Date 对象, 可选值: 见日期格式
  * @method $this prefixIcon(string $prefixIcon) 自定义头部图标的类名, 默认值: el-icon-time

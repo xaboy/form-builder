@@ -34,7 +34,7 @@ trait FrameFactoryTrait
     }
 
     /**
-     * 使用input  类型显示,多选
+     * 使用input类型显示,多选
      * value为Array类型
      *
      * @param string $field
@@ -64,7 +64,7 @@ trait FrameFactoryTrait
     }
 
     /**
-     * 使用文件类型显示,多选
+     * 使用图片类型显示,多选
      * value为Array类型
      *
      * @param string $field
@@ -79,7 +79,7 @@ trait FrameFactoryTrait
     }
 
     /**
-     * 使用input  类型显示,单选
+     * 使用input类型显示,单选
      * value为string类型
      *
      * @param string $field
@@ -88,7 +88,7 @@ trait FrameFactoryTrait
      * @param string $value
      * @return Frame
      */
-    public static function frameInputOne($field, $title, $src, $value = '')
+    public static function frameInput($field, $title, $src, $value = '')
     {
         return self::frame($field, $title, $src, (string)$value);
     }
@@ -103,13 +103,13 @@ trait FrameFactoryTrait
      * @param string $value
      * @return Frame
      */
-    public static function frameFileOne($field, $title, $src, $value = '')
+    public static function frameFile($field, $title, $src, $value = '')
     {
         return self::frame($field, $title, $src, (string)$value, Frame::TYPE_FILE);
     }
 
     /**
-     * 使用文件类型显示,单选
+     * 使用图片类型显示,单选
      * value为string类型
      *
      * @param string $field
@@ -118,7 +118,7 @@ trait FrameFactoryTrait
      * @param string $value
      * @return Frame
      */
-    public static function frameImageOne($field, $title, $src, $value = '')
+    public static function frameImage($field, $title, $src, $value = '')
     {
         return self::frame($field, $title, $src, (string)$value, Frame::TYPE_IMAGE);
     }
