@@ -56,7 +56,7 @@ class Switches extends FormComponent
         'validateEvent' => 'bool',
     ];
 
-    public function getRuleType()
+    public function getComponentName()
     {
         return 'switch';
     }

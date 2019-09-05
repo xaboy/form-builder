@@ -41,7 +41,7 @@ class Switches extends FormComponent
         'falseValue' => 'string'
     ];
 
-    public function getRuleType()
+    public function getComponentName()
     {
         return 'switch';
     }
