@@ -24,9 +24,7 @@ use FormBuilder\Rule\CallPropsRule;
  * @method $this offset(float $offset) 出现位置的偏移量
  * @method $this transition(string $transition) 定义渐变动画, 默认值: el-fade-in-linear
  * @method $this visibleArrow(bool $visibleArrow) 是否显示 Tooltip 箭头，更多参数可见Vue-popper, 默认值: true
- * @method $this popperOptions(array $popperOptions) popper.js 的参数, 可选值: 参考 popper.js 文档, 默认值: {
- * boundariesElement: 'body', gpuAcceleration: false
- * }
+ * @method $this popperOptions(array $popperOptions) popper.js 的参数, 可选值: 参考 popper.js 文档, 默认值: {boundariesElement: 'body', gpuAcceleration: false}
  * @method $this openDelay(float $openDelay) 延迟出现，单位毫秒
  * @method $this manual(bool $manual) 手动控制模式，设置为 true 后，mouseenter 和 mouseleave 事件将不会生效, 默认值: false
  * @method $this popperClass(string $popperClass) 为 Tooltip 的 popper 添加类名

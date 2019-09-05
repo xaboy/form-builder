@@ -90,7 +90,7 @@ class Col implements ColComponentInterface
     }
 
     /**
-     * 自定义的class名称
+     * 自定义元素标签
      *
      * @param string $tag
      * @return $this

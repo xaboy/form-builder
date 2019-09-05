@@ -25,7 +25,7 @@ use FormBuilder\Factory\Iview;
  * @method $this hue(bool $bool) 是否支持色彩选择, 默认为true
  * @method $this recommend(bool $bool) 是否显示推荐的颜色预设, 默认为false
  * @method $this size(string $size) 尺寸，可选值为large、small、default或者不设置
- * @method $this format(string $format) 颜色的格式，可选值为 hsl、hsv、hex、rgb    string    开启 alpha 时为 rgb，其它为 hex
+ * @method $this format(string $format) 颜色的格式，可选值为 hsl、hsv、hex、rgb.开启 alpha 时为 rgb，其它为 hex
  */
 class ColorPicker extends FormComponent
 {

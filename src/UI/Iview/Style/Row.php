@@ -69,7 +69,7 @@ class Row implements FormComponentInterface
     }
 
     /**
-     * 自定义的class名称
+     * 组件的class
      *
      * @param string $className
      */

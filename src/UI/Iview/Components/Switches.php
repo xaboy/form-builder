@@ -66,7 +66,7 @@ class Switches extends FormComponent
      */
     public function closeStr($close)
     {
-        $this->props['slot']['open'] = (string)$close;
+        $this->props['slot']['close'] = (string)$close;
         return $this;
     }
 

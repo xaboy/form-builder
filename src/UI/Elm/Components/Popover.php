@@ -27,9 +27,7 @@ use FormBuilder\Rule\CallPropsRule;
  * @method $this offset(number $offset) 出现位置的偏移量
  * @method $this transition(string $transition) 定义渐变动画, 默认值: fade-in-linear
  * @method $this visibleArrow(boolean $visibleArrow) 是否显示 Tooltip 箭头，更多参数可见Vue-popper, 默认值: true
- * @method $this popperOptions(object $popperOptions) popper.js 的参数, 可选值: 参考 popper.js 文档, 默认值: {
- * boundariesElement: 'body', gpuAcceleration: false
- * }
+ * @method $this popperOptions(object $popperOptions) popper.js 的参数, 可选值: 参考 popper.js 文档, 默认值: {boundariesElement: 'body', gpuAcceleration: false}
  * @method $this popperClass(string $popperClass) 为 popper 添加类名
  * @method $this openDelay(number $openDelay) 触发方式为 hover 时的显示延迟，单位为毫秒
  * @method $this closeDelay(float $closeDelay) 触发方式为 hover 时的隐藏延迟，单位为毫秒, 默认值: 200
