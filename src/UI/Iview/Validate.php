@@ -201,7 +201,7 @@ class Validate implements ValidateInterface
         return $this;
     }
 
-    public function build()
+    public function getValidate()
     {
         $validate = $this->validate;
         $validate['type'] = $this->type;

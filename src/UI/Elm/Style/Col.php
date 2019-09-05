@@ -151,13 +151,13 @@ class Col implements ColComponentInterface
 
     protected function buildGrid($grid)
     {
-        return $grid instanceof self ? $grid->build() : (int)$grid;
+        return $grid instanceof self ? $grid->getCol() : (int)$grid;
     }
 
     /**
      * @return object
      */
-    public function build()
+    public function getCol()
     {
         return (object)$this->rule;
     }

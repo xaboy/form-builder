@@ -12,7 +12,7 @@
 namespace FormBuilder\Contract;
 
 
-interface OptionComponentInterface extends FormComponentInterface
+interface OptionComponentInterface
 {
-
+    public function getOption();
 }

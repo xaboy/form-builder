@@ -12,7 +12,13 @@
 namespace FormBuilder\Contract;
 
 
-interface ValidateInterface extends FormComponentInterface
+interface ValidateInterface
 {
 
+    /**
+     * 获取验证规则
+     *
+     * @return array
+     */
+    public function getValidate();
 }

@@ -236,7 +236,7 @@ trait BaseRule
 
     protected function parseCol($col)
     {
-        return $col instanceof ColComponentInterface ? $col->build() : $col;
+        return $col instanceof ColComponentInterface ? $col->getCol() : $col;
     }
 
     protected function parseBaseRule()

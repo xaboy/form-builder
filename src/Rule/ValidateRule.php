@@ -54,7 +54,7 @@ trait ValidateRule
     {
         $validate = [];
         foreach ($this->validate as $value) {
-            $validate[] = $value instanceof ValidateInterface ? $value->build() : $value;
+            $validate[] = $value instanceof ValidateInterface ? $value->getValidate() : $value;
         }
 
         return $validate;

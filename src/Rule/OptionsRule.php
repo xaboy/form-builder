@@ -85,7 +85,7 @@ trait OptionsRule
      */
     protected function parseOption($option)
     {
-        return $option instanceof OptionComponentInterface ? $option->build() : $option;
+        return $option instanceof OptionComponentInterface ? $option->getOption() : $option;
     }
 
     /**

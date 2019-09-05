@@ -48,7 +48,7 @@ class Option implements OptionComponentInterface
     /**
      * @return array
      */
-    public function build()
+    public function getOption()
     {
         return $this->rule;
     }

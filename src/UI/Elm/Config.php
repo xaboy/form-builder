@@ -175,7 +175,7 @@ class Config implements ConfigInterface
     /**
      * @return array
      */
-    public function build()
+    public function getConfig()
     {
         $config = $this->config;
         if (isset($config['form']) && ($form = $config['form']) instanceof FormStyle)

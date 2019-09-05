@@ -12,7 +12,7 @@
 namespace FormBuilder\Contract;
 
 
-interface ColComponentInterface extends FormComponentInterface
+interface ColComponentInterface
 {
-
+    public function getCol();
 }

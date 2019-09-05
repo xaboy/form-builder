@@ -12,7 +12,19 @@
 namespace FormBuilder\Contract;
 
 
-interface ConfigInterface extends FormComponentInterface
+interface ConfigInterface
 {
+    public function info($type);
 
+    public function formStyle($formStyle);
+
+    public function row($row);
+
+    public function submitBtn($submitBtn);
+
+    public function resetBtn($resetBtn);
+
+    public function injectEvent($bool);
+
+    public function getConfig();
 }

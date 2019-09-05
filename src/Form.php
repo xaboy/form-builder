@@ -321,7 +321,7 @@ class Form
     public function formConfig()
     {
         $config = $this->config;
-        if ($config instanceof ConfigInterface) return $config->build();
+        if ($config instanceof ConfigInterface) return $config->getConfig();
         foreach ($config as $k => $v) {
             $config[$k] = $this->parseFormComponent($v);
         }
