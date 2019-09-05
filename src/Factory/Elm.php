@@ -13,6 +13,7 @@ namespace FormBuilder\Factory;
 
 use FormBuilder\Exception\FormBuilderException;
 use FormBuilder\Form;
+use FormBuilder\UI\Elm\Components\Button;
 use FormBuilder\UI\Elm\Components\Option;
 use FormBuilder\UI\Elm\Components\Popover;
 use FormBuilder\UI\Elm\Components\Tooltip;
@@ -99,6 +100,16 @@ abstract class Elm
     public static function tooltip()
     {
         return new Tooltip();
+    }
+
+    /**
+     * 按钮组件
+     *
+     * @return Button
+     */
+    public static function button()
+    {
+        return new Button();
     }
 
 
