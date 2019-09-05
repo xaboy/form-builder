@@ -21,8 +21,6 @@ use FormBuilder\UI\Elm\Bootstrap as ElmBootstrap;
 
 class Form
 {
-    protected $loadScript = true;
-
     protected $headers = [];
 
     protected $formContentType = 'application/x-www-form-urlencoded';
@@ -166,16 +164,6 @@ class Form
     }
 
     /**
-     * @param bool $load
-     * @return $this
-     */
-    public function loadScript($load)
-    {
-        $this->loadScript = !!$load;
-        return $this;
-    }
-
-    /**
      * @param array $rule
      * @return $this
      * @throws FormBuilderException
@@ -245,42 +233,32 @@ class Form
     }
 
     /**
-     * 隐藏表单提交按钮
+     * 提交按钮显示状态
+     *
+     * @param $isShow
      * @return $this
      */
-    public function hideSubmitBtn()
+    public function showSubmitBtn($isShow)
     {
-        $this->config['submitBtn'] = false;
+        if ($this->config instanceof ConfigInterface)
+            $this->config->submitBtn(!!$isShow);
+        else
+            $this->config['submitBtn'] = !!$isShow;
         return $this;
     }
 
     /**
-     * 显示表单提交按钮
+     * 重置按钮显示状态
+     *
+     * @param $isShow
      * @return $this
      */
-    public function showSubmitBtn()
+    public function showResetBtn($isShow)
     {
-        $this->config['submitBtn'] = true;
-        return $this;
-    }
-
-    /**
-     * 隐藏表单重置按钮
-     * @return $this
-     */
-    public function hideResetBtn()
-    {
-        $this->config['resetBtn'] = false;
-        return $this;
-    }
-
-    /**
-     * 显示表单重置按钮
-     * @return $this
-     */
-    public function showResetBtn()
-    {
-        $this->config['resetBtn'] = true;
+        if ($this->config instanceof ConfigInterface)
+            $this->config->resetBtn(!!$isShow);
+        else
+            $this->config['resetBtn'] = !!$isShow;
         return $this;
     }
 

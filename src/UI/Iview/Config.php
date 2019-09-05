@@ -95,7 +95,7 @@ class Config implements ConfigInterface
     /**
      * 提交按钮样式和布局配置
      *
-     * @param Button|array $btn
+     * @param Button|array|bool $btn
      * @return $this
      */
     public function submitBtn($btn)
@@ -126,7 +126,7 @@ class Config implements ConfigInterface
     /**
      * 重置按钮样式和布局配置
      *
-     * @param Button|array $btn
+     * @param Button|array|bool $btn
      * @return $this
      */
     public function resetBtn($btn)
