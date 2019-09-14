@@ -80,5 +80,5 @@ $ composer require xaboy/form-builder:~2.0
 2. 建议根据自己的业务逻辑重写默认的表单生成页 默认表单生成页
 
 
-## 所有组件生成效果
-![https://raw.githubusercontent.com/xaboy/form-builder/master/images/Components.png](https://raw.githubusercontent.com/xaboy/form-builder/master/images/Components.png)
+## 组件生成效果
+![https://raw.githubusercontent.com/xaboy/form-builder/2.0/images/components.png](https://raw.githubusercontent.com/xaboy/form-builder/master/images/components.png)
