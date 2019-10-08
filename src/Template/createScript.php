@@ -40,7 +40,9 @@
     }
 
     var rule = parseRule(<?=$form->parseFormRule()?>), headers = <?=$form->parseHeaders()?>, config = <?=$form->parseFormConfig()?>, contentType = "<?=$form->getFormContentType()?>", action = "<?=$form->getAction()?>", method = "<?=$form->getMethod()?>", vm = new Vue();
-
+    if (!vm.$Message && vm.$message) {
+        Vue.prototype.$Message = vm.$message
+    }
     return function (el, callback) {
 
         if (el) config.el = el;
@@ -51,10 +53,10 @@
                 if (callback) return callback(status, res, $f);
                 if (status && res.code === 200) {
                     $f.submitBtnProps({loading: false, disabled: true});
-                    vm.$message.success(res.msg || '表单提交成功');
+                    vm.$Message.success(res.msg || '表单提交成功');
                 } else {
                     $f.btn.loading(false);
-                    vm.$message.error('表单提交失败');
+                    vm.$Message.error('表单提交失败');
                 }
             });
         };
@@ -63,19 +65,19 @@
             upload: {
                 props: {
                     onExceededSize: function (file) {
-                        vm.$message.error(file.name + '超出指定大小限制');
+                        vm.$Message.error(file.name + '超出指定大小限制');
                     },
                     onFormatError: function () {
-                        vm.$message.error(file.name + '格式验证失败');
+                        vm.$Message.error(file.name + '格式验证失败');
                     },
                     onError: function (error) {
-                        vm.$message.error(file.name + '上传失败,(' + error + ')');
+                        vm.$Message.error(file.name + '上传失败,(' + error + ')');
                     },
                     onSuccess: function (res, file) {
                         if (res.code === 200) {
                             file.url = res.data.filePath;
                         } else {
-                            vm.$message.error(res.msg);
+                            vm.$Message.error(res.msg);
                         }
                     }
                 }
