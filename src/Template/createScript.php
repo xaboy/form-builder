@@ -50,11 +50,11 @@
             ajax(action, method, formData, function (status, res) {
                 if (callback) return callback(status, res, $f);
                 if (status && res.code === 200) {
-                    $f.submitStatus({loading: false, disabled: true});
-                    vm.$Message.success(res.msg || '表单提交成功');
+                    $f.submitBtnProps({loading: false, disabled: true});
+                    vm.$message.success(res.msg || '表单提交成功');
                 } else {
                     $f.btn.loading(false);
-                    vm.$Message.error('表单提交失败');
+                    vm.$message.error('表单提交失败');
                 }
             });
         };
@@ -63,19 +63,19 @@
             upload: {
                 props: {
                     onExceededSize: function (file) {
-                        vm.$Message.error(file.name + '超出指定大小限制');
+                        vm.$message.error(file.name + '超出指定大小限制');
                     },
                     onFormatError: function () {
-                        vm.$Message.error(file.name + '格式验证失败');
+                        vm.$message.error(file.name + '格式验证失败');
                     },
                     onError: function (error) {
-                        vm.$Message.error(file.name + '上传失败,(' + error + ')');
+                        vm.$message.error(file.name + '上传失败,(' + error + ')');
                     },
                     onSuccess: function (res, file) {
                         if (res.code === 200) {
                             file.url = res.data.filePath;
                         } else {
-                            vm.$Message.error(res.msg);
+                            vm.$message.error(res.msg);
                         }
                     }
                 }
