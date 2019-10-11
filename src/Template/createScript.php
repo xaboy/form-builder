@@ -40,7 +40,9 @@
     }
 
     var rule = parseRule(<?=$form->parseFormRule()?>), headers = <?=$form->parseHeaders()?>, config = <?=$form->parseFormConfig()?>, contentType = "<?=$form->getFormContentType()?>", action = "<?=$form->getAction()?>", method = "<?=$form->getMethod()?>", vm = new Vue();
-
+    if (!vm.$Message && vm.$message) {
+        Vue.prototype.$Message = vm.$message
+    }
     return function (el, callback) {
 
         if (el) config.el = el;
@@ -50,7 +52,7 @@
             ajax(action, method, formData, function (status, res) {
                 if (callback) return callback(status, res, $f);
                 if (status && res.code === 200) {
-                    $f.submitStatus({loading: false, disabled: true});
+                    $f.submitBtnProps({loading: false, disabled: true});
                     vm.$Message.success(res.msg || '表单提交成功');
                 } else {
                     $f.btn.loading(false);
