@@ -48,15 +48,15 @@
         if (el) config.el = el;
 
         config.onSubmit = function (formData) {
-            $f.btn.loading(true);
+            $f.submitBtnProps({loading: true, disabled: true});
             ajax(action, method, formData, function (status, res) {
                 if (callback) return callback(status, res, $f);
                 if (status && res.code === 200) {
-                    $f.submitBtnProps({loading: false, disabled: true});
+                    $f.submitBtnProps({loading: false, disabled: false});
                     vm.$Message.success(res.msg || '表单提交成功');
                 } else {
-                    $f.btn.loading(false);
-                    vm.$Message.error('表单提交失败');
+                    $f.submitBtnProps({loading: false, disabled: false});
+                    vm.$Message.error(res.msg || '表单提交失败');
                 }
             });
         };
