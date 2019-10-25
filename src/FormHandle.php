@@ -29,7 +29,11 @@ abstract class FormHandle
 
     protected $title;
 
+    protected $formContentType;
+
     protected $headers = [];
+
+    protected $fieldTitles = [];
 
     /**
      * 表单 UI
@@ -57,6 +61,11 @@ abstract class FormHandle
         return;
     }
 
+    public function getFieldTitle($field)
+    {
+        return isset($this->fieldTitles[$field]) ? $this->fieldTitles[$field] : null;
+    }
+
     /**
      * 获取表单组件
      *
@@ -70,8 +79,17 @@ abstract class FormHandle
         foreach ($methods as $method) {
             $field = preg_replace('/^(.+)(Field|_field)$/', '$1', $method->name);
             if ($field != $method->name) {
-                $value = $method->invoke($this);
-                if (is_array($value) || $value instanceof FormComponentInterface)
+                $params = $method->getParameters();
+                $flag = true;
+                if (isset($params[0]) && ($dep = $params[0]->getClass())) {
+                    if (in_array('FormBuilder\Contract\FormComponentInterface', $dep->getInterfaceNames())) {
+                        $componentClass = $dep->getName();
+                        $value = $method->invokeArgs($this, [new $componentClass($field, $this->getFieldTitle($field))]);
+                        $flag = false;
+                    }
+                }
+                if ($flag) $value = $method->invoke($this);
+                if (is_array($value) || Util::isComponent($value))
                     $rule[] = $value;
             }
         }
@@ -111,9 +129,12 @@ abstract class FormHandle
     public function form()
     {
         $form = $this->createForm()->setMethod($this->method);
-        if (!is_null($this->title)) $form->setTitle($this->title);
+        if (!is_null($this->title)) $form->setTitle($this->title)->headers($this->headers);
         $formData = $this->getFormData();
         if (is_array($formData)) $form->formData($formData);
+        if ($this->formContentType) $form->setFormContentType($this->formContentType);
+        $config = $this->getFormConfig();
+        if ($config) $form->setConfig($config);
         return $form;
     }
 
