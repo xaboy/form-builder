@@ -12,14 +12,14 @@
 namespace FormBuilder\UI\Iview\Style;
 
 
-use FormBuilder\Contract\FormComponentInterface;
+use FormBuilder\Contract\StyleInterface;
 
 /**
  * row栅格规则
  *
  * Class Row
  */
-class Row implements FormComponentInterface
+class Row implements StyleInterface
 {
     protected $rule;
 
@@ -81,7 +81,7 @@ class Row implements FormComponentInterface
     /**
      * @return object
      */
-    public function build()
+    public function getStyle()
     {
         return (object)$this->rule;
     }

@@ -12,8 +12,13 @@
 namespace FormBuilder\Contract;
 
 
-interface FormComponentInterface extends CustomComponentInterface
+interface CustomComponentInterface
 {
-    public function __construct($field, $title);
 
+    /**
+     * 获取组件的生成规则
+     *
+     * @return array
+     */
+    public function build();
 }

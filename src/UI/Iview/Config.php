@@ -179,9 +179,9 @@ class Config implements ConfigInterface
     {
         $config = $this->config;
         if (isset($config['form']) && ($form = $config['form']) instanceof FormStyle)
-            $config['form'] = $form->build();
+            $config['form'] = $form->getStyle();
         if (isset($config['row']) && ($row = $config['row']) instanceof Row)
-            $config['row'] = $row->build();
+            $config['row'] = $row->getStyle();
         if (isset($config['submitBtn']) && ($submitBtn = $config['submitBtn']) instanceof Button)
             $config['submitBtn'] = $this->parseButton($submitBtn);
         if (isset($config['resetBtn']) && ($resetBtn = $config['resetBtn']) instanceof Button)

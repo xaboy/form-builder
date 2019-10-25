@@ -287,7 +287,7 @@ class Form
 
     protected function parseFormComponent($rule)
     {
-        if ($rule instanceof FormComponentInterface) {
+        if (Util::isComponent($rule)) {
             $rule = $rule->build();
         }
         return $rule;

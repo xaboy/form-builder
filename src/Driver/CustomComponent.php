@@ -12,7 +12,7 @@
 namespace FormBuilder\Driver;
 
 
-use FormBuilder\Contract\FormComponentInterface;
+use FormBuilder\Contract\CustomComponentInterface;
 use FormBuilder\Rule\BaseRule;
 use FormBuilder\Rule\ChildrenRule;
 use FormBuilder\Rule\EmitRule;
@@ -23,7 +23,7 @@ use FormBuilder\Rule\ValidateRule;
  * 自定义组件
  * Class CustomComponent
  */
-class CustomComponent implements FormComponentInterface
+class CustomComponent implements CustomComponentInterface
 {
     use BaseRule;
     use ChildrenRule;

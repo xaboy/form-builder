@@ -12,14 +12,13 @@
 namespace FormBuilder\UI\Iview\Style;
 
 
-use FormBuilder\Contract\FormComponentInterface;
-use FormBuilder\Rule\CallPropsRule;
+use FormBuilder\Contract\StyleInterface;
 
 /**
  * form表单样式
  * Class FormStyle
  */
-class FormStyle implements FormComponentInterface
+class FormStyle implements StyleInterface
 {
     /**
      * @var array
@@ -98,7 +97,7 @@ class FormStyle implements FormComponentInterface
     /**
      * @return object
      */
-    public function build()
+    public function getStyle()
     {
         return (object)$this->rule;
     }

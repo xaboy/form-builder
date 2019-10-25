@@ -18,11 +18,6 @@ abstract class FormOptionsComponent extends FormComponent
 {
     use OptionsRule;
 
-    public function __construct($field, $title, $value = null)
-    {
-        parent::__construct($field, $title, $value);
-    }
-
     public function build()
     {
         $rule = parent::build();

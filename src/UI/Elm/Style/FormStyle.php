@@ -12,7 +12,7 @@
 namespace FormBuilder\UI\Elm\Style;
 
 
-use FormBuilder\Contract\FormComponentInterface;
+use FormBuilder\Contract\StyleInterface;
 use FormBuilder\Rule\CallPropsRule;
 
 /**
@@ -31,7 +31,7 @@ use FormBuilder\Rule\CallPropsRule;
  * @method $this size(string $size) 用于控制该表单内组件的尺寸, 可选值: medium / small / mini
  * @method $this disabled(bool $disabled) 是否禁用该表单内的所有组件。若设置为 true，则表单内组件上的 disabled 属性不再生效, 默认值: false
  */
-class FormStyle implements FormComponentInterface
+class FormStyle implements StyleInterface
 {
     use CallPropsRule;
 
@@ -66,7 +66,7 @@ class FormStyle implements FormComponentInterface
     /**
      * @return object
      */
-    public function build()
+    public function getStyle()
     {
         return (object)$this->props;
     }

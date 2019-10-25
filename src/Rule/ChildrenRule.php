@@ -13,6 +13,7 @@ namespace FormBuilder\Rule;
 
 
 use FormBuilder\Contract\FormComponentInterface;
+use FormBuilder\Util;
 
 trait ChildrenRule
 {
@@ -82,7 +83,7 @@ trait ChildrenRule
 
     protected function parseChildren($child)
     {
-        return $child instanceof FormComponentInterface ? $child->build() : $child;
+        return Util::isComponent($child) ? $child->build() : $child;
     }
 
     /**

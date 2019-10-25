@@ -12,8 +12,7 @@
 namespace FormBuilder\Contract;
 
 
-interface FormComponentInterface extends CustomComponentInterface
+interface StyleInterface
 {
-    public function __construct($field, $title);
-
+    public function getStyle();
 }

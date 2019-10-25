@@ -12,7 +12,7 @@
 namespace FormBuilder\UI\Elm\Components;
 
 
-use FormBuilder\Contract\FormComponentInterface;
+use FormBuilder\Contract\OptionComponentInterface;
 use FormBuilder\Rule\CallPropsRule;
 
 /**
@@ -26,7 +26,7 @@ use FormBuilder\Rule\CallPropsRule;
  * @method $this selected(bool $bool) 是否选中子节点
  * @method $this checked(bool $bool) 是否勾选(如果勾选，子节点也会全部勾选)
  */
-class TreeData implements FormComponentInterface
+class TreeData implements OptionComponentInterface
 {
     use CallPropsRule;
 
@@ -90,12 +90,12 @@ class TreeData implements FormComponentInterface
     /**
      * @return array
      */
-    public function build()
+    public function getOption()
     {
         $children = [];
         foreach ($this->children as $child) {
             $children[] = $child instanceof TreeData
-                ? $child->build()
+                ? $child->getOption()
                 : $child;
         }
         $this->props['children'] = $children;
