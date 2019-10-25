@@ -43,6 +43,8 @@ class Form
 
     protected $rule;
 
+    protected $formData = [];
+
     protected $dependScript = [
         '<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>',
         '<script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>',
@@ -96,6 +98,27 @@ class Form
     {
         $this->headers = $headers;
 
+        return $this;
+    }
+
+    /**
+     * @param array $formData
+     * @return $this
+     */
+    public function formData(array $formData)
+    {
+        $this->formData = $formData;
+        return $this;
+    }
+
+    /**
+     * @param $field
+     * @param $value
+     * @return $this
+     */
+    public function setValue($field, $value)
+    {
+        $this->formData[$field] = $value;
         return $this;
     }
 
@@ -284,7 +307,11 @@ class Form
     {
         $rules = [];
         foreach ($this->rule as $rule) {
-            $rules[] = $this->parseFormComponent($rule);
+            $rule = $this->parseFormComponent($rule);
+            if (isset($rule['field']) && isset($this->formData[$rule['field']])) {
+                $rule['value'] = $this->formData[$rule['field']];
+            }
+            $rules[] = $rule;
         }
         return $rules;
     }
