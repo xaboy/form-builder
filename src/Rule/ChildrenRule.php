@@ -12,7 +12,6 @@
 namespace FormBuilder\Rule;
 
 
-use FormBuilder\Contract\FormComponentInterface;
 use FormBuilder\Util;
 
 trait ChildrenRule

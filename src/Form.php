@@ -14,7 +14,6 @@ namespace FormBuilder;
 
 use FormBuilder\Contract\BootstrapInterface;
 use FormBuilder\Contract\ConfigInterface;
-use FormBuilder\Contract\FormComponentInterface;
 use FormBuilder\Exception\FormBuilderException;
 use FormBuilder\UI\Iview\Bootstrap as IViewBootstrap;
 use FormBuilder\UI\Elm\Bootstrap as ElmBootstrap;
