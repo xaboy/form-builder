@@ -13,7 +13,6 @@ namespace FormBuilder;
 
 
 use FormBuilder\Contract\ConfigInterface;
-use FormBuilder\Contract\FormComponentInterface;
 
 /**
  * 表单生成类
@@ -82,7 +81,7 @@ abstract class FormHandle
                 $params = $method->getParameters();
                 $flag = true;
                 if (isset($params[0]) && ($dep = $params[0]->getClass())) {
-                    if (in_array('FormBuilder\Contract\FormComponentInterface', $dep->getInterfaceNames())) {
+                    if (in_array('FormBuilder\\Contract\\FormComponentInterface', $dep->getInterfaceNames())) {
                         $componentClass = $dep->getName();
                         $value = $method->invokeArgs($this, [new $componentClass($field, $this->getFieldTitle($field))]);
                         $flag = false;
