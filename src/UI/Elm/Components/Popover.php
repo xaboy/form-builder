@@ -13,7 +13,6 @@ namespace FormBuilder\UI\Elm\Components;
 
 
 use FormBuilder\Driver\CustomComponent;
-use FormBuilder\Rule\CallPropsRule;
 
 /**
  * Class Popover
@@ -35,10 +34,6 @@ use FormBuilder\Rule\CallPropsRule;
  */
 class Popover extends CustomComponent
 {
-    use CallPropsRule;
-
-    protected $defaultProps = [];
-
     protected static $propsRule = [
         'trigger' => 'string',
         'title' => 'string',

@@ -13,7 +13,6 @@ namespace FormBuilder\UI\Iview\Components;
 
 
 use FormBuilder\Driver\CustomComponent;
-use FormBuilder\Rule\CallPropsRule;
 
 /**
  * Class Poptip
@@ -34,8 +33,6 @@ use FormBuilder\Rule\CallPropsRule;
  */
 class Poptip extends CustomComponent
 {
-    use CallPropsRule;
-
     protected $defaultProps = [
         'transfer' => true
     ];

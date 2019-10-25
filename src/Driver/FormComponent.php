@@ -14,14 +14,9 @@ namespace FormBuilder\Driver;
 
 use FormBuilder\Contract\FormComponentInterface;
 use FormBuilder\Contract\ValidateInterface;
-use FormBuilder\Rule\CallPropsRule;
 
 abstract class FormComponent extends CustomComponent implements FormComponentInterface
 {
-    use CallPropsRule;
-
-    protected static $propsRule = [];
-
     protected $defaultValue = '';
 
     protected $selectComponent = false;

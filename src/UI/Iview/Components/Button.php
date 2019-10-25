@@ -13,7 +13,6 @@ namespace FormBuilder\UI\Iview\Components;
 
 
 use FormBuilder\Driver\CustomComponent;
-use FormBuilder\Rule\CallPropsRule;
 
 /**
  * Class Button
@@ -29,8 +28,6 @@ use FormBuilder\Rule\CallPropsRule;
  */
 class Button extends CustomComponent
 {
-    use CallPropsRule;
-
     protected static $propsRule = [
         'type' => 'string',
         'size' => 'string',

@@ -14,6 +14,7 @@ namespace FormBuilder\Driver;
 
 use FormBuilder\Contract\CustomComponentInterface;
 use FormBuilder\Rule\BaseRule;
+use FormBuilder\Rule\CallPropsRule;
 use FormBuilder\Rule\ChildrenRule;
 use FormBuilder\Rule\EmitRule;
 use FormBuilder\Rule\PropsRule;
@@ -30,7 +31,9 @@ class CustomComponent implements CustomComponentInterface
     use EmitRule;
     use PropsRule;
     use ValidateRule;
+    use CallPropsRule;
 
+    protected static $propsRule = [];
 
     protected $defaultProps = [];
 

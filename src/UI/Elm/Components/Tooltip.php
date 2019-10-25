@@ -13,7 +13,6 @@ namespace FormBuilder\UI\Elm\Components;
 
 
 use FormBuilder\Driver\CustomComponent;
-use FormBuilder\Rule\CallPropsRule;
 
 /**
  * Class Tooltip
@@ -34,8 +33,6 @@ use FormBuilder\Rule\CallPropsRule;
  */
 class Tooltip extends CustomComponent
 {
-    use CallPropsRule;
-
     protected static $propsRule = [
         'effect' => 'string',
         'content' => 'string',
