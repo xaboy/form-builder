@@ -122,6 +122,6 @@ abstract class FormHandle
      */
     public function view()
     {
-        return $this->getForm()->view();
+        return $this->form()->view();
     }
 }
