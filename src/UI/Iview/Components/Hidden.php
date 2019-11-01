@@ -39,7 +39,7 @@ class Hidden extends FormComponent
     public function build()
     {
         return [
-            'type' => $this->name,
+            'type' => $this->type,
             'field' => $this->field,
             'value' => $this->value
         ];
