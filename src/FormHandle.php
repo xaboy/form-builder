@@ -37,6 +37,8 @@ abstract class FormHandle implements FormHandleInterface
 
     protected $except = [];
 
+    protected $scene;
+
     /**
      * 表单 UI
      *
@@ -51,6 +53,11 @@ abstract class FormHandle implements FormHandleInterface
     protected function getFormData()
     {
         return [];
+    }
+
+    public function scene()
+    {
+        return $this->scene;
     }
 
     /**
@@ -130,6 +137,9 @@ abstract class FormHandle implements FormHandleInterface
      */
     public function form()
     {
+        if ($this->scene && method_exists($this, $this->scene . 'Scene'))
+            $this->{$this->scene . 'Scene'}();
+
         $form = $this->createForm()->setMethod($this->method);
         if (!is_null($this->title)) $form->setTitle($this->title)->headers($this->headers);
         $formData = $this->getFormData();
