@@ -19,7 +19,7 @@ use FormBuilder\FormHandle;
  * Class ElmFormHandle
  * @package FormBuilder\Factory
  */
-class ElmFormHandle extends FormHandle
+abstract class ElmFormHandle extends FormHandle
 {
 
     protected function ui()

@@ -20,7 +20,7 @@ use FormBuilder\FormHandle;
  * Class IviewFormHandle
  * @package FormBuilder\Factory
  */
-class IviewFormHandle extends FormHandle
+abstract class IviewFormHandle extends FormHandle
 {
 
     protected function ui()
