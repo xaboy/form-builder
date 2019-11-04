@@ -8,5 +8,4 @@ interface FormHandleInterface
 {
     public function form();
 
-    public function view();
 }
