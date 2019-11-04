@@ -34,6 +34,8 @@ abstract class FormHandle
 
     protected $fieldTitles = [];
 
+    protected $except = [];
+
     /**
      * 表单 UI
      *
@@ -77,7 +79,7 @@ abstract class FormHandle
         $rule = [];
         foreach ($methods as $method) {
             $field = preg_replace('/^(.+)(Field|_field)$/', '$1', $method->name);
-            if ($field != $method->name) {
+            if ($field != $method->name && !in_array($field, $this->except)) {
                 $params = $method->getParameters();
                 $flag = true;
                 if (isset($params[0]) && ($dep = $params[0]->getClass())) {
