@@ -13,6 +13,7 @@ namespace FormBuilder;
 
 
 use FormBuilder\Contract\ConfigInterface;
+use FormBuilder\Contract\FormHandleInterface;
 
 /**
  * 表单生成类
@@ -20,7 +21,7 @@ use FormBuilder\Contract\ConfigInterface;
  * Class FormHandle
  * @package FormBuilder
  */
-abstract class FormHandle
+abstract class FormHandle implements FormHandleInterface
 {
     protected $action = '';
 
