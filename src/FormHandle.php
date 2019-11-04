@@ -55,8 +55,9 @@ abstract class FormHandle implements FormHandleInterface
         return [];
     }
 
-    public function scene()
+    public function scene($scene = null)
     {
+        if (!is_null($scene)) $this->scene = $scene;
         return $this->scene;
     }
 
