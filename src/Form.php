@@ -362,12 +362,7 @@ class Form
      */
     public function formScript()
     {
-        ob_start();
-        $form = $this;
-        $DS = DIRECTORY_SEPARATOR;
-        require dirname(__FILE__) . $DS . 'Template' . $DS . 'createScript.min.php';
-        $script = ob_get_clean();
-        return $script;
+        return $this->template(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Template' . DIRECTORY_SEPARATOR . 'createScript.min.php');
     }
 
     /**
@@ -377,10 +372,20 @@ class Form
      */
     public function view()
     {
+        return $this->template(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Template' . DIRECTORY_SEPARATOR . 'form.php');
+    }
+
+    /**
+     * 自定义表单页面
+     *
+     * @param $templateDir
+     * @return false|string
+     */
+    public function template($templateDir)
+    {
         ob_start();
         $form = $this;
-        $DS = DIRECTORY_SEPARATOR;
-        require dirname(__FILE__) . $DS . 'Template' . $DS . 'form.php';
+        require $templateDir;
         $html = ob_get_clean();
         return $html;
     }
