@@ -43,17 +43,16 @@
     if (!vm.$Message && vm.$message) {
         Vue.prototype.$Message = vm.$message
     }
-    return function (el, callback) {
-
-        if (el) config.el = el;
+    return function (option) {
+        if(!option) option = {};
+        if (option.el) config.el = option.el;
 
         config.onSubmit = function (formData) {
             $f.submitBtnProps({loading: true, disabled: true});
             ajax(action, method, formData, function (status, res) {
-                if (callback) return callback(status, res, $f);
+                if (option.callback) return option.callback(status, res, $f);
 
                 $f.submitBtnProps({loading: false, disabled: false});
-
                 if (status && res.code === 200) {
                     vm.$Message.success(res.msg || '表单提交成功');
                 } else {
