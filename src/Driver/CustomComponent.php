@@ -46,6 +46,21 @@ class CustomComponent implements CustomComponentInterface
         $this->setRuleType(is_null($type) ? $this->getComponentName() : $type)->props($this->defaultProps);
     }
 
+    public function __toString()
+    {
+        return $this->toJson();
+    }
+
+    public function __invoke()
+    {
+        return $this->build();
+    }
+
+    public function toJson()
+    {
+        return json_encode($this->build());
+    }
+
     protected function getComponentName()
     {
         return lcfirst(basename(str_replace('\\', '/', get_class($this))));
