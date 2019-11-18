@@ -30,8 +30,8 @@ trait CallPropsRule
             if (!isset($arguments[0])) return isset($this->props[$name]) ? $this->props[$name] : null;
             $value = $arguments[0];
             if (is_array(static::$propsRule[$name])) {
-                $name = static::$propsRule[$name][1];
                 settype($value, static::$propsRule[$name][0]);
+                $name = static::$propsRule[$name][1];
             } else if (static::$propsRule[$name]) {
                 settype($value, static::$propsRule[$name]);
             }
