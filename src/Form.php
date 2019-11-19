@@ -14,6 +14,7 @@ namespace FormBuilder;
 
 use FormBuilder\Contract\BootstrapInterface;
 use FormBuilder\Contract\ConfigInterface;
+use FormBuilder\Driver\CustomComponent;
 use FormBuilder\Exception\FormBuilderException;
 use FormBuilder\UI\Iview\Bootstrap as IViewBootstrap;
 use FormBuilder\UI\Elm\Bootstrap as ElmBootstrap;
@@ -288,6 +289,10 @@ class Form
     {
         if (Util::isComponent($rule)) {
             $rule = $rule->build();
+        } else if (isset($rule['children']) && is_array($rule['children'])) {
+            foreach ($rule['children'] as $i => $child) {
+                $rule['children'][$i] = $this->parseFormComponent($child);
+            }
         }
         return $rule;
     }
