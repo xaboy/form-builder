@@ -14,7 +14,6 @@ namespace FormBuilder;
 
 use FormBuilder\Contract\BootstrapInterface;
 use FormBuilder\Contract\ConfigInterface;
-use FormBuilder\Driver\CustomComponent;
 use FormBuilder\Exception\FormBuilderException;
 use FormBuilder\UI\Iview\Bootstrap as IViewBootstrap;
 use FormBuilder\UI\Elm\Bootstrap as ElmBootstrap;
@@ -303,6 +302,29 @@ class Form
     }
 
     /**
+     * @param array $formData
+     * @param array $rule
+     * @return array
+     */
+    protected function deepSetFormData($formData, $rule)
+    {
+        if (!count($formData)) return $rule;
+        foreach ($rule as $k => $item) {
+            if (is_array($item)) {
+                if (isset($item['field']) && isset($formData[$item['field']])) {
+                    $item['value'] = $formData[$item['field']];
+                }
+                if (isset($item['children']) && is_array($item['children']) && count($item['children'])) {
+                    $item['children'] = $this->deepSetFormData($formData, $item['children']);
+                }
+            }
+            $rule[$k] = $item;
+        }
+
+        return $rule;
+    }
+
+    /**
      * 获取表单生成规则
      *
      * @return array
@@ -311,13 +333,9 @@ class Form
     {
         $rules = [];
         foreach ($this->rule as $rule) {
-            $rule = $this->parseFormComponent($rule);
-            if (isset($rule['field']) && isset($this->formData[$rule['field']])) {
-                $rule['value'] = $this->formData[$rule['field']];
-            }
-            $rules[] = $rule;
+            $rules[] = $this->parseFormComponent($rule);
         }
-        return $rules;
+        return $this->deepSetFormData($this->formData, $rules);
     }
 
     /**
