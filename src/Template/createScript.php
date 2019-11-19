@@ -33,7 +33,7 @@
                 callback(1, res);
             },
             error: function () {
-                callback(0);
+                callback(0, {});
             }
         });
 
