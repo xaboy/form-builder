@@ -169,11 +169,12 @@ trait BaseRule
     }
 
     /**
-     * @param array|ColComponentInterface $col
+     * @param array|int|ColComponentInterface $col
      * @return $this
      */
     public function col($col)
     {
+        if(is_integer($col)) $col = ['span'=>$col];
         $this->col = $col;
         return $this;
     }
