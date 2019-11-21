@@ -174,7 +174,7 @@ class Validate implements ValidateInterface
      */
     public function enum(array $list)
     {
-        $this->validate['enum'] = (int)$list;
+        $this->validate['enum'] = $list;
         return $this;
     }
 
