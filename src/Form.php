@@ -458,6 +458,20 @@ class Form
     }
 
     /**
+     * Iview v4 版表单生成器
+     *
+     * @param string $action
+     * @param array $rule
+     * @param array|ConfigInterface $config
+     * @return Form
+     * @throws FormBuilderException
+     */
+    public static function iview4($action = '', $rule = [], $config = [])
+    {
+        return new self(new IViewBootstrap(4), $action, $rule, $config);
+    }
+
+    /**
      * element-ui 版表单生成器
      *
      * @param string $action

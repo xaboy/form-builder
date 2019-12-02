@@ -23,8 +23,10 @@ use FormBuilder\FormHandle;
 abstract class IviewFormHandle extends FormHandle
 {
 
+    protected $version = 3;
+
     protected function ui()
     {
-        return 'iview';
+        return $this->version == 4 ? 'iview4' : 'iview';
     }
 }

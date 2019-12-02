@@ -126,4 +126,19 @@ abstract class Iview
     {
         return Form::iview($action, $rule, $config);
     }
+
+
+    /**
+     * 创建表单 v4版本
+     *
+     * @param string $action
+     * @param array $rule
+     * @param array $config
+     * @return Form
+     * @throws FormBuilderException
+     */
+    public static function createFormV4($action = '', $rule = [], $config = [])
+    {
+        return Form::iview4($action, $rule, $config);
+    }
 }
