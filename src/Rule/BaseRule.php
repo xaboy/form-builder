@@ -87,6 +87,43 @@ trait BaseRule
      */
     protected $value = '';
 
+    /**
+     * 组件显示状态
+     *
+     * @var bool
+     */
+    protected $hidden;
+
+    /**
+     * 组件显示状态
+     *
+     * @var bool
+     */
+    protected $visibility;
+
+    /**
+     * 组件显示状态
+     *
+     * @param bool $hidden
+     * @return $this
+     */
+    public function hiddenStatus($hidden = true)
+    {
+        $this->hidden = !!$hidden;
+        return $this;
+    }
+
+    /**
+     * 组件显示状态
+     *
+     * @param bool $visibility
+     * @return $this
+     */
+    public function visibilityStatus($visibility = true)
+    {
+        $this->visibility = !!$visibility;
+        return $this;
+    }
 
     /**
      * @param string $type
@@ -174,7 +211,7 @@ trait BaseRule
      */
     public function col($col)
     {
-        if(is_integer($col)) $col = ['span'=>$col];
+        if (is_integer($col)) $col = ['span' => $col];
         $this->col = $col;
         return $this;
     }
@@ -188,6 +225,16 @@ trait BaseRule
         if (is_null($value)) $value = '';
         $this->value = $value;
         return $this;
+    }
+
+    public function getHiddenStatus()
+    {
+        return $this->hidden;
+    }
+
+    public function getVisibilityStatus()
+    {
+        return $this->visibility;
     }
 
     public function getField()
@@ -262,6 +309,10 @@ trait BaseRule
             $rule['info'] = $this->info;
         if (!is_null($this->inject))
             $rule['inject'] = $this->inject;
+        if (!is_null($this->hidden))
+            $rule['hidden'] = $this->hidden;
+        if (!is_null($this->visibility))
+            $rule['visibility'] = $this->visibility;
         if (!is_null($this->col))
             $rule['col'] = $this->parseCol($this->col);
 
