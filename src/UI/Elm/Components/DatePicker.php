@@ -130,7 +130,7 @@ class DatePicker extends FormComponent
         if ($this->isRange() || $this->isMultiple())
             return Elm::validateArr();
         else
-            return Elm::validateStr();
+            return Elm::validateDate();
     }
 
     public function required($message = null)
@@ -139,7 +139,7 @@ class DatePicker extends FormComponent
         $validate = $this->createValidate();
 
         if ($this->isRange()) {
-            $dateRequired = Elm::validateStr()->message($message)->required();
+            $dateRequired = Elm::validateDate()->message($message)->required();
             $validate->fields([
                 '0' => $dateRequired,
                 '1' => $dateRequired

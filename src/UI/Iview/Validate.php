@@ -213,7 +213,7 @@ class Validate implements ValidateInterface
 
         if ($fieldCount) {
             foreach ($fields as $k => $field) {
-                $fields[$k] = $field instanceof self ? $field->build() : $field;
+                $fields[$k] = $field instanceof self ? $field->getValidate() : $field;
             }
             $validate['fields'] = (object)$fields;
         } else {
