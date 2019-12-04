@@ -24,7 +24,7 @@ use FormBuilder\Rule\ValidateRule;
  * 自定义组件
  * Class CustomComponent
  */
-class CustomComponent implements CustomComponentInterface
+class CustomComponent implements CustomComponentInterface, \JsonSerializable, \ArrayAccess
 {
     use BaseRule;
     use ChildrenRule;
@@ -75,5 +75,30 @@ class CustomComponent implements CustomComponentInterface
             $this->parseValidateRule(),
             $this->parseChildrenRule()
         );
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->build();
+    }
+
+    public function offsetExists($offset)
+    {
+        return isset($this->props[$offset]);
+    }
+
+    public function offsetGet($offset)
+    {
+        return $this->props[$offset];
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        $this->props[$offset] = $value;
+    }
+
+    public function offsetUnset($offset)
+    {
+        unset($this->props[$offset]);
     }
 }
