@@ -23,7 +23,7 @@ use FormBuilder\FormHandle;
 abstract class ElmFormHandle extends FormHandle
 {
 
-    protected function ui()
+    public function ui()
     {
         return 'elm';
     }

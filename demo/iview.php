@@ -5,6 +5,8 @@ namespace App;
 
 require '../vendor/autoload.php';
 
+use FormBuilder\Annotation\Col;
+use FormBuilder\Annotation\Group;
 use  FormBuilder\Factory\Iview;
 use FormBuilder\Handle\ElmFormHandle;
 use FormBuilder\Handle\IviewFormHandle;
@@ -27,19 +29,33 @@ class GoodsForm extends IviewFormHandle
 
     protected function getScene()
     {
-        $this->except = ['goods_name'];
+//        $this->except = ['goods_name'];
     }
 
+    /**
+     * @Col(12)
+     * @return \FormBuilder\UI\Iview\Components\Input
+     */
     public function goods_name_field()
     {
         return Iview::input('goods_name', '商品名称')->required();
     }
 
+    /**
+     * @Group(className="test")
+     * @Col(12)
+     * @return \FormBuilder\UI\Iview\Components\Input
+     */
     public function goods_info_field()
     {
         return Iview::textarea('goods_info', '商品简介');
     }
 
+    /**
+     * @Group()
+     * @Col(12)
+     * @return \FormBuilder\UI\Iview\Components\Switches
+     */
     public function is_open_field()
     {
         return Iview::switches('is_open', '是否开启');

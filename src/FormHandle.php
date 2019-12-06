@@ -13,6 +13,7 @@
 namespace FormBuilder;
 
 
+use FormBuilder\Annotation\AnnotationReader;
 use FormBuilder\Contract\ConfigInterface;
 use FormBuilder\Contract\FormHandleInterface;
 
@@ -45,7 +46,7 @@ abstract class FormHandle implements FormHandleInterface
      *
      * @return mixed
      */
-    abstract protected function ui();
+    abstract public function ui();
 
     /**
      * 获取表单数据
@@ -81,6 +82,7 @@ abstract class FormHandle implements FormHandleInterface
      * 获取表单组件
      *
      * @return array
+     * @throws \ReflectionException
      */
     protected function getFormRule()
     {
@@ -89,23 +91,23 @@ abstract class FormHandle implements FormHandleInterface
         $rule = [];
         foreach ($methods as $method) {
             $field = preg_replace('/^(.+)(Field|_field)$/', '$1', $method->name);
+            $value = null;
             if ($field != $method->name && !in_array($field, $this->except)) {
                 $params = $method->getParameters();
-                $flag = true;
                 if (isset($params[0]) && ($dep = $params[0]->getClass())) {
                     if (in_array('FormBuilder\\Contract\\FormComponentInterface', $dep->getInterfaceNames())) {
                         $componentClass = $dep->getName();
                         $value = $method->invokeArgs($this, [new $componentClass($field, $this->getFieldTitle($field))]);
-                        $flag = false;
                     }
                 }
-                if ($flag) $value = $method->invoke($this);
-                if (is_array($value) || Util::isComponent($value))
-                    $rule[] = $value;
+                if (is_null($value)) $value = $method->invoke($this);
+                if (!is_null($value) && (($isArray = is_array($value)) || Util::isComponent($value))) {
+                    $rule[] = compact('value', 'method', 'isArray');
+                }
             }
         }
-
-        return $rule;
+        $render = new AnnotationReader($this);
+        return $render->parse($rule);
     }
 
     /**

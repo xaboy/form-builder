@@ -26,7 +26,7 @@ abstract class IviewFormHandle extends FormHandle
 
     protected $version = 3;
 
-    protected function ui()
+    public function ui()
     {
         return $this->version == 4 ? 'iview4' : 'iview';
     }
