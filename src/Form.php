@@ -52,6 +52,8 @@ class Form
         '<script src="https://unpkg.com/@form-create/data@1.0.0/dist/province_city_area.js"></script>'
     ];
 
+    protected $template;
+
     /**
      * Form constructor.
      * @param BootstrapInterface $ui
@@ -68,6 +70,7 @@ class Form
         $this->ui = $ui;
         $ui->init($this);
         $this->checkFieldUnique();
+        $this->template = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Template' . DIRECTORY_SEPARATOR . 'form.php';
     }
 
     /**
@@ -396,7 +399,7 @@ class Form
      */
     public function view()
     {
-        return $this->template(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Template' . DIRECTORY_SEPARATOR . 'form.php');
+        return $this->template($this->template);
     }
 
     /**
@@ -412,6 +415,18 @@ class Form
         require $templateDir;
         $html = ob_get_clean();
         return $html;
+    }
+
+    /**
+     * 设置模板
+     *
+     * @param string $templateDir
+     * @return $this
+     */
+    public function setTemplate($templateDir)
+    {
+        $this->template = $templateDir;
+        return $this;
     }
 
     /**
