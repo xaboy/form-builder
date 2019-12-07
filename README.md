@@ -71,6 +71,22 @@ PHP表单生成器，快速生成现代化的form表单。包含复选框、单�
 $ composer require xaboy/form-builder:~2.0
 ```
 
+## DEMO
+下载项目
+
+```shell
+git clone https://github.com/xaboy/form-builder.git
+```
+开启服务
+
+```shell
+cd form-builder
+php -S 127.0.0.1:8112
+```
+查看 Demo
+
+[127.0.0.1:8112/demo/elm.php](127.0.0.1:8112/demo/elm.php)
+
 ## 演示项目
 [开源的高品质微信商城](http://github.crmeb.net/u/xaboy)
 
