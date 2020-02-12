@@ -30,11 +30,35 @@ trait PropsRule
     protected $attrs = [];
 
     /**
+     * @var string|array
+     */
+    protected $style;
+
+    /**
      * 组件的 DOM 属性
      *
      * @var array
      */
     protected $domProps = [];
+
+    /**
+     * 设置组件的 style 属性
+     * @param string|array $style
+     * @return $this
+     */
+    public function style($style)
+    {
+        $this->style = $style;
+        return $this;
+    }
+
+    /**
+     * @return array|string
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
 
     public function prop($name, $value)
     {
