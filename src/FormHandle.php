@@ -125,6 +125,7 @@ abstract class FormHandle implements FormHandleInterface
      * 获取表单
      *
      * @return Form
+     * @throws \ReflectionException
      */
     public function form()
     {
@@ -143,6 +144,7 @@ abstract class FormHandle implements FormHandleInterface
 
     /**
      * @return string
+     * @throws \ReflectionException
      */
     public function view()
     {
