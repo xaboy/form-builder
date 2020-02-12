@@ -30,6 +30,7 @@ trait PropsRule
     protected $attrs = [];
 
     /**
+     * 组件的样式
      * @var string|array
      */
     protected $style;
@@ -123,6 +124,8 @@ trait PropsRule
             $rule['attrs'] = $this->attrs;
         if (count($this->domProps))
             $rule['domProps'] = $this->domProps;
+        if (!is_null($this->style))
+            $rule['style'] = $this->style;
 
         return $rule;
     }
