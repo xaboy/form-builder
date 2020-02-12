@@ -48,6 +48,11 @@ abstract class FormHandle implements FormHandleInterface
      */
     abstract public function ui();
 
+    final public function getExcept()
+    {
+        return $this->except;
+    }
+
     /**
      * 获取表单数据
      * @return array
@@ -86,34 +91,15 @@ abstract class FormHandle implements FormHandleInterface
      */
     protected function getFormRule()
     {
-        $reflectionClass = new \ReflectionClass($this);
-        $methods = $reflectionClass->getMethods(\ReflectionMethod::IS_PUBLIC);
-        $rule = [];
-        foreach ($methods as $method) {
-            $field = preg_replace('/^(.+)(Field|_field)$/', '$1', $method->name);
-            $value = null;
-            if ($field != $method->name && !in_array($field, $this->except)) {
-                $params = $method->getParameters();
-                if (isset($params[0]) && ($dep = $params[0]->getClass())) {
-                    if (in_array('FormBuilder\\Contract\\FormComponentInterface', $dep->getInterfaceNames())) {
-                        $componentClass = $dep->getName();
-                        $value = $method->invokeArgs($this, [new $componentClass($field, $this->getFieldTitle($field))]);
-                    }
-                }
-                if (is_null($value)) $value = $method->invoke($this);
-                if (!is_null($value) && (($isArray = is_array($value)) || Util::isComponent($value))) {
-                    $rule[] = compact('value', 'method', 'isArray');
-                }
-            }
-        }
         $render = new AnnotationReader($this);
-        return $render->parse($rule);
+        return $render->render();
     }
 
     /**
      * 创建表单
      *
-     * @return  Form
+     * @return Form
+     * @throws \ReflectionException
      */
     protected function createForm()
     {
@@ -123,6 +109,7 @@ abstract class FormHandle implements FormHandleInterface
 
     /**
      * @return array
+     * @throws \ReflectionException
      */
     protected function getParams()
     {
