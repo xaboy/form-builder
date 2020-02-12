@@ -38,7 +38,7 @@ use FormBuilder\UI\Elm\Traits\TreeFactoryTrait;
 use FormBuilder\UI\Elm\Traits\UploadFactoryTrait;
 use FormBuilder\UI\Elm\Traits\ValidateFactoryTrait;
 
-abstract class Elm
+abstract class Elm extends Base
 {
     use CascaderFactoryTrait;
     use CheckBoxFactoryTrait;
@@ -126,5 +126,16 @@ abstract class Elm
     public static function createForm($action = '', $rule = [], $config = [])
     {
         return Form::elm($action, $rule, $config);
+    }
+
+    /**
+     * 组件分组
+     *
+     * @param array $children
+     * @return \FormBuilder\Driver\CustomComponent
+     */
+    public static function group($children = [])
+    {
+        return self::createComponent('el-row')->children($children);
     }
 }

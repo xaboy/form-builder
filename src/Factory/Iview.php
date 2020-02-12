@@ -38,7 +38,7 @@ use FormBuilder\UI\Iview\Traits\TreeFactoryTrait;
 use FormBuilder\UI\Iview\Traits\UploadFactoryTrait;
 use FormBuilder\UI\Iview\Traits\ValidateFactoryTrait;
 
-abstract class Iview
+abstract class Iview extends Base
 {
     use CascaderFactoryTrait;
     use CheckBoxFactoryTrait;
@@ -141,5 +141,16 @@ abstract class Iview
     public static function createFormV4($action = '', $rule = [], $config = [])
     {
         return Form::iview4($action, $rule, $config);
+    }
+
+    /**
+     * 组件分组
+     *
+     * @param array $children
+     * @return \FormBuilder\Driver\CustomComponent
+     */
+    public static function group($children = [])
+    {
+        return self::createComponent('row')->children($children);
     }
 }
