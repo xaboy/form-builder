@@ -27,5 +27,18 @@ interface ConfigInterface
 
     public function injectEvent($bool);
 
+    /**
+     * @param string $componentName
+     * @param array $config
+     * @return $this
+     */
+    public function componentGlobalConfig($componentName, array $config);
+
+    /**
+     * @param array $config
+     * @return $this
+     */
+    public function componentGlobalCommonConfig(array $config);
+
     public function getConfig();
 }

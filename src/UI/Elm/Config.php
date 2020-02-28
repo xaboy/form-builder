@@ -194,4 +194,25 @@ class Config implements ConfigInterface
     }
 
 
+    /**
+     * @param string $componentName
+     * @param array $config
+     * @return mixed
+     */
+    public function componentGlobalConfig($componentName, array $config)
+    {
+        if (!isset($this->config['global'])) $this->config['global'] = [];
+        $this->config['global'][$componentName] = $config;
+        return $this;
+    }
+
+
+    /**
+     * @param array $config
+     * @return $this
+     */
+    public function componentGlobalCommonConfig(array $config)
+    {
+        return $this->componentGlobalConfig('*', $config);
+    }
 }
