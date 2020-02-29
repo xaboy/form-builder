@@ -60,29 +60,27 @@
                 }
             });
         };
-
-        config.global = {
-            upload: {
-                props: {
-                    onExceededSize: function (file) {
-                        vm.$Message.error(file.name + '超出指定大小限制');
-                    },
-                    onFormatError: function () {
-                        vm.$Message.error(file.name + '格式验证失败');
-                    },
-                    onError: function (error) {
-                        vm.$Message.error(file.name + '上传失败,(' + error + ')');
-                    },
-                    onSuccess: function (res, file) {
-                        if (res.code === 200) {
-                            file.url = res.data.filePath;
-                        } else {
-                            vm.$Message.error(res.msg);
-                        }
-                    }
-                }
+        if(!config.global) config.global = {};
+        if(!config.global.upload) config.global.upload = {};
+        if(!config.global.upload.props) config.global.upload.props = {};
+        var uploadProps = config.global.upload.props;
+        uploadProps.onExceededSize=function (file) {
+            vm.$Message.error(file.name + '超出指定大小限制');
+        };
+        uploadProps.onFormatError=function (file) {
+            vm.$Message.error(file.name + '格式验证失败');
+        };
+        uploadProps.onError=function (error,file) {
+            vm.$Message.error(file.name + '上传失败,(' + error + ')');
+        };
+        uploadProps.onSuccess=function (res, file) {
+            if (res.code === 200) {
+                file.url = res.data.filePath;
+            } else {
+                vm.$Message.error(res.msg);
             }
         };
+
         var $f = formCreate.create(rule, config);
         return $f;
     };

@@ -197,7 +197,7 @@ class Config implements ConfigInterface
     /**
      * @param string $componentName
      * @param array $config
-     * @return mixed
+     * @return $this
      */
     public function componentGlobalConfig($componentName, array $config)
     {

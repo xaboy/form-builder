@@ -288,6 +288,23 @@ class Form
         return $this;
     }
 
+    /**
+     * 设置组件全局配置
+     * @param string $componentName
+     * @param array $config
+     * @return $this
+     */
+    public function componentGlobalConfig($componentName, array $config)
+    {
+        if ($this->config instanceof ConfigInterface)
+            $this->config->componentGlobalConfig($componentName, $config);
+        else {
+            if (!isset($this->config['global'])) $this->config['global'] = [];
+            $this->config['global'][$componentName] = $config;
+        }
+        return $this;
+    }
+
     protected function parseFormComponent($rule)
     {
         if (Util::isComponent($rule)) {
