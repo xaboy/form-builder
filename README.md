@@ -21,6 +21,9 @@
 PHP表单生成器，快速生成现代化的form表单。包含复选框、单选框、输入框、下拉选择框等元素以及省市区三级联动、时间选择、日期选择、颜色选择、树型、文件/图片上传等功能。
 </p>
 
+![demo1](https://raw.githubusercontent.com/xaboy/form-create/dev/images/demo-live3.gif)
+![demo2](https://github.com/xaboy/form-create/raw/dev/images/demo-group.gif?raw=true)
+
 ## 文档
 
 [文档](http://php.form-create.com)
