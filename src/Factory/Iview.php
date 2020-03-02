@@ -25,6 +25,7 @@ use FormBuilder\UI\Iview\Traits\ColorPickerFactoryTrait;
 use FormBuilder\UI\Iview\Traits\DatePickerFactoryTrait;
 use FormBuilder\UI\Iview\Traits\FrameFactoryTrait;
 use FormBuilder\UI\Iview\Traits\FormStyleFactoryTrait;
+use FormBuilder\UI\Iview\Traits\GroupFactoryTrait;
 use FormBuilder\UI\Iview\Traits\HiddenFactoryTrait;
 use FormBuilder\UI\Iview\Traits\InputFactoryTrait;
 use FormBuilder\UI\Iview\Traits\InputNumberFactoryTrait;
@@ -58,6 +59,7 @@ abstract class Iview extends Base
     use TreeFactoryTrait;
     use UploadFactoryTrait;
     use ValidateFactoryTrait;
+    use GroupFactoryTrait;
 
     /**
      * 获取选择类组件 option 类
@@ -149,7 +151,7 @@ abstract class Iview extends Base
      * @param array $children
      * @return \FormBuilder\Driver\CustomComponent
      */
-    public static function group($children = [])
+    public static function item($children = [])
     {
         return self::createComponent('row')->children($children);
     }

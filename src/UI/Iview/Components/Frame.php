@@ -31,7 +31,7 @@ use FormBuilder\Factory\Iview;
  * @method $this modal(array $modalProps) 弹出框props
  * @method $this handleIcon(bool $bool) 操作按钮的图标, 设置为false将不显示, 设置为true为默认的预览图标, 类型为file时默认为false, image类型默认为true
  * @method $this allowRemove(bool $bool) 是否可删除, 设置为false是不显示删除按钮
- *
+ * @method $this disabled(bool $bool) 是否禁用
  *
  */
 class Frame extends FormComponent

@@ -25,6 +25,7 @@ use FormBuilder\UI\Elm\Traits\ColorPickerFactoryTrait;
 use FormBuilder\UI\Elm\Traits\DatePickerFactoryTrait;
 use FormBuilder\UI\Elm\Traits\FrameFactoryTrait;
 use FormBuilder\UI\Elm\Traits\FormStyleFactoryTrait;
+use FormBuilder\UI\Elm\Traits\GroupFactoryTrait;
 use FormBuilder\UI\Elm\Traits\HiddenFactoryTrait;
 use FormBuilder\UI\Elm\Traits\InputFactoryTrait;
 use FormBuilder\UI\Elm\Traits\InputNumberFactoryTrait;
@@ -58,6 +59,7 @@ abstract class Elm extends Base
     use TreeFactoryTrait;
     use UploadFactoryTrait;
     use ValidateFactoryTrait;
+    use GroupFactoryTrait;
 
     /**
      * 获取选择类组件 option 类
@@ -134,7 +136,7 @@ abstract class Elm extends Base
      * @param array $children
      * @return \FormBuilder\Driver\CustomComponent
      */
-    public static function group($children = [])
+    public static function item($children = [])
     {
         return self::createComponent('el-row')->children($children);
     }
