@@ -67,7 +67,7 @@ trait ChildrenRule
      */
     public function appendChildren($children)
     {
-        $this->children[] = array_merge($this->children, $children);
+        $this->children = array_merge($this->children, $children);
         return $this;
     }
 
