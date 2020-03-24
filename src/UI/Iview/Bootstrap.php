@@ -37,13 +37,13 @@ class Bootstrap implements BootstrapInterface
             array_splice($dependScript, 2, 0, [
                 '<link href="https://unpkg.com/iview@3.4.2/dist/styles/iview.css" rel="stylesheet">',
                 '<script src="https://unpkg.com/iview@3.4.2/dist/iview.min.js"></script>',
-                '<script src="https://unpkg.com/@form-create/iview@1.0.7/dist/form-create.min.js"></script>',
+                '<script src="https://unpkg.com/@form-create/iview@1.0.9/dist/form-create.min.js"></script>',
             ]);
         } else {
             array_splice($dependScript, 2, 0, [
                 '<link href="https://unpkg.com/view-design@4.0.2/dist/styles/iview.css" rel="stylesheet">',
                 '<script src="https://unpkg.com/view-design@4.0.2/dist/iview.min.js"></script>',
-                '<script src="https://unpkg.com/@form-create/iview4@1.0.7/dist/form-create.min.js"></script>',
+                '<script src="https://unpkg.com/@form-create/iview4@1.0.9/dist/form-create.min.js"></script>',
             ]);
         }
 

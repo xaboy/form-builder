@@ -81,11 +81,6 @@ trait ChildrenRule
         return $this->children;
     }
 
-    protected function parseChildren($child)
-    {
-        return Util::isComponent($child) ? $child->build() : $child;
-    }
-
     /**
      * @return array
      */
@@ -94,7 +89,7 @@ trait ChildrenRule
         if (!count($this->children)) return [];
         $children = [];
         foreach ($this->children as $child) {
-            $children[] = $this->parseChildren($child);
+            $children[] = Util::isComponent($child) ? $child->build() : $child;
         }
 
         return compact('children');

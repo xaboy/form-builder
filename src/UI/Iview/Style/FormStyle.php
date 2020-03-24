@@ -48,6 +48,17 @@ class FormStyle implements StyleInterface
     }
 
     /**
+     * 设置表单 class
+     * @param $class
+     * @return $this
+     */
+    public function className($class)
+    {
+        $this->rule['className'] = $class;
+        return $this;
+    }
+
+    /**
      * 表单域标签的位置，可选值为 left、right、top
      *
      * @param string $position

@@ -65,6 +65,17 @@ class FormStyle implements StyleInterface
     }
 
     /**
+     * 设置表单 class
+     * @param $class
+     * @return $this
+     */
+    public function className($class)
+    {
+        $this->props['className'] = $class;
+        return $this;
+    }
+
+    /**
      * @return object
      */
     public function getStyle()

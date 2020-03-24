@@ -17,6 +17,7 @@ use FormBuilder\Contract\CustomComponentInterface;
 use FormBuilder\Rule\BaseRule;
 use FormBuilder\Rule\CallPropsRule;
 use FormBuilder\Rule\ChildrenRule;
+use FormBuilder\Rule\ControlRule;
 use FormBuilder\Rule\EmitRule;
 use FormBuilder\Rule\PropsRule;
 use FormBuilder\Rule\ValidateRule;
@@ -33,6 +34,7 @@ class CustomComponent implements CustomComponentInterface, \JsonSerializable, \A
     use PropsRule;
     use ValidateRule;
     use CallPropsRule;
+    use ControlRule;
 
     protected static $propsRule = [];
 
@@ -74,7 +76,8 @@ class CustomComponent implements CustomComponentInterface, \JsonSerializable, \A
             $this->parseEmitRule(),
             $this->parsePropsRule(),
             $this->parseValidateRule(),
-            $this->parseChildrenRule()
+            $this->parseChildrenRule(),
+            $this->parseControlRule()
         );
     }
 
