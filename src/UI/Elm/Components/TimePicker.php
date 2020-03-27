@@ -51,6 +51,7 @@ class TimePicker extends FormComponent
     protected static $propsRule = [
         'readonly' => 'bool',
         'disabled' => 'bool',
+        'isRange' => 'bool',
         'editable' => 'bool',
         'clearable' => 'bool',
         'size' => 'string',
