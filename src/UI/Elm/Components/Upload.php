@@ -101,6 +101,6 @@ class Upload extends FormComponent
 
     public function createValidate()
     {
-        return Elm::validateArr();
+        return $this->props['limit'] == 1 ? Elm::validateStr() : Elm::validateArr();
     }
 }

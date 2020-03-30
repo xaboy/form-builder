@@ -114,6 +114,6 @@ class Upload extends FormComponent
 
     public function createValidate()
     {
-        return Iview::validateArr();
+        return $this->props['maxLength'] == 1 ? Iview::validateStr() : Iview::validateArr();
     }
 }
