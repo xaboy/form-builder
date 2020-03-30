@@ -19,9 +19,9 @@ abstract class FormOptionsComponent extends FormComponent
 {
     use OptionsRule;
 
-    public function build()
+    public function getRule()
     {
-        $rule = parent::build();
+        $rule = parent::getRule();
 
         return array_merge($rule, $this->parseOptionsRule());
     }

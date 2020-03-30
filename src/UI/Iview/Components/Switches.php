@@ -74,11 +74,10 @@ class Switches extends FormComponent
     /**
      * @return array
      */
-    public function build()
+    public function getRule()
     {
-        $rule = parent::build();
-        if (!count($rule['props']->slot)) unset($rule['props']->slot);
-
+        $rule = parent::getRule();
+        if (isset($rule['props']['slot']) && !count($rule['props']['slot'])) unset($rule['props']['slot']);
         return $rule;
     }
 

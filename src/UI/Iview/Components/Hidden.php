@@ -37,7 +37,7 @@ class Hidden extends FormComponent
     /**
      * @return array
      */
-    public function build()
+    public function getRule()
     {
         return [
             'type' => $this->type,

@@ -40,6 +40,8 @@ class CustomComponent implements CustomComponentInterface, \JsonSerializable, \A
 
     protected $defaultProps = [];
 
+    protected $appendRule = [];
+
     /**
      * CustomComponent constructor.
      * @param null|string $type
@@ -69,7 +71,13 @@ class CustomComponent implements CustomComponentInterface, \JsonSerializable, \A
         return lcfirst(basename(str_replace('\\', '/', get_class($this))));
     }
 
-    public function build()
+    public function appendRule($name, $value)
+    {
+        $this->appendRule[$name] = $name == 'props' ? (object)$value : $value;
+        return $this;
+    }
+
+    public function getRule()
     {
         return array_merge(
             $this->parseBaseRule(),
@@ -79,6 +87,11 @@ class CustomComponent implements CustomComponentInterface, \JsonSerializable, \A
             $this->parseChildrenRule(),
             $this->parseControlRule()
         );
+    }
+
+    public function build()
+    {
+        return $this->appendRule + $this->getRule();
     }
 
     public function jsonSerialize()
