@@ -38,8 +38,8 @@ class Switches extends FormComponent
     protected static $propsRule = [
         'size' => 'string',
         'disabled' => 'bool',
-        'trueValue' => 'string',
-        'falseValue' => 'string'
+        'trueValue' => '',
+        'falseValue' => ''
     ];
 
     public function getComponentName()
