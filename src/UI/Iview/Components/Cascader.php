@@ -92,12 +92,13 @@ class Cascader extends FormComponent
      *    }]
      *  }
      *
-     * @param array $data
+     * @param array|callable $data
      * @return $this
      */
     public function data($data)
     {
-        if (!is_array($data) || !$is_callable = is_callable($data)) return $this;
+        $is_callable = is_callable($data);
+        if (!is_array($data) && !$is_callable) return $this;
 
         $this->props['data'] = $is_callable ? $data($this) : $data;
         return $this;
