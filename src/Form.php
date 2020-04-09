@@ -480,12 +480,6 @@ class Form
             if (isset($rule['children']) && count($rule['children']))
                 $fields = $this->checkFieldUnique($rule['children'], $fields);
 
-            if (isset($rule['control'])) {
-                foreach ($rule['control'] as $control) {
-                    $fields = $this->checkFieldUnique($control['rule'], $fields);
-                }
-            }
-
             if (is_null($field) || $field === '')
                 continue;
             else if (isset($fields[$field]))
