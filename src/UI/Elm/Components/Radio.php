@@ -46,6 +46,11 @@ class Radio extends FormOptionsComponent
         return Elm::validateNum();
     }
 
+    public function requiredNum($message = '')
+    {
+        return $this->appendValidate($this->createValidateNum()->message($message)->required());
+    }
+
     /**
      * 按钮样式
      *

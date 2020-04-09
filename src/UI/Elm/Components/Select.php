@@ -85,4 +85,14 @@ class Select extends FormOptionsComponent
             return Elm::validateStr();
     }
 
+    public function createValidateNum()
+    {
+        return Elm::validateNum();
+    }
+
+    public function requiredNum($message = null)
+    {
+        return $this->appendValidate($this->createValidateNum()->message($message)->required());
+    }
+
 }

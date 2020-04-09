@@ -59,4 +59,14 @@ class Select extends FormOptionsComponent
             return Iview::validateStr();
     }
 
+    public function createValidateNum()
+    {
+        return Iview::validateNum();
+    }
+
+    public function requiredNum($message = null)
+    {
+        return $this->appendValidate($this->createValidateNum()->message($message)->required());
+    }
+
 }
