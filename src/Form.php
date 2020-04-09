@@ -309,9 +309,19 @@ class Form
     {
         if (Util::isComponent($rule)) {
             $rule = $rule->build();
-        } else if (isset($rule['children']) && is_array($rule['children'])) {
-            foreach ($rule['children'] as $i => $child) {
-                $rule['children'][$i] = $this->parseFormComponent($child);
+        } else {
+            if (isset($rule['children']) && is_array($rule['children'])) {
+                foreach ($rule['children'] as $i => $child) {
+                    $rule['children'][$i] = $this->parseFormComponent($child);
+                }
+            }
+            if (isset($rule['control'])) {
+                foreach ($rule['control'] as $i => $child) {
+                    foreach ($child['rule'] as $k => $rule) {
+                        $child['rule'][$k] = Util::isComponent($rule) ? $rule->build() : $rule;
+                    }
+                    $rule['control'][$i] = $child;
+                }
             }
         }
         return $rule;
@@ -337,6 +347,11 @@ class Form
                 }
                 if (isset($item['children']) && is_array($item['children']) && count($item['children'])) {
                     $item['children'] = $this->deepSetFormData($formData, $item['children']);
+                }
+                if (isset($item['control']) && count($item['control'])) {
+                    foreach ($item['control'] as $_k => $_rule) {
+                        $item['control'][$_k]['rule'] = $this->deepSetFormData($formData, $_rule['rule']);
+                    }
                 }
             }
             $rule[$k] = $item;
@@ -464,6 +479,12 @@ class Form
 
             if (isset($rule['children']) && count($rule['children']))
                 $fields = $this->checkFieldUnique($rule['children'], $fields);
+
+            if (isset($rule['control'])) {
+                foreach ($rule['control'] as $control) {
+                    $fields = $this->checkFieldUnique($control['rule'], $fields);
+                }
+            }
 
             if (is_null($field) || $field === '')
                 continue;

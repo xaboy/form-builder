@@ -69,7 +69,10 @@ trait ControlRule
         if (!count($this->control)) return [];
         $control = [];
         foreach ($this->control as $child) {
-            $control[] = Util::isComponent($child) ? $child->build() : $child;
+            foreach ($child['rule'] as $k => $rule) {
+                $child['rule'][$k] = Util::isComponent($rule) ? $rule->build() : $rule;
+            }
+            $control[] = $child;
         }
 
         return compact('control');
