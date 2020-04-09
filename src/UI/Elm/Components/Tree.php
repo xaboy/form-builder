@@ -53,6 +53,7 @@ class Tree extends FormComponent
 
     protected $defaultProps = [
         'type' => self::TYPE_CHECKED,
+        'showCheckbox' => true,
         'data' => []
     ];
 
@@ -102,9 +103,6 @@ class Tree extends FormComponent
 
     public function createValidate()
     {
-        if ($this->props['multiple'])
-            return Elm::validateArr();
-        else
-            return Elm::validateStr();
+        return Elm::validateArr();
     }
 }
