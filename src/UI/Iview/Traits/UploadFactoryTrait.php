@@ -68,8 +68,25 @@ trait UploadFactoryTrait
      * @param string $action
      * @param string $value
      * @return Upload
+     * @deprecated
      */
     public static function uploadImageOne($field, $title, $action, $value = '')
+    {
+        $upload = self::upload($field, $title, $action, (string)$value, Upload::TYPE_IMAGE);
+        return $upload->format(['jpg', 'jpeg', 'png', 'gif'])->accept('image/*')->maxLength(1);
+    }
+
+    /**
+     * 单图片上传
+     * value 为string类型
+     *
+     * @param string $field
+     * @param string $title
+     * @param string $action
+     * @param string $value
+     * @return Upload
+     */
+    public static function uploadImage($field, $title, $action, $value = '')
     {
         $upload = self::upload($field, $title, $action, (string)$value, Upload::TYPE_IMAGE);
         return $upload->format(['jpg', 'jpeg', 'png', 'gif'])->accept('image/*')->maxLength(1);
