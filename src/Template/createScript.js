@@ -14,7 +14,10 @@
                 }else if(c.props.options && isType(c.props.options, 'String') && c.props.options.indexOf('js.') === 0){
                     c.props.options = window[c.props.options.substr(3)];
                 }
-            }
+            }else if(type === 'group') {
+                if(c.props.rules) parseRule(c.props.rules);
+                if(c.props.rule) parseRule([c.props.rule]);
+            }else if(c.control)
             if (children.length) parseRule(children);
         });
 

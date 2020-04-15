@@ -48,6 +48,7 @@ class Radio extends FormOptionsComponent
 
     public function requiredNum($message = '')
     {
+        if (is_null($message)) $message = $this->getPlaceHolder();
         return $this->appendValidate($this->createValidateNum()->message($message)->required());
     }
 

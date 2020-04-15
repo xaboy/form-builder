@@ -92,6 +92,7 @@ class Select extends FormOptionsComponent
 
     public function requiredNum($message = null)
     {
+        if (is_null($message)) $message = $this->getPlaceHolder();
         return $this->appendValidate($this->createValidateNum()->message($message)->required());
     }
 
