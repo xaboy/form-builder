@@ -5,26 +5,31 @@
     };
 
     var parseRule = function (rule) {
+        if (!rule) return [];
         rule.forEach(function (c) {
             var type = c.type ? ('' + c.type).toLocaleLowerCase() : '',
                 children = isType(rule.children, 'Array') ? rule.children : [];
             if ((type === 'cascader' || type === 'tree') && c.props) {
                 if (c.props.data && isType(c.props.data, 'String') && c.props.data.indexOf('js.') === 0) {
                     c.props.data = window[c.props.data.substr(3)];
-                }else if(c.props.options && isType(c.props.options, 'String') && c.props.options.indexOf('js.') === 0){
+                } else if (c.props.options && isType(c.props.options, 'String') && c.props.options.indexOf('js.') === 0) {
                     c.props.options = window[c.props.options.substr(3)];
                 }
-            }else if(type === 'group') {
-                if(c.props.rules) parseRule(c.props.rules);
-                if(c.props.rule) parseRule([c.props.rule]);
-            }else if(c.control)
+            } else if (type === 'group') {
+                if (c.props.rules) parseRule(c.props.rules);
+                if (c.props.rule) parseRule([c.props.rule]);
+            } else if (c.control) {
+                c.forEach(function(r) {
+                    parseRule(r.rule);
+                });
+            }
             if (children.length) parseRule(children);
         });
 
         return rule;
     };
 
-    var ajax = function(url, type, formData, callback){
+    var ajax = function (url, type, formData, callback){
         $.ajax({
             url: url,
             type: ('' + type).toLocaleUpperCase(),
@@ -47,10 +52,10 @@
         Vue.prototype.$Message = vm.$message
     }
     return function (option) {
-        if(!option) option = {};
+        if (!option) option = {};
         if (option.el) config.el = option.el;
 
-        config.onSubmit = function (formData) {
+        config.onSubmit = function (formData, $f) {
             $f.submitBtnProps({loading: true, disabled: true});
             ajax(action, method, formData, function (status, res) {
                 if (option.callback) return option.callback(status, res, $f);
@@ -67,24 +72,23 @@
         if(!config.global.upload) config.global.upload = {};
         if(!config.global.upload.props) config.global.upload.props = {};
         var uploadProps = config.global.upload.props;
-        uploadProps.onExceededSize=function (file) {
+        uploadProps.onExceededSize = function (file) {
             vm.$Message.error(file.name + '超出指定大小限制');
         };
-        uploadProps.onFormatError=function (file) {
+        uploadProps.onFormatError = function (file) {
             vm.$Message.error(file.name + '格式验证失败');
         };
-        uploadProps.onError=function (error,file) {
+        uploadProps.onError = function (error, file) {
             vm.$Message.error(file.name + '上传失败,(' + error + ')');
         };
-        uploadProps.onSuccess=function (res, file) {
+        uploadProps.onSuccess = function (res, file) {
             if (res.code === 200) {
                 file.url = res.data.filePath;
             } else {
                 vm.$Message.error(res.msg);
             }
         };
-
-        var $f = formCreate.create(rule, config);
-        return $f;
+        var _create = function(){return formCreate.create(rule, config);}
+        return option.filter ? option.filter(_create) : _create() ;
     };
 })();
