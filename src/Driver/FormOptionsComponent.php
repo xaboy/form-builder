@@ -13,9 +13,10 @@
 namespace FormBuilder\Driver;
 
 
+use FormBuilder\Contract\FormOptionsComponentInterface;
 use FormBuilder\Rule\OptionsRule;
 
-abstract class FormOptionsComponent extends FormComponent
+abstract class FormOptionsComponent extends FormComponent implements FormOptionsComponentInterface
 {
     use OptionsRule;
 
