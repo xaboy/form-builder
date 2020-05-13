@@ -85,7 +85,7 @@ class Tree extends FormComponent
         $this->props['data'] = [];
         foreach ($treeData as $child) {
             $this->props['data'][] = $child instanceof TreeData
-                ? $child->build()
+                ? $child->getOption()
                 : $child;
         }
         return $this;

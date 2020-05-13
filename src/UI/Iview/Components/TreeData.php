@@ -96,7 +96,7 @@ class TreeData implements OptionComponentInterface
         $children = [];
         foreach ($this->children as $child) {
             $children[] = $child instanceof TreeData
-                ? $child->build()
+                ? $child->getOption()
                 : $child;
         }
         $this->props['children'] = $children;
