@@ -18,8 +18,8 @@
             } else if (type === 'group') {
                 if (c.props.rules) parseRule(c.props.rules);
                 if (c.props.rule) parseRule([c.props.rule]);
-            } else if (c.control) {
-                c.forEach(function(r) {
+            } else if (c.control && c.control.length) {
+                c.control.forEach(function(r) {
                     parseRule(r.rule);
                 });
             }
