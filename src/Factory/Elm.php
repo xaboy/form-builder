@@ -75,6 +75,17 @@ abstract class Elm extends Base
     }
 
     /**
+     * @param array $rule
+     * @return \FormBuilder\UI\Elm\Style\FormStyle
+     * @author xaboy
+     * @day 2020/5/22
+     */
+    public static function formStyle(array $rule = [])
+    {
+        return self::style($rule);
+    }
+
+    /**
      * 全局配置
      *
      * @param array $config
