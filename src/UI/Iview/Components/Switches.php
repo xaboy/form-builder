@@ -76,9 +76,8 @@ class Switches extends FormComponent
      */
     public function getRule()
     {
-        $rule = parent::getRule();
-        if (isset($rule['props']['slot']) && !count($rule['props']['slot'])) unset($rule['props']['slot']);
-        return $rule;
+        if (isset($this->props['slot']) && !count($this->props['slot'])) unset($this->props['slot']);
+        return parent::getRule();
     }
 
     public function createValidate()

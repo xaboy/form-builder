@@ -96,7 +96,7 @@ class Upload extends FormComponent
 
     protected function getPlaceHolder()
     {
-        return '请上传' . $this->field;
+        return '请上传' . $this->title;
     }
 
     public function createValidate()
