@@ -140,7 +140,7 @@ class DatePicker extends FormComponent
         $validate = $this->createValidate();
 
         if ($this->isRange()) {
-            $dateRequired = Elm::validateDate()->message($message)->required();
+            $dateRequired = Elm::validateStr()->message($message)->required();
             $validate->fields([
                 '0' => $dateRequired,
                 '1' => $dateRequired
