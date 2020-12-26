@@ -30,7 +30,7 @@
     "php": ">=5.4.0",
     "ext-json": "*",
     "symfony/http-foundation": "~2.6|~2.7|~2.8|~3.0|~4.0",
-    "doctrine/annotations": "1.2.7"
+    "doctrine/annotations": "^1.2.7"
   },
   "minimum-stability": "stable"
 }
