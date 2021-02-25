@@ -91,7 +91,7 @@ trait FrameFactoryTrait
      */
     public static function frameInput($field, $title, $src, $value = '')
     {
-        return self::frame($field, $title, $src, (string)$value);
+        return self::frame($field, $title, $src, $value);
     }
 
     /**
@@ -106,7 +106,7 @@ trait FrameFactoryTrait
      */
     public static function frameFile($field, $title, $src, $value = '')
     {
-        return self::frame($field, $title, $src, (string)$value, Frame::TYPE_FILE);
+        return self::frame($field, $title, $src, $value, Frame::TYPE_FILE);
     }
 
     /**
@@ -121,6 +121,6 @@ trait FrameFactoryTrait
      */
     public static function frameImage($field, $title, $src, $value = '')
     {
-        return self::frame($field, $title, $src, (string)$value, Frame::TYPE_IMAGE);
+        return self::frame($field, $title, $src, $value, Frame::TYPE_IMAGE);
     }
 }
