@@ -103,6 +103,11 @@ trait BaseRule
     protected $visibility;
 
     /**
+     * @var array
+     */
+    protected $effect;
+
+    /**
      * 组件显示状态
      *
      * @param bool $hidden
@@ -217,6 +222,12 @@ trait BaseRule
         return $this;
     }
 
+    public function effect(array $effect)
+    {
+        $this->effect = $effect;
+        return $this;
+    }
+
     /**
      * @param mixed $value
      * @return $this
@@ -278,6 +289,11 @@ trait BaseRule
         return $this->col;
     }
 
+    public function getEffect()
+    {
+        return $this->effect;
+    }
+
     public function getValue()
     {
         return $this->value;
@@ -308,6 +324,8 @@ trait BaseRule
             $rule['native'] = $this->native;
         if (!is_null($this->info))
             $rule['info'] = $this->info;
+        if (!is_null($this->effect))
+            $rule['effect'] = $this->effect;
         if (!is_null($this->inject))
             $rule['inject'] = $this->inject;
         if (!is_null($this->hidden))
