@@ -84,6 +84,7 @@ git clone https://github.com/xaboy/form-builder.git
 
 ```shell
 cd form-builder
+composer install
 php -S 127.0.0.1:8112
 ```
 查看 Demo
