@@ -27,7 +27,7 @@
     "source": "https://github.com/xaboy/form-builder"
   },
   "require": {
-    "php": ">=5.4.0",
+    "php": ">=7.1.0",
     "ext-json": "*",
     "symfony/http-foundation": ">=2.6",
     "doctrine/annotations": "^1.2.7"
