@@ -22,9 +22,7 @@
   </a>
 </p>
 
-<p align="center">
 PHP表单生成器，基于 [@form-create/element-ui](https://github.com/xaboy/form-create) 实现快速生成现代化的Form表单。包含复选框、单选框、输入框、下拉选择框等元素以及省市区三级联动、时间选择、日期选择、颜色选择、树型、文件/图片上传等功能。
-</p>
 
 [![FcDesigner](https://static.form-create.com/file/img/banner-m2.jpg)](https://pro.form-create.com/view)
 
