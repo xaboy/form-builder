@@ -48,8 +48,6 @@ class Upload extends FormComponent
     protected $defaultProps = [
         'limit' => 0,
         'uploadType' => self::TYPE_FILE,
-        'headers' => [],
-        'data' => []
     ];
 
     protected static $propsRule = [
@@ -78,7 +76,7 @@ class Upload extends FormComponent
      */
     public function headers(array $headers)
     {
-        $this->props['headers'] = array_merge($this->props['headers'], $headers);
+        $this->props['headers'] = array_merge($this->props['headers']?? [], $headers);
         return $this;
     }
 
@@ -90,7 +88,7 @@ class Upload extends FormComponent
      */
     public function data(array $data)
     {
-        $this->props['data'] = array_merge($this->props['data'], $data);
+        $this->props['data'] = array_merge($this->props['data']?? [], $data);
         return $this;
     }
 

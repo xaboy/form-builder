@@ -47,8 +47,6 @@ class Upload extends FormComponent
         'maxLength' => 0,
         'type' => 'select',
         'uploadType' => self::TYPE_FILE,
-        'headers' => [],
-        'data' => [],
         'format' => [],
         'show-upload-list' => false
     ];
@@ -77,7 +75,7 @@ class Upload extends FormComponent
      */
     public function headers(array $headers)
     {
-        $this->props['headers'] = array_merge($this->props['headers'], $headers);
+        $this->props['headers'] = array_merge($this->props['headers'] ?? [], $headers);
         return $this;
     }
 
@@ -91,7 +89,7 @@ class Upload extends FormComponent
      */
     public function format(array $format)
     {
-        $this->props['format'] = array_merge($this->props['format'], $format);
+        $this->props['format'] = array_merge($this->props['format'] ?? [], $format);
         return $this;
     }
 

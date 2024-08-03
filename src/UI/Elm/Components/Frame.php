@@ -74,7 +74,7 @@ class Frame extends FormComponent
 
     public function createValidate()
     {
-        return Elm::validateArr();
+        return isset($this->props['maxLength']) && $this->props['maxLength'] === 1 ? Elm::validateStr() : Elm::validateArr();
     }
 
     protected function init()

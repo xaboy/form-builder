@@ -73,7 +73,7 @@ class Frame extends FormComponent
 
     public function createValidate()
     {
-        return Iview::validateArr();
+        return isset($this->props['maxLength']) && $this->props['maxLength'] === 1 ? Iview::validateStr() : Iview::validateArr();
     }
 
     protected function init()
