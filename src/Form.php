@@ -307,6 +307,9 @@ class Form
 
     protected function parseFormComponent($rule)
     {
+        if (is_string($rule)) {
+            return $rule;
+        }
         if (Util::isComponent($rule)) {
             $rule = $rule->build();
         } else {
@@ -317,8 +320,8 @@ class Form
             }
             if (isset($rule['control'])) {
                 foreach ($rule['control'] as $i => $child) {
-                    foreach ($child['rule'] as $k => $rule) {
-                        $child['rule'][$k] = Util::isComponent($rule) ? $rule->build() : $rule;
+                    foreach ($child['rule'] as $k => $item) {
+                        $child['rule'][$k] = Util::isComponent($item) ? $item->build() : $item;
                     }
                     $rule['control'][$i] = $child;
                 }
