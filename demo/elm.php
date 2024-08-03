@@ -1,162 +1,67 @@
 <?php
+/**
+ * PHP表单生成器
+ *
+ * @package  FormBuilder
+ * @author   xaboy <xaboy2005@qq.com>
+ * @version  2.0
+ * @license  MIT
+ * @link     https://github.com/xaboy/form-builder
+ * @document http://php.form-create.com
+ */
 
 namespace App;
 
-
-require '../vendor/autoload.php';
-
-use FormBuilder\Annotation\Col;
-use FormBuilder\Annotation\Emit;
-use FormBuilder\Annotation\Group;
-use FormBuilder\Annotation\Validate\Required;
-use FormBuilder\Annotation\Validate\Min;
-use FormBuilder\Annotation\Validate\Range;
 use FormBuilder\Factory\Elm;
-use FormBuilder\Handle\ElmFormHandle;
-use FormBuilder\UI\Elm\Components\Rate;
-use FormBuilder\UI\Iview\Components\DatePicker;
 
-
-class GoodsForm extends ElmFormHandle
-{
-    protected $action = 'save.php';
-    protected $title = '测试 Handle';
-    protected $fieldTitles = [
-        'start_time' => '开启时间',
-        'star' => '点赞'
-    ];
-
-    protected $scene = 'get';
-
-    protected function getScene()
-    {
-//        $this->except = ['goods_name'];
-    }
-
-    /**
-     * @Col(6)
-     * @return \FormBuilder\UI\Elm\Components\Input
-     */
-    public function goods_name_field()
-    {
-        return Elm::input('goods_name', '商品名称')->required();
-    }
-
-    /**
-     * @Required()
-     * @Group()
-     * @Col(8)
-     * @Range({10,1000},message = "最少输入10个字")
-     * @return \FormBuilder\UI\Elm\Components\Input
-     */
-    public function goods_info_field()
-    {
-        return Elm::textarea('goods_info', '商品简介');
-    }
-
-    /**
-     * @Group()
-     * @Col(8)
-     * @Emit({"change","click"})
-     * @return \FormBuilder\UI\Elm\Components\Switches
-     */
-    public function is_open_field()
-    {
-        return Elm::switches('is_open', '是否开启');
-    }
-
-    /**
-     * @Group(2)
-     * @Col(12)
-     * @return \FormBuilder\UI\Elm\Components\Frame
-     */
-    public function frame_field()
-    {
-        return Elm::frameFile('as', 'asd', 'afsdfasdf');
-    }
-
-    /**
-     * @Group(2)
-     * @Col(12)
-     * @return \FormBuilder\UI\Elm\Components\Upload
-     */
-    public function test_field()
-    {
-        return Elm::uploadFiles('aaa', 'aaa', 'bbb', [1])->required();
-    }
-
-    /**
-     * @return \FormBuilder\UI\Elm\Components\Hidden
-     */
-    public function id_field()
-    {
-        return Elm::hidden('1', '1');
-    }
-
-    /**
-     * @Required("请输入 testRow")
-     * @return array
-     */
-    public function row_field()
-    {
-//        return [
-//            'type' => 'row',
-//            'children' =>
-//                [
-        return [
-            'type' => 'input',
-            'field' => 'row',
-            'title' => 'test Row',
-            'value' => '123',
-            'col' => [
-                'span' => 12
+$api = '/save.php';
+$form = Elm::createForm($api);
+$rules = [
+    Elm::input('svip_name', '会员名：')->required(),
+    Elm::radio('svip_type', '会员类别：', '2')
+        ->setOptions([
+            ['value' => '1', 'label' => '试用期',],
+            ['value' => '2', 'label' => '有限期',],
+            ['value' => '3', 'label' => '永久期',],
+        ])->control([
+            [
+                'value' => '1',
+                'rule' => [
+                    Elm::number('svip_number', '有效期（天）：')->required()->min(0),
+                ]
+            ],
+            [
+                'value' =>'2',
+                'rule' => [
+                    Elm::number('svip_number', '有效期（天）：')->required()->min(0),
+                ]
+            ],
+            [
+                'value' => '3',
+                'rule' => [
+                    Elm::input('svip_number1', '有效期（天）：','永久期')->disabled(true)->placeholder('请输入有效期'),
+                    Elm::input('svip_number', '有效期（天）：','永久期')->hiddenStatus(true)->placeholder('请输入有效期'),
+                ]
+            ],
+        ])->appendRule('suffix', [
+            'type' => 'div',
+            'style' => ['color' => '#999999'],
+            'domProps' => [
+                'innerHTML' =>'试用期每个用户只能购买一次，购买过付费会员之后将不在展示，不可购买',
             ]
-        ];
-//        ,
-//                Elm::input('row2', 'row2', 'asdf')->col(12)
-//            ],
-//            'native' => true
-//        ];
-    }
+        ]),
+    Elm::number('cost_price', '原价：')->required(),
+    Elm::number('price', '优惠价：')->required(),
+    Elm::number('sort', '排序：'),
+    Elm::switches('status', '是否显示：')->activeValue(1)->inactiveValue(0)->inactiveText('关')->activeText('开'),
+];
+$form->setRule($rules);
+$form->setTitle('demo');
 
-    /**
-     * 通过依赖注入方式生成组件
-     *
-     * @param DatePicker $date
-     * @return DatePicker
-     */
-    public function start_time_field(DatePicker $date)
-    {
-        return $date->required()->info('asdfasdfasdfsf');
-    }
+$rule = $form->formRule();
+$action = $form->getAction();
+$method = $form->getMethod();
+$title = $form->getTitle();
+$view = $form->view();
 
-    public function starField(Rate $rate)
-    {
-        return $rate;
-    }
-
-    protected function getFormConfig()
-    {
-        $config = Elm::config();
-        $config->createResetBtn()->show(true);
-
-        return $config;
-    }
-
-    protected function getFormData()
-    {
-        return [
-            'goods_name' => 'goods_name123',
-            'asdf' => 'asdfafd',
-            'is_open' => '0',
-            'goods_info' => "asdf\r\nadfa",
-            'star' => 0,
-            'row' => 'adsfasdfasd'
-        ];
-    }
-}
-
-$formHtml = (new GoodsForm())->view();
-//$formHtml = (new GoodsForm())->form()->view();
-
-echo $formHtml;
+var_dump(compact('rule', 'action', 'method', 'title', 'view', 'api'));
