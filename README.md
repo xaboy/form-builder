@@ -29,7 +29,6 @@ PHP表单生成器，基于 [@form-create/element-ui](https://github.com/xaboy/f
 ## 特点
 - 使用JSON数据生成表单
 - 支持扩展，生成任何Vue组件和HTML标签
-- 支持6个UI框架
 - 支持组件之间联动
 - 提供丰富的表单操作API
 - 支持子表单和分组
