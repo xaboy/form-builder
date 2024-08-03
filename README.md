@@ -49,7 +49,7 @@ PHP表单生成器，基于 [@form-create/element-ui](https://github.com/xaboy/f
 使用 [composer](http://getcomposer.org/):
 
 ```shell
-$ composer require xaboy/form-builder:~2.0
+$ composer require xaboy/form-builder
 ```
 
 ## DEMO
@@ -67,8 +67,7 @@ php -S 127.0.0.1:8112
 ```
 查看 Demo
 
-- elementUI : [127.0.0.1:8112/demo/elm.php](127.0.0.1:8112/demo/elm.php)
-- iview : [127.0.0.1:8112/demo/iview.php](127.0.0.1:8112/demo/iview.php)
+[127.0.0.1:8112/demo/elm.php](127.0.0.1:8112/demo/elm.php)
 
 ## 演示项目
 [开源的高品质微信商城](http://github.crmeb.net/u/xaboy)
