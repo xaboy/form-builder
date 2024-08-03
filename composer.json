@@ -1,12 +1,13 @@
 {
   "name": "xaboy/form-builder",
-  "description": "PHP表单生成器，快速生成现代化的form表单。包含复选框、单选框、输入框、下拉选择框等元素以及,省市区三级联动,时间选择,日期选择,颜色选择,文件/图片上传等功能。",
+  "description": "好用的PHP表单生成器，快速生成现代化的form表单,支持前后端分离。内置17种常用表单组件。目前在政务系统、OA系统、ERP系统、电商系统、流程管理等系统中已稳定应用。",
   "license": "MIT",
   "keywords": [
     "form",
     "form-create",
     "form-generator",
     "dynamic-form",
+    "form-builder",
     "element-ui",
     "iview"
   ],
@@ -29,8 +30,7 @@
   "require": {
     "php": ">=7.1",
     "ext-json": "*",
-    "symfony/http-foundation": ">=2.6",
-    "doctrine/annotations": "^1.2.7"
+    "symfony/http-foundation": ">=2.6"
   },
   "minimum-stability": "stable"
 }
