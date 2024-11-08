@@ -22,11 +22,11 @@ trait CascaderFactoryTrait
      *
      * @param string $field
      * @param string $title
-     * @param array $value
+     * @param array|string|number $value
      * @param string $type
      * @return Cascader
      */
-    public static function cascader($field, $title, array $value = [], $type = Cascader::TYPE_OTHER)
+    public static function cascader($field, $title, $value = null, $type = Cascader::TYPE_OTHER)
     {
         $cascader = new Cascader($field, $title, $value);
         $cascader->type($type);

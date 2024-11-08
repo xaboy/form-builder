@@ -152,7 +152,7 @@ trait BaseRule
     }
 
     /**
-     * @param string $title
+     * @param string|array $title
      * @return $this
      */
     public function title($title)
@@ -202,7 +202,7 @@ trait BaseRule
     }
 
     /**
-     * @param string $info
+     * @param string|array $info
      * @return $this
      */
     public function info($info)

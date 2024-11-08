@@ -84,7 +84,7 @@ class Cascader extends FormComponent
      */
     public function value($value)
     {
-        $this->value = (array)$value;
+        $this->value = $value;
         return $this;
     }
 
